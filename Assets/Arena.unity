@@ -254,6 +254,16 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114837095859150082, guid: 9488e3d4487192d468f06e3732171636,
+        type: 2}
+      propertyPath: m_MoveSpeedMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114513498667589606, guid: 9488e3d4487192d468f06e3732171636,
+        type: 2}
+      propertyPath: m_TurnSmoothing
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9488e3d4487192d468f06e3732171636, type: 2}
   m_IsPrefabParent: 0
@@ -324,6 +334,15 @@ Prefab:
     - target: {fileID: 400002, guid: 133f3561cd1695047bda8b1061cabfb0, type: 2}
       propertyPath: m_LocalPosition.z
       value: -3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114190130756055128, guid: 133f3561cd1695047bda8b1061cabfb0,
+        type: 2}
+      propertyPath: m_TurnSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 133f3561cd1695047bda8b1061cabfb0, type: 2}
+      propertyPath: m_Name
+      value: Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133f3561cd1695047bda8b1061cabfb0, type: 2}

@@ -55,6 +55,9 @@ namespace UnityStandardAssets.Cameras
 
         protected override void FollowTarget(float deltaTime)
         {
+            
+            var x = CrossPlatformInputManager.GetAxis("Mouse X");
+            var y = CrossPlatformInputManager.GetAxis("Mouse Y");
 
             // if no target, or no time passed then we quit early, as there is nothing to do
             if (!(deltaTime > 0) || m_Target == null)
@@ -113,62 +116,31 @@ namespace UnityStandardAssets.Cameras
                 }
                 m_LastFlatAngle = currentFlatAngle;
             }
-
-            // camera position moves towards target position:
-            transform.position = Vector3.Lerp(transform.position, m_Target.position, deltaTime*m_MoveSpeed);
-
-            // camera's rotation is split into two parts, which can have independend speed settings:
-            // rotating towards the target's forward direction (which encompasses its 'yaw' and 'pitch')
-            /*if (!m_FollowTilt)
-            {
-                targetForward.y = 0;
-                if (targetForward.sqrMagnitude < float.Epsilon)
-                {
-                    targetForward = transform.forward;
-                }
-            }
-            var rollRotation = Quaternion.LookRotation(targetForward, m_RollUp);
-
-            // and aligning with the target object's up direction (i.e. its 'roll')
-            m_RollUp = m_RollSpeed > 0 ? Vector3.Slerp(m_RollUp, targetUp, m_RollSpeed*deltaTime) : Vector3.up;
-
-
-            Vector3 currentRotation = transform.rotation.eulerAngles;
-
-            m_TiltAngle -= mouse_y * m_Sensitivity;
-            m_TiltAngle = Mathf.Clamp(m_TiltAngle, -m_TiltMin, m_TiltMax);
             
-            m_PivotTargetRot = Quaternion.Euler(
-                m_TiltAngle, currentRotation.y, currentRotation.z);
-
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, rollRotation, m_TurnSpeed*m_CurrentTurnAmount*deltaTime);*/
+            transform.position = Vector3.Lerp(transform.position, m_Target.position, deltaTime*m_MoveSpeed);
         }
 
 
         private void HandleRotationMovement()
         {
+
             if (Time.timeScale < float.Epsilon)
                 return;
-
-            // Read the user input
-            var x = 0f;//CrossPlatformInputManager.GetAxis("Mouse X");
+            
+            var x = CrossPlatformInputManager.GetAxis("Mouse X");
             var y = CrossPlatformInputManager.GetAxis("Mouse Y");
-
-            // Adjust the look angle by an amount proportional to the turn speed and horizontal input.
+            
             m_LookAngle += x * m_TurnSpeed;
-
-            // Rotate the rig (the root object) around Y axis only:
+            
             m_TransformTargetRot = Quaternion.Euler(0f, m_LookAngle, 0f);
             
-            m_TiltAngle -= y * m_Sensitivity;
-            //m_TiltAngle = Mathf.Clamp(m_TiltAngle, -m_TiltMin, m_TiltMax);
-
-            // Tilt input around X is applied to the pivot (the child of this object)
-            m_PivotTargetRot = Quaternion.Euler(m_TiltAngle * Time.deltaTime, m_PivotEulers.y, m_PivotEulers.z);
-
-            m_Pivot.localRotation = m_PivotTargetRot;//Quaternion.Slerp(m_Pivot.localRotation, m_PivotTargetRot, Time.deltaTime);
-            //transform.localRotation = m_TransformTargetRot;//Quaternion.Slerp(transform.localRotation, m_TransformTargetRot, Time.deltaTime);
+            m_TiltAngle -= y * m_TurnSpeed;
+            m_TiltAngle = Mathf.Clamp(m_TiltAngle, -m_TiltMin, m_TiltMax);
+            
+            m_PivotTargetRot = Quaternion.Euler(m_TiltAngle, m_PivotEulers.y, m_PivotEulers.z);
+            
+            m_Pivot.localRotation = m_PivotTargetRot;
+            transform.rotation = m_TransformTargetRot;
 
         }
 
