@@ -9,6 +9,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         [SerializeField] float m_Sensitivity = 10f;
         [SerializeField] float m_TurnSmoothing = 1.0f;
+        [SerializeField] float m_MaxSpeed = 1f;
 
         private Character m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
@@ -44,7 +45,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
-
+            
             m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
             
             if (m_Cam != null)
@@ -52,12 +53,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
                 m_Move = v * Vector3.forward + h * Vector3.right;
 
+            m_Move = m_Move.normalized * m_MaxSpeed;
+
             #if !MOBILE_INPUT
 	            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
             #endif
 
             m_Character.Rotate(m_CamForward, m_TurnSmoothing);
-            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Character.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
             m_Jump = false;
 
         }

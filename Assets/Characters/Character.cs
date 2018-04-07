@@ -11,8 +11,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_StationaryTurnSpeed = 180;
 		[SerializeField] float m_JumpPower = 12f;
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
-		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-		[SerializeField] float m_MoveSpeedMultiplier = 1f;
+		[SerializeField] float m_RunCycleLegOffset = 0.2f;
+        [SerializeField] float m_MoveDamping = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
@@ -24,6 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		float m_TurnAmount;
         float m_SidestepAmount;
         float m_ForwardAmount;
+        Vector3 m_Direction;
 		Vector3 m_GroundNormal;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
@@ -36,7 +37,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
-			m_CapsuleHeight = m_Capsule.height;
+            m_Direction = new Vector3(0, 0, 0);
+            m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -55,19 +57,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Move(Vector3 direction, bool crouch, bool jump)
+        public void Move(Vector3 direction, float maxSpeed, bool crouch, bool jump)
 		{
             
-            Vector3 v = (direction * m_MoveSpeedMultiplier) / Time.deltaTime;
-
-            v.y = m_Rigidbody.velocity.y;
-            m_Rigidbody.velocity = v;
+            m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
+            m_Direction.y = m_Rigidbody.velocity.y;
+            m_Rigidbody.velocity = m_Direction;
 
 
             var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
 
-            m_Animator.SetFloat("Forward", localDirection.z, 0.1f, Time.deltaTime);
-            m_Animator.SetFloat("Sidestep", localDirection.x, 0.1f, Time.deltaTime);
+            print(localDirection.z);
+
+            m_Animator.SetFloat("Forward", localDirection.z / maxSpeed, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("Sidestep", localDirection.x / maxSpeed, 0.1f, Time.deltaTime);
             m_Animator.SetBool("Crouch", crouch);
             m_Animator.SetBool("OnGround", !jump);
 
