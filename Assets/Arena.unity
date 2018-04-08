@@ -320,7 +320,7 @@ Prefab:
     - target: {fileID: 114198689442795390, guid: b2c5661c130301d4cac4d93907a12bc8,
         type: 2}
       propertyPath: m_MoveDamping
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c5661c130301d4cac4d93907a12bc8, type: 2}

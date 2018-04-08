@@ -49,10 +49,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void Rotate(Vector3 rotation, float smoothing)
         {
 
+            var currentRotation = m_Rigidbody.rotation;
+
             m_Rigidbody.rotation = Quaternion.Slerp(
                 m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
+            
+            
+            var forwardA = currentRotation * Vector3.forward;
+            var forwardB = m_Rigidbody.rotation * Vector3.forward;
+            var angleA = Mathf.Atan2(forwardA.x, forwardA.z) * Mathf.Rad2Deg;
+            var angleB = Mathf.Atan2(forwardB.x, forwardB.z) * Mathf.Rad2Deg;
+            var angleDiff = Mathf.DeltaAngle(angleA, angleB);
 
-            //m_Animator.SetFloat("Turn", direction.x * Time.deltaTime, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("Turn", angleDiff / 2, 0.1f, Time.deltaTime);
 
         }
 
@@ -66,9 +75,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
             var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
-
-            print(localDirection.z);
-
+            
             m_Animator.SetFloat("Forward", localDirection.z / maxSpeed, 0.1f, Time.deltaTime);
             m_Animator.SetFloat("Sidestep", localDirection.x / maxSpeed, 0.1f, Time.deltaTime);
             m_Animator.SetBool("Crouch", crouch);
