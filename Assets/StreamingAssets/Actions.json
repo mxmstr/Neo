@@ -2,17 +2,73 @@
     "actions": [
         {
             "name": "Default",
-            "animation": null,
+            "animation": "Action_Default",
             "rotation": true,
             "movement": true,
-            "blendSpace": true,
-            "velocity": {
+            "blendlegs": true,
+			"velocity": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
             "speed": 0.0,
             "damage": 0.0
-        }
+        },
+		{
+			"name": "Punch1",
+			"animation": "Punch_Combo",
+			"rotation": true,
+			"movement": true,
+			"blendlegs": true,
+			"velocity": {
+				"x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+			},
+			"speed": 1.0,
+			"damage": 0.25
+		},
+		{
+			"name": "Kick1",
+			"animation": "Kick_Enemy1",
+			"rotation": true,
+			"movement": false,
+			"blendlegs": false,
+			"velocity": {
+				"x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+			},
+			"speed": 1.5,
+			"damage": 0.5
+		},
+		{
+			"name": "React1",
+			"animation": "React_Default",
+			"rotation": false,
+			"movement": false,
+			"blendlegs": false,
+			"velocity": {
+				"x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+			},
+			"speed": 1.0,
+			"damage": 0.0
+		},
+		{
+			"name": "Death1",
+			"animation": "Death_Spin",
+			"rotation": false,
+			"movement": false,
+			"blendlegs": false,
+			"velocity": {
+				"x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+			},
+			"speed": 1.0,
+			"damage": 0.0
+		}
     ]
 }

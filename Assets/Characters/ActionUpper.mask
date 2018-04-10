@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ActionUpper
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: neo_reference
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/Torso
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/Neck
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/Neck/Head
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/Neck/Head/Head_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/Belt
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/Belt/Belt_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/JBLL
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/JBLL/JBLL_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/JBRL
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JBack/JBRL/JBRL_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUL
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUL/JFLL
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUL/JFLL/JFLL_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUR
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUR/JFLR
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/shoulders/JfUR/JFLR/JFLR_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-L
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-L/LoArm-L
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-L/LoArm-L/Hand-L
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-L/LoArm-L/Hand-L/Hand-L_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-R
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-R/LoArm-R
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-R/LoArm-R/Hand-R
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-R/LoArm-R/Hand-R/Gun
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/Torso/UpArm-R/LoArm-R/Hand-R/Gun/Gun_end
+    m_Weight: 1
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-L
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-L/LoLeg-L
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-L/LoLeg-L/Foot-L
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-L/LoLeg-L/Foot-L/Toe-L
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-L/LoLeg-L/Foot-L/Toe-L/Toe-L_end
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-R
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-R/LoLeg-R
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-R/LoLeg-R/Foot-R
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-R/LoLeg-R/Foot-R/Toe-R
+    m_Weight: 0
+  - m_Path: neo_reference_skeleton/Pelvis/UpLeg-R/LoLeg-R/Foot-R/Toe-R/Toe-R_end
+    m_Weight: 0

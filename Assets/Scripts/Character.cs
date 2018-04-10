@@ -15,10 +15,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MoveDamping = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
-
-		Rigidbody m_Rigidbody;
+        
 		Animator m_Animator;
-		bool m_IsGrounded;
+        Rigidbody m_Rigidbody;
+        CapsuleCollider m_Capsule;
+        Action m_Action;
+        bool m_EnableMovement;
+        bool m_EnableRotation;
+        bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
 		float m_TurnAmount;
@@ -28,22 +32,42 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_GroundNormal;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
-		CapsuleCollider m_Capsule;
+		
 		bool m_Crouching;
 
 
 		void Start()
 		{
+
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
+            m_Action = GetComponent<Action>();
+            m_EnableMovement = true;
+            m_EnableRotation = true;
             m_Direction = new Vector3(0, 0, 0);
             m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
-		}
+
+            m_Action.StartAction("Kick1");
+
+
+        }
+
+
+        public void EnableMovement(bool enable)
+        {
+            m_EnableMovement = enable;
+        }
+
+
+        public void EnableRotation(bool enable)
+        {
+            m_EnableRotation = enable;
+        }
 
 
         public void Rotate(Vector3 rotation, float smoothing)
@@ -51,8 +75,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             var currentRotation = m_Rigidbody.rotation;
 
-            m_Rigidbody.rotation = Quaternion.Slerp(
-                m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
+            if (m_EnableRotation)
+                m_Rigidbody.rotation = Quaternion.Slerp(
+                    m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
             
             
             var forwardA = currentRotation * Vector3.forward;
@@ -69,9 +94,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void Move(Vector3 direction, float maxSpeed, bool crouch, bool jump)
 		{
             
-            m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
-            m_Direction.y = m_Rigidbody.velocity.y;
-            m_Rigidbody.velocity = m_Direction;
+            if (m_EnableMovement)
+            {
+                m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
+                m_Direction.y = m_Rigidbody.velocity.y;
+                m_Rigidbody.velocity = m_Direction;
+            }
 
 
             var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
@@ -185,7 +213,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
-				m_Animator.applyRootMotion = true;
+				m_Animator.applyRootMotion = false;
 			}
 			else
 			{

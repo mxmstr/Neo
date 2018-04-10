@@ -322,6 +322,31 @@ Prefab:
       propertyPath: m_MoveDamping
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114198689442795390, guid: b2c5661c130301d4cac4d93907a12bc8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753201885749200, guid: b2c5661c130301d4cac4d93907a12bc8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210304613594854, guid: b2c5661c130301d4cac4d93907a12bc8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95232338526932368, guid: b2c5661c130301d4cac4d93907a12bc8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95232338526932368, guid: b2c5661c130301d4cac4d93907a12bc8,
+        type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2c5661c130301d4cac4d93907a12bc8, type: 2}
   m_IsPrefabParent: 0
