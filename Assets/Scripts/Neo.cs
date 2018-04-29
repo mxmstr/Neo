@@ -12,6 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MaxSpeed = 1f;
 
         private Character m_Character; // A reference to the ThirdPersonCharacter on the object
+        private Action m_Action;
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
@@ -20,6 +21,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         
         private void Start()
         {
+            
             if (Camera.main != null)
                 m_Cam = GetComponentInChildren<Camera>().transform;
             else
@@ -27,6 +29,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
             
             m_Character = GetComponent<Character>();
+            m_Action = GetComponent<Action>();
+
         }
 
 
@@ -39,11 +43,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         
         private void FixedUpdate()
         {
-            
+
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
-            
+            bool primary = Input.GetKey(KeyCode.Mouse0);
+            bool secondary = Input.GetKey(KeyCode.Mouse1);
+
+            if (primary)
+                if (m_Action.IsReset())
+                    m_Action.StartAction("Punch1");
+            if (secondary)
+                if (m_Action.IsReset())
+                    m_Action.StartAction("Kick1");
+
             m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
             
             if (m_Cam != null)

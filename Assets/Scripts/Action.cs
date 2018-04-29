@@ -54,9 +54,16 @@ public class Action : MonoBehaviour
     }
 
 
+    public bool IsReset()
+    {
+
+        return action.name == "Default";
+
+    } 
+
+
     private void LoadActionData(string actionName)
     {
-        
         
         string filePath = Path.Combine(Application.streamingAssetsPath, filename);
         table = JsonUtility.FromJson<ActionTable>(File.ReadAllText(filePath));
@@ -78,8 +85,11 @@ public class Action : MonoBehaviour
 
         LoadActionData(actionName);
         
-        clip = Resources.Load(action.animation, typeof(AnimationClip)) as AnimationClip;
+        clip = Resources.Load("Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
         m_AnimatorOverride["neo_reference_skeleton|Action_Default"] = clip;
+
+        m_Animator.Play("Action", 1, 0);
+        m_Animator.Play("Action", 2, 0);
 
         if (action.name == "Default")
         {
@@ -93,11 +103,19 @@ public class Action : MonoBehaviour
             else
                 m_Animator.SetLayerWeight(1, 1.0f);
         }
-        
+
         m_Character.EnableMovement(action.movement);
         m_Character.EnableRotation(action.rotation);
         m_Animator.SetFloat("ActionSpeed", action.speed);
         
+
+    }
+
+
+    public void ResetAction()
+    {
+
+        StartAction("Default");
 
     }
 

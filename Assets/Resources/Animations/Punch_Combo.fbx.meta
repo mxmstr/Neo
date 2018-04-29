@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a55f34774c87d4a23bcc4681dbfe7097
-timeCreated: 1522350789
+guid: 934fab5559770410189ac9ba1d0814bc
+timeCreated: 1522350788
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -94,7 +94,7 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|React_Default
+    7400000: neo_reference_skeleton|Punch_Combo
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}
@@ -116,14 +116,50 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: neo_reference_skeleton|Punch_Combo
+      takeName: neo_reference_skeleton|Punch_Combo
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 1
+        functionName: ResetAction
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -168,7 +204,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

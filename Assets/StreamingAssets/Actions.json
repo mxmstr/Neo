@@ -31,7 +31,7 @@
 		{
 			"name": "Kick1",
 			"animation": "Kick_Enemy1",
-			"rotation": true,
+			"rotation": false,
 			"movement": false,
 			"blendlegs": false,
 			"velocity": {
