@@ -15,10 +15,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MoveDamping = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
-        
+
+        float m_Health;
+
 		Animator m_Animator;
         Rigidbody m_Rigidbody;
         CapsuleCollider m_Capsule;
+        SphereCollider[] m_Colliders;
         Action m_Action;
         bool m_EnableMovement;
         bool m_EnableRotation;
@@ -39,9 +42,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void Start()
 		{
 
-			m_Animator = GetComponent<Animator>();
+            m_Health = 100f;
+
+            m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
+            m_Colliders = GetComponentsInChildren<SphereCollider>();
+            
             m_Action = GetComponent<Action>();
             m_EnableMovement = true;
             m_EnableRotation = true;
@@ -54,6 +61,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Action.ResetAction();
 
+
+        }
+        
+
+        public SphereCollider GetBoneCollider(string bone)
+        {
+
+            foreach (SphereCollider c in m_Colliders)
+                if (c.name == bone)
+                    return c;
+
+            return null;
+
+        }
+
+
+        public void ReceiveDamage(float damage)
+        {
+
+            m_Health -= damage;
+            m_Action.StartAction("React1");
 
         }
 
