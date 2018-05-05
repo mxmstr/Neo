@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Animator m_Animator;
         Rigidbody m_Rigidbody;
         CapsuleCollider m_Capsule;
-        SphereCollider[] m_Colliders;
+        BoxCollider[] m_Colliders;
         Action m_Action;
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
@@ -45,7 +45,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
-            m_Colliders = GetComponentsInChildren<SphereCollider>();
+            m_Colliders = GetComponentsInChildren<BoxCollider>();
             
             m_Action = GetComponent<Action>();
             m_Direction = new Vector3(0, 0, 0);
@@ -61,10 +61,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         
 
-        public SphereCollider GetBoneCollider(string bone)
+        public BoxCollider GetBoneCollider(string bone)
         {
 
-            foreach (SphereCollider c in m_Colliders)
+            foreach (BoxCollider c in m_Colliders)
                 if (c.name == bone)
                     return c;
 

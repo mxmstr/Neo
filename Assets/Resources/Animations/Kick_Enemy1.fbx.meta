@@ -148,9 +148,25 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.58361775
+      - time: 0.51475406
         functionName: ApplyDamage
-        data: Foot-L
+        data: Foot-R
+        objectReferenceParameter: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.59460676
+        functionName: ApplyDamage
+        data: Foot-R
+        objectReferenceParameter: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6722632
+        functionName: ApplyDamage
+        data: Foot-R
         objectReferenceParameter: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38,
           type: 3}
         floatParameter: 0
