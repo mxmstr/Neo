@@ -23,8 +23,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         CapsuleCollider m_Capsule;
         SphereCollider[] m_Colliders;
         Action m_Action;
-        bool m_EnableMovement;
-        bool m_EnableRotation;
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
@@ -50,8 +48,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Colliders = GetComponentsInChildren<SphereCollider>();
             
             m_Action = GetComponent<Action>();
-            m_EnableMovement = true;
-            m_EnableRotation = true;
             m_Direction = new Vector3(0, 0, 0);
             m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
@@ -77,6 +73,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
+        public void ApplyDamage(string bone)
+        {
+
+            var collider = GetBoneCollider(bone);
+            var contacts = collider.GetComponent<Hitbox>().GetContacts();
+
+            foreach (Collider c in contacts)
+                c.GetComponent<Character>().ReceiveDamage(m_Action.GetAction().damage);
+            
+        }
+
+
         public void ReceiveDamage(float damage)
         {
 
@@ -86,26 +94,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void EnableMovement(bool enable)
-        {
-            m_EnableMovement = enable;
-        }
-
-
-        public void EnableRotation(bool enable)
-        {
-            m_EnableRotation = enable;
-        }
-
-
         public void Rotate(Vector3 rotation, float smoothing)
         {
 
             var currentRotation = m_Rigidbody.rotation;
 
-            if (m_EnableRotation)
-                m_Rigidbody.rotation = Quaternion.Slerp(
-                    m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
+            m_Rigidbody.rotation = Quaternion.Slerp(
+                m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
             
             
             var forwardA = currentRotation * Vector3.forward;
@@ -122,12 +117,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void Move(Vector3 direction, float maxSpeed, bool crouch, bool jump)
 		{
             
-            if (m_EnableMovement)
-            {
-                m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
-                m_Direction.y = m_Rigidbody.velocity.y;
-                m_Rigidbody.velocity = m_Direction;
-            }
+            m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
+            m_Direction.y = m_Rigidbody.velocity.y;
+            m_Rigidbody.velocity = m_Direction;
 
 
             var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);

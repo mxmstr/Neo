@@ -156,6 +156,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.28615385
+        functionName: ApplyDamage
+        data: Hand-R
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6030769
+        functionName: ApplyDamage
+        data: Hand-L
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -19,7 +19,8 @@ public class Hitbox : MonoBehaviour {
     void OnTriggerStay(Collider other)
     {
 
-        m_Contacts.Add(other);
+        if (other.tag == "Character")
+            m_Contacts.Add(other);
         
     }
 

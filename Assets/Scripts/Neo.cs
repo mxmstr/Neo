@@ -12,6 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MaxSpeed = 1f;
 
         private Character m_Character; // A reference to the ThirdPersonCharacter on the object
+        private Rigidbody m_Rigidbody;
         private Action m_Action;
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
@@ -21,7 +22,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         
         private void Start()
         {
-            
+
             if (Camera.main != null)
                 m_Cam = GetComponentInChildren<Camera>().transform;
             else
@@ -29,6 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
             
             m_Character = GetComponent<Character>();
+            m_Rigidbody = GetComponent<Rigidbody>();
             m_Action = GetComponent<Action>();
 
         }
@@ -44,18 +46,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
             bool primary = Input.GetKey(KeyCode.Mouse0);
             bool secondary = Input.GetKey(KeyCode.Mouse1);
+            float h = 0;
+            float v = 0;
 
-            if (primary)
-                if (m_Action.IsReset())
+            if (m_Action.GetAction().movement)
+            {
+                h = CrossPlatformInputManager.GetAxis("Horizontal");
+                v = CrossPlatformInputManager.GetAxis("Vertical");
+            }
+
+            if (m_Action.IsReset())
+            {
+                if (primary)
                     m_Action.StartAction("Punch1");
-            if (secondary)
-                if (m_Action.IsReset())
+                if (secondary)
                     m_Action.StartAction("Kick1");
+            }
+
 
             m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
             
@@ -70,7 +80,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
             #endif
 
-            m_Character.Rotate(m_CamForward, m_TurnSmoothing);
+
+            var rotation = m_Rigidbody.transform.rotation;
+            var actionVelocity = rotation * m_Action.GetAction().velocity;
+
+            for (int i = 0; i < 3; i++)
+                if (actionVelocity[i] != 0)
+                    m_Move[i] = actionVelocity[i];
+
+
+            if (m_Action.GetAction().rotation)
+                m_Character.Rotate(m_CamForward, m_TurnSmoothing);
+
             m_Character.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
             m_Jump = false;
 

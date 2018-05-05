@@ -11,7 +11,7 @@ public class Action : MonoBehaviour
 {
 
     [System.Serializable]
-    private class ActionData
+    public class ActionData
     {
 
         public string name;
@@ -26,17 +26,18 @@ public class Action : MonoBehaviour
     }
 
     [System.Serializable]
-    private class ActionTable
+    public class ActionTable
     {
         public ActionData[] actions;
     }
+
+    ActionData action;
 
     private Character m_Character;
     private Rigidbody m_Rigidbody;
     private Animator m_Animator;
     private AnimatorOverrideController m_AnimatorOverride;
     private ActionTable table;
-    private ActionData action;
     private AnimationClip clip;
     private string filename = "Actions.json";
 
@@ -90,22 +91,7 @@ public class Action : MonoBehaviour
 
         m_Animator.Play("Action", 1, 0);
         m_Animator.Play("Action", 2, 0);
-
-        if (action.name == "Default")
-        {
-            m_Animator.SetLayerWeight(1, 0.0f);
-            m_Animator.SetLayerWeight(2, 0.0f);
-        }
-        else
-        {
-            if (action.blendlegs)
-                m_Animator.SetLayerWeight(2, 1.0f);
-            else
-                m_Animator.SetLayerWeight(1, 1.0f);
-        }
-
-        m_Character.EnableMovement(action.movement);
-        m_Character.EnableRotation(action.rotation);
+        
         m_Animator.SetFloat("ActionSpeed", action.speed);
         
 
@@ -120,19 +106,34 @@ public class Action : MonoBehaviour
     }
 
 
-    void Update ()
+    public ActionData GetAction()
     {
+        return action;
+    }
 
-        var rotation = m_Rigidbody.transform.rotation;
-        var v1 = rotation * action.velocity;
-        var v2 = m_Rigidbody.velocity;
 
-        for (int i = 0; i < 3; i++)
-            if (v1[i] != 0)
-                v2[i] = v1[i];
+    void Update ()
+    {   
 
-        m_Rigidbody.velocity = v2;
-
+        if (action.name != "Default")
+        {
+            if (action.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
+            {
+                m_Animator.SetLayerWeight(1, 0.0f);
+                m_Animator.SetLayerWeight(2, 1.0f);
+            }
+            else
+            {
+                m_Animator.SetLayerWeight(1, 1.0f);
+                m_Animator.SetLayerWeight(2, 0.0f);
+            }
+        }
+        else
+        {
+            m_Animator.SetLayerWeight(1, 0.0f);
+            m_Animator.SetLayerWeight(2, 0.0f);
+        }
+        
     }
 
 
