@@ -1,0 +1,32 @@
+{
+    "branches": [
+        {
+            "name" : "B_Primary",
+			"actions" : [
+				"Default"
+				],
+			"results" : {
+				"Any" : [
+					"B_Punch"
+					],
+				"Stand" : null,
+				"Forward" : null,
+				"ForwardLeft" : null,
+				"ForwardRight" : null,
+				"Left" : null,
+				"Right" : null,
+				"Backward" : null,
+				"BackwardLeft" : null,
+				"BackwardRight" : null
+				}
+			
+        },
+		{
+            "name" : "B_Punch",
+			"actions" : [
+				"Punch1"
+				],
+			"results" : null
+        }
+    ]
+}

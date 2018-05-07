@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using UnityEditor;
 
+
 public class Action : MonoBehaviour
 {
 
@@ -46,8 +47,8 @@ public class Action : MonoBehaviour
     {
 
         m_Character = GetComponent<Character>();
-        m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody>();
 
         m_AnimatorOverride = new AnimatorOverrideController(m_Animator.runtimeAnimatorController);
         m_Animator.runtimeAnimatorController = m_AnimatorOverride;
