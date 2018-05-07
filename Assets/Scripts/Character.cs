@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
@@ -36,8 +37,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		
 		bool m_Crouching;
 
+        Branch b_Primary;
+        Branch b_Secondary;
+        Branch b_Jump;
 
-		void Start()
+
+        void Start()
 		{
 
             m_Health = 100f;
@@ -57,6 +62,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Action.ResetAction();
 
+            b_Primary = new Branch("B_Primary");
+            b_Secondary = new Branch("B_Secondary");
 
         }
         
@@ -70,18 +77,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             return null;
 
-        }
-
-
-        public void ApplyDamage(string bone)
-        {
-
-            var collider = GetBoneCollider(bone);
-            var contacts = collider.GetComponent<Hitbox>().GetContacts();
-
-            foreach (Collider c in contacts)
-                c.GetComponent<Character>().ReceiveDamage(m_Action.GetAction().damage);
-            
         }
 
 

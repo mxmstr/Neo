@@ -2,7 +2,11 @@
     "actions": [
         {
             "name": "Default",
-            "animation": "Action_Default",
+            "animations": {
+				"Stand" : "Action_Default",
+				"Walk" : "Action_Default",
+				"Run" : "Action_Default"
+				},
             "rotation": true,
             "movement": true,
             "blendlegs": true,
@@ -10,13 +14,17 @@
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
-            },
+				},
             "speed": 0.0,
             "damage": 0.0
         },
 		{
 			"name": "Punch1",
-			"animation": "Punch_Combo",
+			"animations": {
+				"Stand" : "Punch_Combo",
+				"Walk" : "Punch_Combo",
+				"Run" : "Punch_Combo"
+				},
 			"rotation": true,
 			"movement": true,
 			"blendlegs": true,
@@ -24,13 +32,17 @@
 				"x": 0.0,
                 "y": 0.0,
                 "z": 0.0
-			},
+				},
 			"speed": 1.0,
 			"damage": 0.25
 		},
 		{
 			"name": "Kick1",
-			"animation": "Kick_Enemy1",
+			"animations": {
+				"Stand" : "Kick_Enemy1",
+				"Walk" : "Kick_Enemy1",
+				"Run" : "Kick_Enemy1"
+				},
 			"rotation": false,
 			"movement": false,
 			"blendlegs": false,
@@ -38,13 +50,17 @@
 				"x": 0.0,
                 "y": 0.0,
                 "z": 3.0
-			},
+				},
 			"speed": 1.5,
 			"damage": 0.5
 		},
 		{
 			"name": "React1",
-			"animation": "React_Default",
+			"animations": {
+				"Stand" : "React_Default",
+				"Walk" : "React_Default",
+				"Run" : "React_Default"
+				},
 			"rotation": false,
 			"movement": false,
 			"blendlegs": false,
@@ -52,13 +68,17 @@
 				"x": 0.0,
                 "y": 0.0,
                 "z": 0.0
-			},
+				},
 			"speed": 1.0,
 			"damage": 0.0
 		},
 		{
 			"name": "Death1",
-			"animation": "Death_Spin",
+			"animations": {
+				"Stand" : "Death_Spin",
+				"Walk" : "Death_Spin",
+				"Run" : "Death_Spin"
+				},
 			"rotation": false,
 			"movement": false,
 			"blendlegs": false,
@@ -66,7 +86,7 @@
 				"x": 0.0,
                 "y": 0.0,
                 "z": 0.0
-			},
+				},
 			"speed": 1.0,
 			"damage": 0.0
 		}

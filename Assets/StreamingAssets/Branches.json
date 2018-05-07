@@ -2,31 +2,23 @@
     "branches": [
         {
             "name" : "B_Primary",
-			"actions" : [
-				"Default"
-				],
+			"actions" : ["Default"],
 			"results" : {
-				"Any" : [
-					"B_Punch"
-					],
-				"Stand" : null,
-				"Forward" : null,
-				"ForwardLeft" : null,
-				"ForwardRight" : null,
-				"Left" : null,
-				"Right" : null,
-				"Backward" : null,
-				"BackwardLeft" : null,
-				"BackwardRight" : null
+				"Any" : ["B_Punch"]
+				}
+			
+        },
+		{
+            "name" : "B_Secondary",
+			"actions" : ["Default"],
+			"results" : {
+				"Any" : ["B_Punch"]
 				}
 			
         },
 		{
             "name" : "B_Punch",
-			"actions" : [
-				"Punch1"
-				],
-			"results" : null
+			"actions" : ["Punch1"]
         }
     ]
 }

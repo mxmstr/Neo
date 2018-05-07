@@ -49,14 +49,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             bool crouch = Input.GetKey(KeyCode.C);
             bool primary = Input.GetKey(KeyCode.Mouse0);
             bool secondary = Input.GetKey(KeyCode.Mouse1);
-            float h = 0;
-            float v = 0;
-
-            if (m_Action.GetAction().movement)
-            {
-                h = CrossPlatformInputManager.GetAxis("Horizontal");
-                v = CrossPlatformInputManager.GetAxis("Vertical");
-            }
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            
 
             if (m_Action.IsReset())
             {
@@ -79,20 +74,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             #if !MOBILE_INPUT
 	            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
             #endif
+            
+            
+            m_Action.Rotate(m_CamForward, m_TurnSmoothing);
+            m_Action.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
 
-
-            var rotation = m_Rigidbody.transform.rotation;
-            var actionVelocity = rotation * m_Action.GetAction().velocity;
-
-            for (int i = 0; i < 3; i++)
-                if (actionVelocity[i] != 0)
-                    m_Move[i] = actionVelocity[i];
-
-
-            if (m_Action.GetAction().rotation)
-                m_Character.Rotate(m_CamForward, m_TurnSmoothing);
-
-            m_Character.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
             m_Jump = false;
 
         }
