@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 169f09416a38449439de11863a06f93f
+timeCreated: 1526097428
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Belt
+    100002: Belt_end
+    100004: Foot-L
+    100006: Foot-R
+    100008: Gun
+    100010: Gun_end
+    100012: Hand-L
+    100014: Hand-L_end
+    100016: Hand-R
+    100018: Head
+    100020: Head_end
+    100022: JBack
+    100024: JBLL
+    100026: JBLL_end
+    100028: JBRL
+    100030: JBRL_end
+    100032: JFLL
+    100034: JFLL_end
+    100036: JFLR
+    100038: JFLR_end
+    100040: JfUL
+    100042: JfUR
+    100044: LoArm-L
+    100046: LoArm-R
+    100048: LoLeg-L
+    100050: LoLeg-R
+    100052: Neck
+    100054: neo_reference
+    100056: neo_reference_skeleton
+    100058: Pelvis
+    100060: //RootNode
+    100062: shoulders
+    100064: Toe-L
+    100066: Toe-L_end
+    100068: Toe-R
+    100070: Toe-R_end
+    100072: Torso
+    100074: UpArm-L
+    100076: UpArm-R
+    100078: UpLeg-L
+    100080: UpLeg-R
+    400000: Belt
+    400002: Belt_end
+    400004: Foot-L
+    400006: Foot-R
+    400008: Gun
+    400010: Gun_end
+    400012: Hand-L
+    400014: Hand-L_end
+    400016: Hand-R
+    400018: Head
+    400020: Head_end
+    400022: JBack
+    400024: JBLL
+    400026: JBLL_end
+    400028: JBRL
+    400030: JBRL_end
+    400032: JFLL
+    400034: JFLL_end
+    400036: JFLR
+    400038: JFLR_end
+    400040: JfUL
+    400042: JfUR
+    400044: LoArm-L
+    400046: LoArm-R
+    400048: LoLeg-L
+    400050: LoLeg-R
+    400052: Neck
+    400054: neo_reference
+    400056: neo_reference_skeleton
+    400058: Pelvis
+    400060: //RootNode
+    400062: shoulders
+    400064: Toe-L
+    400066: Toe-L_end
+    400068: Toe-R
+    400070: Toe-R_end
+    400072: Torso
+    400074: UpArm-L
+    400076: UpArm-R
+    400078: UpLeg-L
+    400080: UpLeg-R
+    2100000: airwalks.jpg
+    2100002: neo_Tupperbody.jpg
+    2100004: Neo_trench.jpg
+    2100006: TBeretta.jpg
+    2100008: Hand_MaxPayne.jpg
+    2100010: neo_newface.jpg
+    4300000: neo_reference
+    7400000: neo_reference_skeleton|ShootGrenade.kf2
+    9500000: //RootNode
+    13700000: neo_reference
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

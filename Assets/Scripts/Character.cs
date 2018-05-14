@@ -37,10 +37,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		
 		bool m_Crouching;
 
-        Branch b_Primary;
-        Branch b_Secondary;
-        Branch b_Jump;
-
 
         void Start()
 		{
@@ -59,12 +55,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
-
-            m_Action.ResetAction();
-
-            b_Primary = new Branch("B_Primary");
-            b_Secondary = new Branch("B_Secondary");
-
+            
         }
         
 

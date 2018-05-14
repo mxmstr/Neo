@@ -1,24 +1,45 @@
 {
     "branches": [
         {
-            "name" : "B_Primary",
-			"actions" : ["Default"],
+
+            "name" : "B_Default",
+
+			"actions" : [
+				"Default"
+				],
+
 			"results" : {
-				"Any" : ["B_Punch"]
+				"Primary" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch"
+							]
+						}
+					}
 				}
 			
         },
 		{
-            "name" : "B_Secondary",
-			"actions" : ["Default"],
-			"results" : {
-				"Any" : ["B_Punch"]
-				}
-			
-        },
-		{
+
             "name" : "B_Punch",
-			"actions" : ["Punch1"]
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Punch1"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Default"
+							]
+						}
+					}
+				}
+
         }
+		
     ]
 }

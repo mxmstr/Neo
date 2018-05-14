@@ -7,21 +7,11 @@ public class Action : MonoBehaviour
 {
 
     [System.Serializable]
-    public class MoveData
-    {
-
-        public string Stand;
-        public string Walk;
-        public string Run;
-
-    }
-
-    [System.Serializable]
     public class ActionData
     {
 
         public string name;
-        public MoveData animations;
+        public string animation;
         public bool rotation;
         public bool movement;
         public bool blendlegs;
@@ -58,6 +48,7 @@ public class Action : MonoBehaviour
         m_Animator.runtimeAnimatorController = m_AnimatorOverride;
 
         LoadActionData();
+        ResetAction();
 
     }
 
@@ -81,7 +72,7 @@ public class Action : MonoBehaviour
 
     public void StartAction(string actionName)
     {
-
+        
         foreach (ActionData data in table.actions)
         {
             if (data.name == actionName)
@@ -92,7 +83,7 @@ public class Action : MonoBehaviour
         }
 
 
-        clip = Resources.Load("Animations/" + action.animations.Stand, typeof(AnimationClip)) as AnimationClip;
+        clip = Resources.Load("Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
         m_AnimatorOverride["neo_reference_skeleton|Action_Default"] = clip;
 
         m_Animator.Play("Action", 1, 0);
@@ -151,7 +142,7 @@ public class Action : MonoBehaviour
 
     void Update()
     {
-
+        
         if (action.name != "Default")
         {
             if (action.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)

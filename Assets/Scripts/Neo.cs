@@ -11,15 +11,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_TurnSmoothing = 1.0f;
         [SerializeField] float m_MaxSpeed = 1f;
 
-        private Character m_Character; // A reference to the ThirdPersonCharacter on the object
+        private Character m_Character;
         private Rigidbody m_Rigidbody;
         private Action m_Action;
-        private Transform m_Cam;                  // A reference to the main camera in the scenes transform
-        private Vector3 m_CamForward;             // The current forward direction of the camera
+        private Branch m_Branch;
+        private Transform m_Cam;
+        private Vector3 m_CamForward;
         private Vector3 m_Move;
-        private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
-
+        private bool m_Jump;
         
+        private Branch b_Jump;
+
+
         private void Start()
         {
 
@@ -32,6 +35,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character = GetComponent<Character>();
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Action = GetComponent<Action>();
+            m_Branch = GetComponent<Branch>();
 
         }
 
@@ -41,24 +45,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (!m_Jump)
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
-
         
+
         private void FixedUpdate()
         {
-
+            
             bool crouch = Input.GetKey(KeyCode.C);
             bool primary = Input.GetKey(KeyCode.Mouse0);
             bool secondary = Input.GetKey(KeyCode.Mouse1);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             
-
+            
             if (m_Action.IsReset())
             {
                 if (primary)
-                    m_Action.StartAction("Punch1");
-                if (secondary)
-                    m_Action.StartAction("Kick1");
+                    m_Branch.StartAction("Primary", "AnyDirection", "AnySpeed");
+                else if (secondary)
+                    m_Branch.StartAction("Secondary", "AnyDirection", "AnySpeed");
             }
 
 
