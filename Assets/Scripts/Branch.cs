@@ -191,13 +191,11 @@ public class Branch : MonoBehaviour
     public void Update()
     {
 
-        try
-        {
+        if (branch.cooldown != -1.0 && m_Action.IsReset()) {
             branch.cooldown -= Time.deltaTime;
-            if (branch.cooldown < 0 && m_Action.IsReset())
+            if (branch.cooldown < 0)
                 ResetBranch();
         }
-        catch (NullReferenceException e) {}
 
     }
 

@@ -420,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Sensitivity: 250
   m_TurnSmoothing: 25
-  m_MaxSpeed: 5
+  m_MaxSpeed: 4
 --- !u!136 &143683342
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c688c086357c9814cad1f11e6a717206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 4
+  m_MaxSpeed: 3
 --- !u!136 &1155470306
 CapsuleCollider:
   m_ObjectHideFlags: 0

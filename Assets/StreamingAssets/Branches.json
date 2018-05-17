@@ -3,6 +3,8 @@
         {
 
             "name" : "B_Default",
+			
+			"cooldown" : -1.0,
 
 			"actions" : [
 				"Default"
@@ -12,14 +14,14 @@
 				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Punch"
+							"B_Punch_Primary"
 							]
 						}
 					},
 				"Secondary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Kick"
+							"B_Kick_Primary"
 							]
 						}
 					}
@@ -28,12 +30,117 @@
         },
 		{
 
-            "name" : "B_Punch",
+            "name" : "B_Punch_Primary",
 			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"PunchLeftJabs"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch_ComboA1"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Punch_ComboA1",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"PunchRightJab"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch_ComboA2"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Punch_ComboA2",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"PunchLoHi"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch_ComboA3"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Punch_ComboA3",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"PunchTong"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch_ComboA4"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Punch_ComboA4",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"PunchFlurry"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Punch_Power"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Punch_Power",
+
 			"cooldown" : 0.0,
 
 			"actions" : [
-				"Punch1"
+				"PunchPower1"
 				],
 
 			"results" : {
@@ -49,7 +156,7 @@
         },
 		{
 
-            "name" : "B_Kick",
+            "name" : "B_Kick_Primary",
 			
 			"cooldown" : 0.0,
 

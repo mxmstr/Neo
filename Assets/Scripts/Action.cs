@@ -83,6 +83,23 @@ public class Action : MonoBehaviour
         }
 
 
+        if (!action.movement)
+        {
+            var velocity = m_Rigidbody.velocity;
+            m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
+        }
+
+
+        var rotation = m_Rigidbody.transform.rotation;
+        var actionVelocity = rotation * action.velocity;
+
+        m_Rigidbody.velocity = actionVelocity;
+
+        /*for (int i = 0; i < 3; i++)
+            if (actionVelocity[i] != 0)
+                m_Rigidbody.velocity[i] = actionVelocity[i];*/
+
+
         clip = Resources.Load("Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
         m_AnimatorOverride["neo_reference_skeleton|Action_Default"] = clip;
 
@@ -113,14 +130,6 @@ public class Action : MonoBehaviour
 
     public void Move(Vector3 m_Move, float m_MaxSpeed, bool crouch, bool m_Jump)
     {
-
-        var rotation = m_Rigidbody.transform.rotation;
-        var actionVelocity = rotation * action.velocity;
-
-        for (int i = 0; i < 3; i++)
-            if (actionVelocity[i] != 0)
-                m_Move[i] = actionVelocity[i];
-
 
         if (action.movement)
             m_Character.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
