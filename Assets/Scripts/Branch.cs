@@ -156,17 +156,31 @@ public class Branch : MonoBehaviour
     {
         
         System.Random rand = new System.Random();
+        ResultDirection directions;
+        ResultSpeed speeds;
+        string[] branches;
         
-        ResultDirection directions = (ResultDirection)branch.results[input];
-        ResultSpeed speeds = (ResultSpeed)directions[direction];
+
+        if (branch.results.AnyInput[direction] == null)
+            directions = (ResultDirection)branch.results[input];
+        else
+            directions = branch.results.AnyInput;
+
+
+        if (directions.AnyDirection[speed] == null)
+            speeds = (ResultSpeed)directions[direction];
+        else
+            speeds = directions.AnyDirection;
+        
 
         try
         {
-            string[] branches = (string[])speeds[speed];
-            string branchName = branches[rand.Next(branches.Length)];
+            if (speeds.AnySpeed == null)
+                branches = (string[])speeds[speed];
+            else
+                branches = speeds.AnySpeed;
 
-            StartBranch(branchName);
-
+            StartBranch(branches[rand.Next(branches.Length)]);
             m_Action.StartAction(GetAction());
         }
         catch (NullReferenceException e) {}

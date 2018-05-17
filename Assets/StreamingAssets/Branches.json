@@ -15,6 +15,13 @@
 							"B_Punch"
 							]
 						}
+					},
+				"Secondary" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Kick"
+							]
+						}
 					}
 				}
 			
@@ -27,6 +34,27 @@
 
 			"actions" : [
 				"Punch1"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_Kick",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Kick1"
 				],
 
 			"results" : {
