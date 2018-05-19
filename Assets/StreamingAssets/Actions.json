@@ -15,6 +15,20 @@
             "damage" : 0.0
         },
 		{
+            "name": "Last",
+            "animation" : "Action_Last",
+            "rotation" : true,
+            "movement" : true,
+            "blendlegs" : true,
+			"velocity" : {
+                "x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+            "speed" : 0.0,
+            "damage" : 0.0
+        },
+		{
 			"name" : "PunchLeftJabs",
 			"animation" : "matrix/punchleftjabs",
 			"rotation" : true,

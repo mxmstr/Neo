@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using UnityStandardAssets.Characters.ThirdPerson;
-
+using UnityEditor;
 
 public class Action : MonoBehaviour
 {
@@ -26,14 +26,16 @@ public class Action : MonoBehaviour
     {
         public ActionData[] actions;
     }
-    
+
+    [SerializeField] float m_BlendTime = 1.0f;
+
     private Character m_Character;
     private Rigidbody m_Rigidbody;
     private Animator m_Animator;
     private AnimatorOverrideController m_AnimatorOverride;
     private ActionTable table;
     private ActionData action;
-    private AnimationClip clip;
+    private int slot = 1;
     private string filename = "Actions.json";
 
 
@@ -70,9 +72,35 @@ public class Action : MonoBehaviour
     }
 
 
+    private void LoadSlotAnimation(string currentslot, string newslot, string animation)
+    {
+
+        m_AnimatorOverride[currentslot].events = new AnimationEvent[0];
+
+        AnimationClip clip_src = Resources.Load(
+            "Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
+        AnimationClip clip_new = new AnimationClip();
+        EditorUtility.CopySerialized(clip_src, clip_new);
+
+        m_AnimatorOverride[newslot] = clip_new;
+        
+    }
+
+
     public void StartAction(string actionName)
     {
         
+        string currentName;
+        
+        if (action == null)
+            currentName = "Action_Default";
+        else
+            currentName = action.animation;
+        
+        AnimatorStateInfo state = m_Animator.GetCurrentAnimatorStateInfo(1);
+        float currentFrame = state.normalizedTime;
+
+
         foreach (ActionData data in table.actions)
         {
             if (data.name == actionName)
@@ -98,22 +126,28 @@ public class Action : MonoBehaviour
         /*for (int i = 0; i < 3; i++)
             if (actionVelocity[i] != 0)
                 m_Rigidbody.velocity[i] = actionVelocity[i];*/
+        
 
+        if (action.name != "Default")
+        {
 
-        clip = Resources.Load("Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
-        m_AnimatorOverride["neo_reference_skeleton|Action_Default"] = clip;
+            m_Animator.SetInteger("ActionSlot", -1 * m_Animator.GetInteger("ActionSlot"));
 
-        m_Animator.Play("Action", 1, 0);
-        m_Animator.Play("Action", 2, 0);
+            if (m_Animator.GetInteger("ActionSlot") == 1)
+                LoadSlotAnimation("neo_reference_skeleton|Action_Slot2", "neo_reference_skeleton|Action_Slot1", "kungfu/punchcombo");
+            else
+                LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2", "matrix/punchflurry");
 
-        m_Animator.SetFloat("ActionSpeed", action.speed);
+            m_Animator.SetFloat("ActionSpeed", action.speed);
+
+        }
 
     }
 
 
     public void ResetAction()
     {
-
+        
         StartAction("Default");
 
     }
@@ -149,6 +183,19 @@ public class Action : MonoBehaviour
     }
 
 
+    private void BlendLayer(int layer, int amount)
+    {
+
+        float weight = m_Animator.GetLayerWeight(layer);
+
+        m_Animator.SetLayerWeight(
+                    layer,
+                    Mathf.Clamp(weight + amount * m_BlendTime * Time.deltaTime, 0.0f, 1.0f)
+                    );
+
+    }
+
+
     void Update()
     {
         
@@ -156,21 +203,21 @@ public class Action : MonoBehaviour
         {
             if (action.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
             {
-                m_Animator.SetLayerWeight(1, 0.0f);
-                m_Animator.SetLayerWeight(2, 1.0f);
+                BlendLayer(1, -1);
+                BlendLayer(2, 1);
             }
             else
             {
-                m_Animator.SetLayerWeight(1, 1.0f);
-                m_Animator.SetLayerWeight(2, 0.0f);
+                BlendLayer(1, 1);
+                BlendLayer(2, -1);
             }
         }
         else
         {
-            m_Animator.SetLayerWeight(1, 0.0f);
-            m_Animator.SetLayerWeight(2, 0.0f);
+            BlendLayer(1, -1);
+            BlendLayer(2, -1);
         }
-
+        
     }
 
 
