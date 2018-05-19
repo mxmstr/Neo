@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1d218db6d0877e84c8f14176acac429e
-timeCreated: 1523234302
+guid: d19469f1d5ba60b43865fc801c6f2306
+timeCreated: 1526675462
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -94,7 +94,7 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|Action_DefaultUpper
+    7400000: neo_reference_skeleton|Action_Last
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}

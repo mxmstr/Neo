@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c385a78accbcedd4f8e63bf79370484b
-timeCreated: 1523234003
+guid: 284c560bd1eed3f4782a1e15a82db5a4
+timeCreated: 1526703132
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -94,8 +94,8 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|Action_Default
-    7400002: neo_reference_skeleton|ActionDefault
+    7400000: neo_reference_skeleton|Action_Slot1
+    7400002: neo_reference_skeleton|Action_Slot2
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}
@@ -124,7 +124,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: neo_reference_skeleton|Action_Slot2
+      takeName: neo_reference_skeleton|Action_Slot2
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
