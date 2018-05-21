@@ -23,6 +23,16 @@
 						"AnySpeed" : [
 							"B_KickF_Primary"
 							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_Primary"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_Primary"
+							]
 						}
 					}
 				}
@@ -204,6 +214,132 @@
 
 			"actions" : [
 				"Kick_Triple"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFL_Primary",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"Kick_SpinL"
+				],
+
+			"results" : {
+				"Secondary" : {
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_ComboA"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFL_ComboA",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"Kick_Ground"
+				],
+
+			"results" : {
+				"Secondary" : {
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_ComboB"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFL_ComboB",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Kick_JumpSpin"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFR_Primary",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"Kick_RoundHKick"
+				],
+
+			"results" : {
+				"Secondary" : {
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_ComboA"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFR_ComboA",
+			
+			"cooldown" : 2.0,
+
+			"actions" : [
+				"Kick_SpinR"
+				],
+
+			"results" : {
+				"Secondary" : {
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_ComboB"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_KickFR_ComboB",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Kick_JumpSpin"
 				],
 
 			"results" : {

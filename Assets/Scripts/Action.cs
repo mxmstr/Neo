@@ -72,7 +72,7 @@ public class Action : MonoBehaviour
     }
 
 
-    private void LoadSlotAnimation(string currentslot, string newslot, string animation)
+    private void LoadSlotAnimation(string currentslot, string newslot)
     {
 
         m_AnimatorOverride[currentslot].events = new AnimationEvent[0];
@@ -96,9 +96,6 @@ public class Action : MonoBehaviour
             currentName = "Action_Default";
         else
             currentName = action.animation;
-        
-        AnimatorStateInfo state = m_Animator.GetCurrentAnimatorStateInfo(1);
-        float currentFrame = state.normalizedTime;
 
 
         foreach (ActionData data in table.actions)
@@ -134,9 +131,9 @@ public class Action : MonoBehaviour
             m_Animator.SetInteger("ActionSlot", -1 * m_Animator.GetInteger("ActionSlot"));
 
             if (m_Animator.GetInteger("ActionSlot") == 1)
-                LoadSlotAnimation("neo_reference_skeleton|Action_Slot2", "neo_reference_skeleton|Action_Slot1", "kungfu/punchcombo");
+                LoadSlotAnimation("neo_reference_skeleton|Action_Slot2", "neo_reference_skeleton|Action_Slot1");
             else
-                LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2", "matrix/punchflurry");
+                LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2");
 
             m_Animator.SetFloat("ActionSpeed", action.speed);
 
