@@ -123,7 +123,67 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: neo_reference_skeleton|neotriplekick.KF2
+      takeName: neo_reference_skeleton|neotriplekick.KF2
+      firstFrame: 0
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 1
+        functionName: ResetAction
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.23284313
+        functionName: ApplyDamage
+        data: Foot-R
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.45098037
+        functionName: ApplyDamage
+        data: Foot-L
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.63235295
+        functionName: ApplyDamage
+        data: Foot-R
+        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

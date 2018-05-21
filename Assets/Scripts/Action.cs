@@ -173,7 +173,7 @@ public class Action : MonoBehaviour
 
     public void ApplyDamage(string bone)
     {
-
+        
         var collider = m_Character.GetBoneCollider(bone);
         var contacts = collider.GetComponent<Hitbox>().GetContacts();
 

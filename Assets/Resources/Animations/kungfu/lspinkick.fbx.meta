@@ -1,92 +1,112 @@
 fileFormatVersion: 2
-guid: 4bee62e506a753343b27194e6098624a
-timeCreated: 1526097639
+guid: 645eb8095e47bcf44a63f09298b07e38
+timeCreated: 1526784495
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Belt
     100002: Belt_end
-    100004: Foot-L
-    100006: Foot-R
-    100008: Gun
-    100010: Gun_end
-    100012: Hand-L
-    100014: Hand-L_end
-    100016: Hand-R
-    100018: Head
-    100020: Head_end
-    100022: JBack
-    100024: JBLL
-    100026: JBLL_end
-    100028: JBRL
-    100030: JBRL_end
-    100032: JFLL
-    100034: JFLL_end
-    100036: JFLR
-    100038: JFLR_end
-    100040: JfUL
-    100042: JfUR
-    100044: //RootNode
-    100046: LoArm-L
-    100048: LoArm-R
-    100050: LoLeg-L
-    100052: LoLeg-R
-    100054: Neck
-    100056: neo_reference
-    100058: neo_reference_skeleton
-    100060: Pelvis
-    100062: shoulders
-    100064: Toe-L
-    100066: Toe-L_end
-    100068: Toe-R
-    100070: Toe-R_end
-    100072: Torso
-    100074: UpArm-L
-    100076: UpArm-R
-    100078: UpLeg-L
-    100080: UpLeg-R
+    100004: Belt_end_end
+    100006: Foot-L
+    100008: Foot-R
+    100010: Gun
+    100012: Gun_end
+    100014: Gun_end_end
+    100016: Hand-L
+    100018: Hand-L_end
+    100020: Hand-L_end_end
+    100022: Hand-R
+    100024: Head
+    100026: Head_end
+    100028: Head_end_end
+    100030: JBack
+    100032: JBLL
+    100034: JBLL_end
+    100036: JBLL_end_end
+    100038: JBRL
+    100040: JBRL_end
+    100042: JBRL_end_end
+    100044: JFLL
+    100046: JFLL_end
+    100048: JFLL_end_end
+    100050: JFLR
+    100052: JFLR_end
+    100054: JFLR_end_end
+    100056: JfUL
+    100058: JfUR
+    100060: LoArm-L
+    100062: LoArm-R
+    100064: LoLeg-L
+    100066: LoLeg-R
+    100068: //RootNode
+    100070: Neck
+    100072: neo_reference
+    100074: neo_reference_skeleton
+    100076: Pelvis
+    100078: shoulders
+    100080: Toe-L
+    100082: Toe-L_end
+    100084: Toe-L_end_end
+    100086: Toe-R
+    100088: Toe-R_end
+    100090: Toe-R_end_end
+    100092: Torso
+    100094: UpArm-L
+    100096: UpArm-R
+    100098: UpLeg-L
+    100100: UpLeg-R
     400000: Belt
     400002: Belt_end
-    400004: Foot-L
-    400006: Foot-R
-    400008: Gun
-    400010: Gun_end
-    400012: Hand-L
-    400014: Hand-L_end
-    400016: Hand-R
-    400018: Head
-    400020: Head_end
-    400022: JBack
-    400024: JBLL
-    400026: JBLL_end
-    400028: JBRL
-    400030: JBRL_end
-    400032: JFLL
-    400034: JFLL_end
-    400036: JFLR
-    400038: JFLR_end
-    400040: JfUL
-    400042: JfUR
-    400044: //RootNode
-    400046: LoArm-L
-    400048: LoArm-R
-    400050: LoLeg-L
-    400052: LoLeg-R
-    400054: Neck
-    400056: neo_reference
-    400058: neo_reference_skeleton
-    400060: Pelvis
-    400062: shoulders
-    400064: Toe-L
-    400066: Toe-L_end
-    400068: Toe-R
-    400070: Toe-R_end
-    400072: Torso
-    400074: UpArm-L
-    400076: UpArm-R
-    400078: UpLeg-L
-    400080: UpLeg-R
+    400004: Belt_end_end
+    400006: Foot-L
+    400008: Foot-R
+    400010: Gun
+    400012: Gun_end
+    400014: Gun_end_end
+    400016: Hand-L
+    400018: Hand-L_end
+    400020: Hand-L_end_end
+    400022: Hand-R
+    400024: Head
+    400026: Head_end
+    400028: Head_end_end
+    400030: JBack
+    400032: JBLL
+    400034: JBLL_end
+    400036: JBLL_end_end
+    400038: JBRL
+    400040: JBRL_end
+    400042: JBRL_end_end
+    400044: JFLL
+    400046: JFLL_end
+    400048: JFLL_end_end
+    400050: JFLR
+    400052: JFLR_end
+    400054: JFLR_end_end
+    400056: JfUL
+    400058: JfUR
+    400060: LoArm-L
+    400062: LoArm-R
+    400064: LoLeg-L
+    400066: LoLeg-R
+    400068: //RootNode
+    400070: Neck
+    400072: neo_reference
+    400074: neo_reference_skeleton
+    400076: Pelvis
+    400078: shoulders
+    400080: Toe-L
+    400082: Toe-L_end
+    400084: Toe-L_end_end
+    400086: Toe-R
+    400088: Toe-R_end
+    400090: Toe-R_end_end
+    400092: Torso
+    400094: UpArm-L
+    400096: UpArm-R
+    400098: UpLeg-L
+    400100: UpLeg-R
     2100000: airwalks.jpg
     2100002: neo_Tupperbody.jpg
     2100004: Neo_trench.jpg
@@ -94,7 +114,7 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|leftroundhkick.KF2
+    7400000: neo_reference_skeleton|lsninkick
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}
@@ -125,10 +145,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: neo_reference_skeleton|leftroundhkick.KF2
-      takeName: neo_reference_skeleton|leftroundhkick.KF2
+      name: neo_reference_skeleton|lsninkick
+      takeName: neo_reference_skeleton|lsninkick
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -156,9 +176,9 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.37254903
+      - time: 0.6013072
         functionName: ApplyDamage
-        data: Foot-R
+        data: Foot-L
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

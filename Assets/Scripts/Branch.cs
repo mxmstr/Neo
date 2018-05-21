@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using System.IO;
 using System;
 using System.Reflection;
@@ -92,11 +93,12 @@ public class Branch : MonoBehaviour
     {
         public BranchData[] branches;
     }
-    
+
+    public string filename = "Branches.json";
+
     private Action m_Action;
     private BranchTable table;
     private BranchData branch;
-    private string filename = "Branches.json";
 
 
     void Start()
@@ -154,24 +156,30 @@ public class Branch : MonoBehaviour
 
     public void StartAction(string input, string direction, string speed)
     {
-        
+
         System.Random rand = new System.Random();
         ResultDirection directions;
         ResultSpeed speeds;
         string[] branches;
-        
 
-        if (branch.results.AnyInput[direction] == null)
+
+        if (!m_Action.IsReset())
+            return;
+
+
+        if (branch.results.AnyInput.AnyDirection == null && 
+            branch.results.AnyInput[direction] == null)
             directions = (ResultDirection)branch.results[input];
         else
             directions = branch.results.AnyInput;
+        
 
-
-        if (directions.AnyDirection[speed] == null)
+        if (directions.AnyDirection[speed] == null &&
+            directions.AnyDirection.AnySpeed == null)
             speeds = (ResultSpeed)directions[direction];
         else
             speeds = directions.AnyDirection;
-        
+            
 
         try
         {
@@ -179,7 +187,7 @@ public class Branch : MonoBehaviour
                 branches = (string[])speeds[speed];
             else
                 branches = speeds.AnySpeed;
-
+            
             StartBranch(branches[rand.Next(branches.Length)]);
             m_Action.StartAction(GetAction());
         }
