@@ -364,6 +364,8 @@ GameObject:
   - component: {fileID: 143683343}
   - component: {fileID: 143683342}
   - component: {fileID: 143683346}
+  - component: {fileID: 143683348}
+  - component: {fileID: 143683347}
   - component: {fileID: 143683339}
   - component: {fileID: 143683341}
   - component: {fileID: 143683340}
@@ -422,6 +424,7 @@ MonoBehaviour:
   m_Sensitivity: 250
   m_TurnSmoothing: 25
   m_MaxSpeed: 4
+  m_WalkTimeMax: 0.25
 --- !u!136 &143683342
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -497,6 +500,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Punch_Default
+--- !u!114 &143683347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143683338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Jump_Default
+--- !u!114 &143683348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143683338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Kick_Default
 --- !u!1 &179612158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1119,7 @@ Transform:
   m_GameObject: {fileID: 661374110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 2.1141496, y: 2.1141505, z: 2.1141505}
+  m_LocalScale: {x: 5.1089816, y: 5.108985, z: 5.108985}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1932,6 +1963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Default
 --- !u!1 &1157730756
 GameObject:
   m_ObjectHideFlags: 0

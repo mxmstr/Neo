@@ -2,7 +2,7 @@
     "branches": [
         {
 
-            "name" : "B_Default",
+            "name" : "B_Punch_Default",
 			
 			"cooldown" : -1.0,
 
@@ -17,7 +17,21 @@
 							"B_Punch_Primary"
 							]
 						}
-					},
+					}
+				}
+			
+        },
+		{
+
+            "name" : "B_Kick_Default",
+			
+			"cooldown" : -1.0,
+
+			"actions" : [
+				"Default"
+				],
+
+			"results" : {
 				"Secondary" : {
 					"Forward" : {
 						"AnySpeed" : [
@@ -40,6 +54,46 @@
         },
 		{
 
+            "name" : "B_Jump_Default",
+			
+			"cooldown" : -1.0,
+
+			"actions" : [
+				"Default"
+				],
+
+			"results" : {
+				"Jump" : {
+					"Forward" : {
+						"Walk" : [
+							"B_JumpWF_Primary"
+							],
+						"Run" : [
+							"B_JumpRF_Primary"
+							]
+						},
+					"ForwardLeft" : {
+						"Walk" : [
+							"B_JumpWFL_Primary"
+							],
+						"Run" : [
+							"B_JumpRFL_Primary"
+							]
+						},
+					"ForwardRight" : {
+						"Walk" : [
+							"B_JumpWFR_Primary"
+							],
+						"Run" : [
+							"B_JumpRFR_Primary"
+							]
+						}
+					}
+				}
+			
+        },
+		{
+
             "name" : "B_Punch_Primary",
 			
 			"cooldown" : 2.0,
@@ -49,7 +103,7 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_ComboA1"
@@ -70,7 +124,7 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_ComboA2"
@@ -91,7 +145,7 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_ComboA3"
@@ -112,7 +166,7 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_ComboA4"
@@ -133,7 +187,7 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_Power"
@@ -154,10 +208,10 @@
 				],
 
 			"results" : {
-				"AnyInput" : {
+				"Primary" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Default"
+							"B_Punch_Default"
 							]
 						}
 					}
@@ -180,6 +234,16 @@
 						"AnySpeed" : [
 							"B_KickF_ComboA"
 							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_Primary"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_Primary"
+							]
 						}
 					}
 				}
@@ -201,6 +265,16 @@
 						"AnySpeed" : [
 							"B_KickF_ComboB"
 							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_Primary"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_Primary"
+							]
 						}
 					}
 				}
@@ -220,7 +294,7 @@
 				"AnyInput" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Default"
+							"B_Kick_Default"
 							]
 						}
 					}
@@ -239,9 +313,19 @@
 
 			"results" : {
 				"Secondary" : {
+					"Forward" : {
+						"AnySpeed" : [
+							"B_KickF_Primary"
+							]
+						},
 					"ForwardLeft" : {
 						"AnySpeed" : [
 							"B_KickFL_ComboA"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_Primary"
 							]
 						}
 					}
@@ -260,9 +344,19 @@
 
 			"results" : {
 				"Secondary" : {
+					"Forward" : {
+						"AnySpeed" : [
+							"B_KickF_Primary"
+							]
+						},
 					"ForwardLeft" : {
 						"AnySpeed" : [
 							"B_KickFL_ComboB"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_KickFR_Primary"
 							]
 						}
 					}
@@ -283,7 +377,7 @@
 				"AnyInput" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Default"
+							"B_Kick_Default"
 							]
 						}
 					}
@@ -302,6 +396,16 @@
 
 			"results" : {
 				"Secondary" : {
+					"Forward" : {
+						"AnySpeed" : [
+							"B_KickF_Primary"
+							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_Primary"
+							]
+						},
 					"ForwardRight" : {
 						"AnySpeed" : [
 							"B_KickFR_ComboA"
@@ -323,6 +427,16 @@
 
 			"results" : {
 				"Secondary" : {
+					"Forward" : {
+						"AnySpeed" : [
+							"B_KickF_Primary"
+							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_KickFL_Primary"
+							]
+						},
 					"ForwardRight" : {
 						"AnySpeed" : [
 							"B_KickFR_ComboB"
@@ -346,7 +460,133 @@
 				"AnyInput" : {
 					"AnyDirection" : {
 						"AnySpeed" : [
-							"B_Default"
+							"B_Kick_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpWF_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_Short"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpWFL_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_ShortL"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpWFR_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_ShortR"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpRF_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_Long"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpRFL_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_LongL"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
+							]
+						}
+					}
+				}
+
+        },
+		{
+
+            "name" : "B_JumpRFR_Primary",
+			
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Jump_LongR"
+				],
+
+			"results" : {
+				"AnyInput" : {
+					"AnyDirection" : {
+						"AnySpeed" : [
+							"B_Jump_Default"
 							]
 						}
 					}

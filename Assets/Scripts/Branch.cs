@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 using System.IO;
 using System;
 using System.Reflection;
@@ -166,6 +165,7 @@ public class Branch : MonoBehaviour
     }
 
     public string filename = "Branches.json";
+    public string defaultBranch = "B_Punch_Default";
 
     private Action m_Action;
     private BranchTable table;
@@ -181,6 +181,12 @@ public class Branch : MonoBehaviour
         LoadBranchData();
         ResetBranch();
 
+    }
+
+
+    public string GetName()
+    {
+        return branch.name;
     }
 
 
@@ -220,7 +226,7 @@ public class Branch : MonoBehaviour
     private void ResetBranch()
     {
 
-        StartBranch("B_Default");
+        StartBranch(defaultBranch);
 
     }
 
@@ -253,49 +259,6 @@ public class Branch : MonoBehaviour
             m_Action.StartAction(GetAction());
         }
         catch (NullReferenceException e) { }
-
-        
-
-        /*bool hasInputAny = branch.results.AnyInput != null;
-        bool hasInputParam = branch.results[input] != null;
-
-        if (hasInputAny || hasInputParam)
-            inputs = branch.results;
-        else
-            return;
-
-        Debug.Log("1");
-
-        bool hasDirectionAny = inputs.AnyInput.AnyDirection != null || inputs.AnyInput[direction] != null;
-        bool hasDirectionParam = ((ResultDirection)inputs[input])[direction] != null;
-
-        if (hasDirectionAny)
-            directions = inputs.AnyInput;
-        else if (hasDirectionParam)
-            directions = (ResultDirection)inputs[input];
-        else
-            return;
-
-        Debug.Log("2");
-
-        bool hasSpeedAny = directions.AnyDirection.AnySpeed != null || directions.AnyDirection[speed] != null;
-        bool hasSpeedParam = ((ResultSpeed)directions[direction])[speed] != null;
-
-        if (hasSpeedAny)
-            speeds = directions.AnyDirection;
-        else if (hasSpeedParam)
-            speeds = (ResultSpeed)directions[direction];
-        else
-            return;
-
-        Debug.Log("3");
-
-        if (speeds.AnySpeed == null)
-            branches = (string[])speeds[speed];
-        else
-            branches = speeds.AnySpeed;*/
-
-        
 
     }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -15,7 +16,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Character m_Character;
         private Rigidbody m_Rigidbody;
         private Action m_Action;
-        private Branch m_Branch;
+        private Branch m_Branch_Primary;
+        private Branch m_Branch_Secondary;
+        private Branch m_Branch_Jump;
         private Transform m_Cam;
         private Vector3 m_CamForward;
         private Vector3 m_Move;
@@ -35,7 +38,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character = GetComponent<Character>();
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Action = GetComponent<Action>();
-            m_Branch = GetComponent<Branch>();
+            m_Branch_Primary = Array.Find(
+                GetComponents<Branch>(),
+                delegate (Branch b) { return b.GetName() == "B_Punch_Default"; }
+                );
+            m_Branch_Secondary = Array.Find(
+                GetComponents<Branch>(),
+                delegate (Branch b) { return b.GetName() == "B_Kick_Default"; }
+                );
+            m_Branch_Jump = Array.Find(
+                GetComponents<Branch>(),
+                delegate (Branch b) { return b.GetName() == "B_Jump_Default"; }
+                );
 
         }
 
@@ -100,15 +114,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool primary = Input.GetKey(KeyCode.Mouse0);
             bool secondary = Input.GetKey(KeyCode.Mouse1);
+            bool jump = CrossPlatformInputManager.GetButtonDown("Jump");
 
             string direction = GetDirection(h, v);
             string speed = GetSpeed(h, v);
-            
+
 
             if (primary)
-                m_Branch.StartAction("Primary", direction, speed);
+                m_Branch_Primary.StartAction("Primary", direction, speed);
             else if (secondary)
-                m_Branch.StartAction("Secondary", direction, speed);
+                m_Branch_Secondary.StartAction("Secondary", direction, speed);
+            else if (jump)
+                m_Branch_Jump.StartAction("Jump", direction, speed);
 
         }
 
@@ -144,8 +161,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            if (!m_Jump)
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            //sif (!m_Jump)
+                //m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
 
 

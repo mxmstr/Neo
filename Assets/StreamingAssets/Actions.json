@@ -211,6 +211,90 @@
 			"damage" : 0.5
 		},
 		{
+			"name" : "Jump_Short",
+			"animation" : "payne/jumpForward",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 3.0,
+                "z" : 3.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_ShortL",
+			"animation" : "payne/jumpForwardLeft",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -2.1,
+                "y" : 3.0,
+                "z" : 2.1
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_ShortR",
+			"animation" : "payne/jumpForwardRight",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 2.1,
+                "y" : 3.0,
+                "z" : 2.1
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_Long",
+			"animation" : "kungfu/longjump",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 3.0,
+                "z" : 8.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_LongL",
+			"animation" : "kungfu/longjumpleft",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -5.6,
+                "y" : 3.0,
+                "z" : 5.6
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_LongR",
+			"animation" : "kungfu/longjumpright",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 5.6,
+                "y" : 3.0,
+                "z" : 5.6
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
 			"name" : "React1",
 			"animation" : "payne/GetHit_0200ms",
 			"rotation" : false,
