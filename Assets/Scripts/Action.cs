@@ -18,6 +18,8 @@ public class Action : MonoBehaviour
         public Vector3 velocity;
         public float speed;
         public float damage;
+        public string react_hit;
+        public string react_ko;
 
     }
 
@@ -74,7 +76,7 @@ public class Action : MonoBehaviour
 
     private void LoadSlotAnimation(string currentslot, string newslot)
     {
-
+        
         m_AnimatorOverride[currentslot].events = new AnimationEvent[0];
 
         AnimationClip clip_src = Resources.Load(
@@ -175,7 +177,7 @@ public class Action : MonoBehaviour
         var contacts = collider.GetComponent<Hitbox>().GetContacts();
 
         foreach (Collider c in contacts)
-            c.GetComponent<Character>().ReceiveDamage(action.damage);
+            c.GetComponent<Character>().ReceiveDamage(action.damage, action.react_hit, action.react_ko);
 
     }
 

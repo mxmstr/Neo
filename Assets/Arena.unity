@@ -1833,6 +1833,8 @@ GameObject:
   - component: {fileID: 1155470307}
   - component: {fileID: 1155470306}
   - component: {fileID: 1155470310}
+  - component: {fileID: 1155470312}
+  - component: {fileID: 1155470311}
   - component: {fileID: 1155470303}
   - component: {fileID: 1155470305}
   - component: {fileID: 1155470304}
@@ -1850,12 +1852,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155470302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BlendTime: 1
+  m_BlendTime: 5
 --- !u!114 &1155470304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1865,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155470302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
@@ -1883,7 +1885,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155470302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c688c086357c9814cad1f11e6a717206, type: 3}
   m_Name: 
@@ -1958,13 +1960,39 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155470302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   filename: Branches.json
-  defaultBranch: B_Default
+  defaultBranch: B_Punch_Default
+--- !u!114 &1155470311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155470302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Jump_Default
+--- !u!114 &1155470312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155470302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: Branches.json
+  defaultBranch: B_Kick_Default
 --- !u!1 &1157730756
 GameObject:
   m_ObjectHideFlags: 0

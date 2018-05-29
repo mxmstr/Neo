@@ -26,7 +26,9 @@
                 "z" : 0.0
 				},
 			"speed" : 2.0,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Punch_RightJab",
@@ -40,7 +42,9 @@
                 "z" : 0.0
 				},
 			"speed" : 2.0,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Punch_LoHi",
@@ -54,7 +58,9 @@
                 "z" : 0.0
 				},
 			"speed" : 2.0,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Punch_Tong",
@@ -68,7 +74,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.5,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Punch_Flurry",
@@ -82,7 +90,9 @@
                 "z" : 0.0
 				},
 			"speed" : 2.0,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Punch_Power1",
@@ -96,7 +106,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.5,
-			"damage" : 0.25
+			"damage" : 0.25,
+			"react_hit" : "Knockout_Flyback",
+			"react_ko" : "Knockout_Flyback"
 		},
 		{
 			"name" : "Kick_DoubleFront",
@@ -110,7 +122,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.5,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_FrontSnap",
@@ -124,7 +138,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.5,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_Triple",
@@ -138,7 +154,9 @@
                 "z" : 2.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_SpinL",
@@ -152,7 +170,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_SpinR",
@@ -166,7 +186,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_Ground",
@@ -180,7 +202,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_JumpSpin",
@@ -194,7 +218,9 @@
                 "z" : 1.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Kick_RoundHKick",
@@ -208,7 +234,9 @@
                 "z" : 0.0
 				},
 			"speed" : 1.75,
-			"damage" : 0.5
+			"damage" : 0.5,
+			"react_hit" : "React_Light",
+			"react_ko" : "React_Light"
 		},
 		{
 			"name" : "Jump_Short",
@@ -295,7 +323,147 @@
 			"damage" : 0.0
 		},
 		{
-			"name" : "React1",
+			"name" : "Jump_SideL",
+			"animation" : "matrix/sidestepleft",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -3.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_SideR",
+			"animation" : "matrix/sidestepright",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 3.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_CartL",
+			"animation" : "kungfu/cartleft",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -4.0,
+                "y" : 3.0,
+                "z" : 0.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_CartR",
+			"animation" : "kungfu/cartright",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 4.0,
+                "y" : 3.0,
+                "z" : 0.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_HopBack",
+			"animation" : "kungfu/hopback",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : -3.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_BackFlip",
+			"animation" : "kungfu/backflip",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 5.0,
+                "z" : -3.0
+				},
+			"speed" : 1.25,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_TwistL",
+			"animation" : "matrix/agent_twist",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -2.0,
+                "y" : 0.0,
+                "z" : -2.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_TwistR",
+			"animation" : "matrix/agent_twist",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 2.0,
+                "y" : 0.0,
+                "z" : -2.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_CartBackL",
+			"animation" : "matrix/cartbackleft",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : -2.0,
+                "y" : 0.0,
+                "z" : -2.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Jump_CartBackR",
+			"animation" : "matrix/cartbackright",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 2.0,
+                "y" : 0.0,
+                "z" : -2.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "React_Light",
 			"animation" : "payne/GetHit_0200ms",
 			"rotation" : false,
 			"movement" : false,
@@ -305,21 +473,35 @@
                 "y" : 0.0,
                 "z" : 0.0
 				},
-			"speed" : 4.0,
+			"speed" : 8.0,
 			"damage" : 0.0
 		},
 		{
-			"name" : "Death1",
-			"animation" : "payne/Death_Backward",
+			"name" : "Knockout_Headshot",
+			"animation" : "payne/Death_Headshot",
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
-                "z" : -1.0
+                "z" : 0.0
 				},
 			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Knockout_Flyback",
+			"animation" : "matrix/death_flyback",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 3.0,
+                "z" : -3.0
+				},
+			"speed" : 1.5,
 			"damage" : 0.0
 		}
     ]

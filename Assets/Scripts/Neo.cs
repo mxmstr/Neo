@@ -114,7 +114,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool primary = Input.GetKey(KeyCode.Mouse0);
             bool secondary = Input.GetKey(KeyCode.Mouse1);
-            bool jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            bool jump = CrossPlatformInputManager.GetButton("Jump");
 
             string direction = GetDirection(h, v);
             string speed = GetSpeed(h, v);

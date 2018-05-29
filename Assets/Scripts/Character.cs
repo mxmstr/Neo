@@ -71,11 +71,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void ReceiveDamage(float damage)
+        public void ReceiveDamage(float damage, string react_hit, string react_ko)
         {
 
             m_Health -= damage;
-            m_Action.StartAction("React1");
+
+            if (react_hit != null)
+                m_Action.StartAction(react_hit);
 
         }
 
