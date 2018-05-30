@@ -152,32 +152,48 @@ public class Action : MonoBehaviour
     }
 
 
-    public void Rotate(Vector3 m_CamForward, float m_TurnSmoothing)
+    public void Rotate(Vector3 camForward, float turnSmoothing)
     {
 
         if (action.rotation)
-            m_Character.Rotate(m_CamForward, m_TurnSmoothing);
+            m_Character.Rotate(camForward, turnSmoothing);
 
     }
 
 
-    public void Move(Vector3 m_Move, float m_MaxSpeed, bool crouch, bool m_Jump)
+    public void Move(Vector3 move, float maxSpeed, bool crouch, bool m_Jump)
     {
 
         if (action.movement)
-            m_Character.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
+            m_Character.Move(move, maxSpeed, crouch, m_Jump);
 
     }
 
 
     public void ApplyDamage(string bone)
     {
-        
-        var collider = m_Character.GetBoneCollider(bone);
+
+        FireProjectile(bone);
+        /*var collider = m_Character.GetBoneCollider(bone);
         var contacts = collider.GetComponent<Hitbox>().GetContacts();
 
         foreach (Collider c in contacts)
             c.GetComponent<Character>().ReceiveDamage(action.damage, action.react_hit, action.react_ko);
+            */
+    }
+
+
+    public void FireProjectile(string bone)
+    {
+
+        Collider collider = m_Character.GetBoneCollider(bone);
+        GameObject obj = Instantiate(
+            Resources.Load("Prefabs/Projectile_Punch"), transform.position, m_Rigidbody.transform.rotation) as GameObject;
+
+        obj.GetComponent<Hurtbox>().SetAttributes(
+            GetComponent<CapsuleCollider>(), 0.1f, action.damage, action.react_hit, action.react_ko);
+        obj.transform.position = collider.transform.position;
+        obj.transform.rotation = m_Rigidbody.transform.rotation;
 
     }
 

@@ -146,10 +146,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Move = m_Move.normalized * m_MaxSpeed;
 
-            #if !MOBILE_INPUT
-                        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
-            #endif
-
 
             m_Action.Rotate(m_CamForward, m_TurnSmoothing);
             m_Action.Move(m_Move, m_MaxSpeed, crouch, m_Jump);

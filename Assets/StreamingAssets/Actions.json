@@ -413,9 +413,9 @@
 			"movement" : false,
 			"blendlegs" : false,
 			"velocity" : {
-				"x" : -2.0,
+				"x" : -0.75,
                 "y" : 0.0,
-                "z" : -2.0
+                "z" : -0.75
 				},
 			"speed" : 1.0,
 			"damage" : 0.0
@@ -427,9 +427,9 @@
 			"movement" : false,
 			"blendlegs" : false,
 			"velocity" : {
-				"x" : 2.0,
+				"x" : 0.75,
                 "y" : 0.0,
-                "z" : -2.0
+                "z" : -0.75
 				},
 			"speed" : 1.0,
 			"damage" : 0.0
