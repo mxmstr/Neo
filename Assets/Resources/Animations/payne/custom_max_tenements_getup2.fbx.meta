@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 45dc28d7845a7224ebe88834a97ca398
-timeCreated: 1526097615
+guid: 44f96f1c853d7ff4781bf8e74cc845af
+timeCreated: 1527720792
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -46,6 +46,16 @@ ModelImporter:
     100076: UpArm-R
     100078: UpLeg-L
     100080: UpLeg-R
+    100082: Belt_end_end
+    100084: Gun_end_end
+    100086: Hand-L_end_end
+    100088: Head_end_end
+    100090: JBLL_end_end
+    100092: JBRL_end_end
+    100094: JFLL_end_end
+    100096: JFLR_end_end
+    100098: Toe-L_end_end
+    100100: Toe-R_end_end
     400000: Belt
     400002: Belt_end
     400004: //RootNode
@@ -87,6 +97,16 @@ ModelImporter:
     400076: UpArm-R
     400078: UpLeg-L
     400080: UpLeg-R
+    400082: Belt_end_end
+    400084: Gun_end_end
+    400086: Hand-L_end_end
+    400088: Head_end_end
+    400090: JBLL_end_end
+    400092: JBRL_end_end
+    400094: JFLL_end_end
+    400096: JFLR_end_end
+    400098: Toe-L_end_end
+    400100: Toe-R_end_end
     2100000: airwalks.jpg
     2100002: neo_Tupperbody.jpg
     2100004: Neo_trench.jpg
@@ -94,7 +114,8 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|death_flyback.KF2
+    7400000: neo_reference_skeleton|custom_max_tenements_getup.KF2
+    7400002: neo_reference_skeleton|custom_max_tenements_getup2.kf2
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}
@@ -125,10 +146,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: neo_reference_skeleton|death_flyback.KF2
-      takeName: neo_reference_skeleton|death_flyback.KF2
+      name: neo_reference_skeleton|custom_max_tenements_getup2.kf2
+      takeName: neo_reference_skeleton|custom_max_tenements_getup2.kf2
       firstFrame: 0
-      lastFrame: 105
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -149,8 +170,8 @@ ModelImporter:
       curves: []
       events:
       - time: 1
-        functionName: StartAction
-        data: Getup_FrontSlow
+        functionName: ResetAction
+        data: 
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

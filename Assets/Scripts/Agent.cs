@@ -35,7 +35,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
 
-            m_Action.Move(new Vector3(0, 0, 0), m_MaxSpeed, false, false);
+            m_Action.Move(new Vector3(0, 0, 0), m_MaxSpeed);
 
         }
     }

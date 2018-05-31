@@ -135,7 +135,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-            bool crouch = Input.GetKey(KeyCode.C);
 
             m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
 
@@ -148,21 +147,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
             m_Action.Rotate(m_CamForward, m_TurnSmoothing);
-            m_Action.Move(m_Move, m_MaxSpeed, crouch, m_Jump);
+            m_Action.Move(m_Move, m_MaxSpeed);
 
             m_Jump = false;
 
         }
 
 
-        private void Update()
+        void Update()
         {
             //sif (!m_Jump)
                 //m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
 
 
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             
             InputAction();

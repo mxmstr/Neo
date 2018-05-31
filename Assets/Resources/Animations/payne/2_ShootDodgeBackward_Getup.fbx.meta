@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 45dc28d7845a7224ebe88834a97ca398
-timeCreated: 1526097615
+guid: 40a42be3479034b459d152e46a715d8e
+timeCreated: 1527720792
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Belt
-    100002: Belt_end
-    100004: //RootNode
+    100000: //RootNode
+    100002: Belt
+    100004: Belt_end
     100006: Foot-L
     100008: Foot-R
     100010: Gun
@@ -46,9 +46,9 @@ ModelImporter:
     100076: UpArm-R
     100078: UpLeg-L
     100080: UpLeg-R
-    400000: Belt
-    400002: Belt_end
-    400004: //RootNode
+    400000: //RootNode
+    400002: Belt
+    400004: Belt_end
     400006: Foot-L
     400008: Foot-R
     400010: Gun
@@ -94,7 +94,7 @@ ModelImporter:
     2100008: Hand_MaxPayne.jpg
     2100010: neo_newface.jpg
     4300000: neo_reference
-    7400000: neo_reference_skeleton|death_flyback.KF2
+    7400000: neo_reference_skeleton|2_ShootDodgeBackward_Getup.kf2
     9500000: //RootNode
     13700000: neo_reference
   externalObjects: {}
@@ -123,43 +123,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: neo_reference_skeleton|death_flyback.KF2
-      takeName: neo_reference_skeleton|death_flyback.KF2
-      firstFrame: 0
-      lastFrame: 105
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 1
-        functionName: StartAction
-        data: Getup_FrontSlow
-        objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -19,11 +19,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         CapsuleCollider m_Capsule;
         BoxCollider[] m_Colliders;
         Action m_Action;
-
+        
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
         Vector3 m_Direction;
-		Vector3 m_GroundNormal;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 
@@ -92,7 +91,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Move(Vector3 direction, float maxSpeed, bool crouch, bool jump)
+        public void Move(Vector3 direction, float maxSpeed)
 		{
             
             m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
@@ -104,35 +103,41 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             
             m_Animator.SetFloat("Forward", localDirection.z / maxSpeed, 0.1f, Time.deltaTime);
             m_Animator.SetFloat("Sidestep", localDirection.x / maxSpeed, 0.1f, Time.deltaTime);
-            m_Animator.SetBool("Crouch", crouch);
-            m_Animator.SetBool("OnGround", !jump);
 
         }
  
 
-		void CheckGroundStatus()
+		private void CheckGroundStatus()
 		{
+
 			RaycastHit hitInfo;
 
             #if UNITY_EDITOR
 			    Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
             #endif
 
-			// 0.1f is a small offset to start the ray from inside the character
-			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+            bool hit = Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
+            
+
+            if (hit)// && hitInfo.collider.tag == "Ground")
 			{
-				m_GroundNormal = hitInfo.normal;
-				m_IsGrounded = true;
-				m_Animator.applyRootMotion = false;
+                //Debug.Log(hitInfo.collider.tag);
+                m_Animator.SetBool("OnGround", true);
 			}
 			else
 			{
-				m_IsGrounded = false;
-				m_GroundNormal = Vector3.up;
-				m_Animator.applyRootMotion = false;
+                m_Animator.SetBool("OnGround", false);
 			}
+
 		}
 
-	}
+
+        void Update()
+        {
+            
+            CheckGroundStatus();
+
+        }
+
+    }
 }

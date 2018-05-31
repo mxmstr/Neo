@@ -74,6 +74,18 @@ public class Action : MonoBehaviour
     }
 
 
+    private void SetStateFrame(string args)
+    {
+
+        string state = args.Split(' ')[0];
+        int layer = int.Parse(args.Split(' ')[1]);
+        float frame = float.Parse(args.Split(' ')[2]);
+
+        m_Animator.Play(state, 0, frame);
+
+    }
+
+
     private void LoadSlotAnimation(string currentslot, string newslot)
     {
         
@@ -108,27 +120,20 @@ public class Action : MonoBehaviour
                 break;
             }
         }
-
-
-        if (!action.movement)
-        {
-            var velocity = m_Rigidbody.velocity;
-            m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
-        }
-
-
-        var rotation = m_Rigidbody.transform.rotation;
-        var actionVelocity = rotation * action.velocity;
-
-        m_Rigidbody.velocity = actionVelocity;
-
-        /*for (int i = 0; i < 3; i++)
-            if (actionVelocity[i] != 0)
-                m_Rigidbody.velocity[i] = actionVelocity[i];*/
         
 
         if (action.name != "Default")
         {
+
+            var rotation = m_Rigidbody.transform.rotation;
+            var actionVelocity = rotation * action.velocity;
+
+            m_Rigidbody.velocity = actionVelocity;
+
+            /*for (int i = 0; i < 3; i++)
+                if (actionVelocity[i] != 0)
+                    m_Rigidbody.velocity[i] = actionVelocity[i];*/
+
 
             m_Animator.SetInteger("ActionSlot", -1 * m_Animator.GetInteger("ActionSlot"));
 
@@ -138,8 +143,11 @@ public class Action : MonoBehaviour
                 LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2");
 
             m_Animator.SetFloat("ActionSpeed", action.speed);
+            m_Animator.SetBool("ActionPlaying", true);
 
         }
+        else
+            m_Animator.SetBool("ActionPlaying", false);
 
     }
 
@@ -161,11 +169,11 @@ public class Action : MonoBehaviour
     }
 
 
-    public void Move(Vector3 move, float maxSpeed, bool crouch, bool m_Jump)
+    public void Move(Vector3 move, float maxSpeed)
     {
 
         if (action.movement)
-            m_Character.Move(move, maxSpeed, crouch, m_Jump);
+            m_Character.Move(move, maxSpeed);
 
     }
 
