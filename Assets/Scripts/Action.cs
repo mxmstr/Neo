@@ -2,12 +2,14 @@
 using System.IO;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEditor;
+using System;
+
 
 public class Action : MonoBehaviour
 {
 
     [System.Serializable]
-    public class ActionData
+    public class ActionData : ICloneable
     {
 
         public string name;
@@ -15,11 +17,17 @@ public class Action : MonoBehaviour
         public bool rotation;
         public bool movement;
         public bool blendlegs;
+        public bool invulnerable;
         public Vector3 velocity;
         public float speed;
         public float damage;
         public string react_hit;
         public string react_ko;
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
 
     }
 
@@ -74,14 +82,47 @@ public class Action : MonoBehaviour
     }
 
 
-    private void SetStateFrame(string args)
+    public void EnableRotation(string enable)
+    {
+
+        action.rotation = bool.Parse(enable);
+
+    }
+
+
+    public void EnableMovement(string enable)
+    {
+
+        action.movement = bool.Parse(enable);
+
+    }
+
+
+    public void EnableInvulnerable(string enable)
+    {
+
+        action.invulnerable = bool.Parse(enable);
+
+    }
+
+
+    public void ResetVelocity()
+    {
+
+        Vector3 v = m_Rigidbody.velocity;
+        m_Rigidbody.velocity = new Vector3(0, v.y, 0);
+
+    }
+
+
+    public void SetStateFrame(string args)
     {
 
         string state = args.Split(' ')[0];
         int layer = int.Parse(args.Split(' ')[1]);
         float frame = float.Parse(args.Split(' ')[2]);
 
-        m_Animator.Play(state, 0, frame);
+        m_Animator.Play(state, layer, frame);
 
     }
 
@@ -103,20 +144,12 @@ public class Action : MonoBehaviour
 
     public void StartAction(string actionName)
     {
-        
-        string currentName;
-        
-        if (action == null)
-            currentName = "Action_Default";
-        else
-            currentName = action.animation;
-
 
         foreach (ActionData data in table.actions)
         {
             if (data.name == actionName)
             {
-                action = data;
+                action = (Action.ActionData)data.Clone();
                 break;
             }
         }
@@ -178,10 +211,22 @@ public class Action : MonoBehaviour
     }
 
 
+    public void GetUp(string actionName)
+    {
+        
+        if (m_Character.HasLives())
+        {
+            m_Character.ResetHealth();
+            StartAction(actionName);
+        }
+        
+    }
+
+
     public void ApplyDamage(string bone)
     {
 
-        FireProjectile(bone);
+        FireProjectile(bone, "Projectile_Punch");
         /*var collider = m_Character.GetBoneCollider(bone);
         var contacts = collider.GetComponent<Hitbox>().GetContacts();
 
@@ -191,17 +236,39 @@ public class Action : MonoBehaviour
     }
 
 
-    public void FireProjectile(string bone)
+    public void FireProjectile(string bone, string projName)
     {
 
         Collider collider = m_Character.GetBoneCollider(bone);
         GameObject obj = Instantiate(
-            Resources.Load("Prefabs/Projectile_Punch"), transform.position, m_Rigidbody.transform.rotation) as GameObject;
+            Resources.Load("Prefabs/" + projName), transform.position, m_Rigidbody.transform.rotation) as GameObject;
 
         obj.GetComponent<Hurtbox>().SetAttributes(
             GetComponent<CapsuleCollider>(), 0.1f, action.damage, action.react_hit, action.react_ko);
         obj.transform.position = collider.transform.position;
         obj.transform.rotation = m_Rigidbody.transform.rotation;
+
+    }
+
+
+    public void ReceiveDamage(float damage, Vector3 direction, string react_hit, string react_ko)
+    {
+
+        if (action.invulnerable)
+            return;
+
+        m_Character.ReceiveDamage(damage);
+
+        if (m_Character.HasHealth())
+        {
+            if (react_ko != null)
+            {
+                StartAction(react_ko);
+                m_Rigidbody.rotation = Quaternion.LookRotation(direction * -1);
+            }
+        }
+        else if (react_hit != null)
+            StartAction(react_hit);
 
     }
 

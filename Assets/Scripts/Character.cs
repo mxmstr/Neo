@@ -10,9 +10,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	{
         [SerializeField] float m_MoveDamping = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
-
-        float m_Health;
-        float m_Lives;
+        [SerializeField] float m_Health = 1.0f;
+        [SerializeField] int m_Lives = 2;
 
         Animator m_Animator;
         Rigidbody m_Rigidbody;
@@ -30,8 +29,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Start()
 		{
 
-            m_Health = 100f;
-
             m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -45,6 +42,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
             
+        }
+
+
+        public bool HasHealth()
+        {
+
+            return m_Health < 0;
+
+        }
+
+
+        public bool HasLives()
+        {
+
+            return m_Lives > 0;
+
+        }
+
+
+        public void ResetHealth()
+        {
+
+            m_Lives--;
+            m_Health = 1.0f;
+
         }
         
 
@@ -60,13 +82,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void ReceiveDamage(float damage, string react_hit, string react_ko)
+        public void ReceiveDamage(float damage)
         {
 
             m_Health -= damage;
-
-            if (react_hit != null)
-                m_Action.StartAction(react_hit);
 
         }
 

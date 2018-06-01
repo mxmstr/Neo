@@ -195,11 +195,7 @@ public class Branch : MonoBehaviour
 
         string filePath = Path.Combine(Application.streamingAssetsPath, filename);
         table = JsonUtility.FromJson<BranchTable>(File.ReadAllText(filePath));
-
-        Type inputType = typeof(ResultInput);
-        Type dirType = typeof(ResultDirection);
-        Type speedType = typeof(ResultSpeed);
-
+        
         foreach (BranchData data in table.branches)
             data.results.OverrideResults();
 

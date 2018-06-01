@@ -6,7 +6,7 @@ using UnityEngine;
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof(Character))]
-    public class Agent : MonoBehaviour
+    public class AI : MonoBehaviour
     {
 
         [SerializeField] float m_MaxSpeed = 1f;

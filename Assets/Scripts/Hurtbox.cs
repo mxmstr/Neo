@@ -52,13 +52,6 @@ public class Hurtbox : MonoBehaviour {
     }
 
 
-    void Update()
-    {
-
-        
-    }
-
-
     void LateUpdate ()
     {
         
@@ -67,11 +60,13 @@ public class Hurtbox : MonoBehaviour {
         {
             if (c != m_Shooter)
             {
-                c.GetComponent<Character>().ReceiveDamage(m_Damage, m_ReactHit, m_ReactKO);
+                c.GetComponent<Action>().ReceiveDamage(
+                    m_Damage, transform.forward, m_ReactHit, m_ReactKO
+                    );
                 numHits++;
             }
         }
-            
+        
         m_Contacts.Clear();
 
 

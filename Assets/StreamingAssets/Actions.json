@@ -6,6 +6,7 @@
             "rotation" : true,
             "movement" : true,
             "blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
                 "x" : 0.0,
                 "y" : 0.0,
@@ -20,6 +21,7 @@
 			"rotation" : true,
 			"movement" : true,
 			"blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -28,7 +30,7 @@
 			"speed" : 2.0,
 			"damage" : 0.25,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Punch_RightJab",
@@ -36,6 +38,7 @@
 			"rotation" : true,
 			"movement" : true,
 			"blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -44,7 +47,7 @@
 			"speed" : 2.0,
 			"damage" : 0.25,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Punch_LoHi",
@@ -52,6 +55,7 @@
 			"rotation" : true,
 			"movement" : true,
 			"blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -60,7 +64,7 @@
 			"speed" : 2.0,
 			"damage" : 0.25,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Punch_Tong",
@@ -68,6 +72,7 @@
 			"rotation" : true,
 			"movement" : true,
 			"blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -76,7 +81,7 @@
 			"speed" : 1.5,
 			"damage" : 0.25,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Punch_Flurry",
@@ -84,6 +89,7 @@
 			"rotation" : true,
 			"movement" : true,
 			"blendlegs" : true,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -92,7 +98,7 @@
 			"speed" : 2.0,
 			"damage" : 0.25,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Punch_Power1",
@@ -100,14 +106,15 @@
 			"rotation" : true,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
                 "z" : 0.0
 				},
 			"speed" : 1.5,
-			"damage" : 0.25,
-			"react_hit" : "Knockout_Flyback",
+			"damage" : 1.0,
+			"react_hit" : "React_Light",
 			"react_ko" : "Knockout_Flyback"
 		},
 		{
@@ -116,6 +123,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -124,7 +132,7 @@
 			"speed" : 1.5,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_FrontSnap",
@@ -132,6 +140,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -140,7 +149,7 @@
 			"speed" : 1.5,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_Triple",
@@ -148,6 +157,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -156,7 +166,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_SpinL",
@@ -164,6 +174,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -172,7 +183,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_SpinR",
@@ -180,6 +191,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -188,7 +200,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_Ground",
@@ -196,6 +208,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -204,7 +217,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_JumpSpin",
@@ -212,6 +225,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -220,7 +234,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Kick_RoundHKick",
@@ -228,6 +242,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -236,7 +251,7 @@
 			"speed" : 1.75,
 			"damage" : 0.5,
 			"react_hit" : "React_Light",
-			"react_ko" : "React_Light"
+			"react_ko" : "Knockout_Headshot"
 		},
 		{
 			"name" : "Jump_Short",
@@ -244,6 +259,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 3.0,
@@ -258,6 +274,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -2.1,
                 "y" : 3.0,
@@ -272,6 +289,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 2.1,
                 "y" : 3.0,
@@ -286,6 +304,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 3.0,
@@ -300,6 +319,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -5.6,
                 "y" : 3.0,
@@ -314,6 +334,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 5.6,
                 "y" : 3.0,
@@ -328,6 +349,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -3.0,
                 "y" : 0.0,
@@ -342,6 +364,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 3.0,
                 "y" : 0.0,
@@ -356,6 +379,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -4.0,
                 "y" : 3.0,
@@ -370,6 +394,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 4.0,
                 "y" : 3.0,
@@ -384,6 +409,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -398,6 +424,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 5.0,
@@ -412,6 +439,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -0.75,
                 "y" : 0.0,
@@ -426,6 +454,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.75,
                 "y" : 0.0,
@@ -440,6 +469,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : -2.0,
                 "y" : 0.0,
@@ -454,6 +484,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 2.0,
                 "y" : 0.0,
@@ -468,6 +499,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -482,6 +514,7 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -496,20 +529,22 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : false,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 3.0,
-                "z" : -2.0
+                "z" : -3.0
 				},
 			"speed" : 1.5,
 			"damage" : 0.0
-		},
+		}, 
 		{
 			"name" : "Getup_BackSlow",
 			"animation" : "payne/custom_max_tenements_getup2",
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : true,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
@@ -524,12 +559,43 @@
 			"rotation" : false,
 			"movement" : false,
 			"blendlegs" : false,
+            "invulnerable" : true,
 			"velocity" : {
 				"x" : 0.0,
                 "y" : 0.0,
                 "z" : 0.0
 				},
 			"speed" : 2.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Getup_DodgeLeft",
+			"animation" : "payne/ShootDodgeLeft_Getup",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+            "invulnerable" : true,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.0,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Getup_DodgeRight",
+			"animation" : "payne/ShootDodgeRight_Getup",
+			"rotation" : false,
+			"movement" : false,
+			"blendlegs" : false,
+            "invulnerable" : true,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.0,
 			"damage" : 0.0
 		}
     ]
