@@ -149,56 +149,56 @@ ModelImporter:
       curves: []
       events:
       - time: 0.03858521
-        functionName: ApplyDamage
-        data: Hand-L
+        functionName: FireProjectile
+        data: Hand-L Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.12218649
-        functionName: ApplyDamage
-        data: Hand-R
+        functionName: FireProjectile
+        data: Hand-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.23151125
-        functionName: ApplyDamage
-        data: Hand-L
+        functionName: FireProjectile
+        data: Hand-L Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.33440512
-        functionName: ApplyDamage
-        data: Hand-R
+        functionName: FireProjectile
+        data: Hand-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.4823151
-        functionName: ApplyDamage
-        data: Hand-L
+        functionName: FireProjectile
+        data: Hand-L Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.5594855
-        functionName: ApplyDamage
-        data: Hand-R
+        functionName: FireProjectile
+        data: Hand-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.7299035
-        functionName: ApplyDamage
-        data: Hand-L
+        functionName: FireProjectile
+        data: Hand-L Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

@@ -226,7 +226,7 @@ public class Action : MonoBehaviour
     public void ApplyDamage(string bone)
     {
 
-        FireProjectile(bone, "Projectile_Punch");
+        FireProjectile(bone + " Punch");
         /*var collider = m_Character.GetBoneCollider(bone);
         var contacts = collider.GetComponent<Hitbox>().GetContacts();
 
@@ -236,17 +236,34 @@ public class Action : MonoBehaviour
     }
 
 
-    public void FireProjectile(string bone, string projName)
+    public void FireProjectile(string args)
     {
 
+        string bone = args.Split(' ')[0];
+        string projectileName = args.Split(' ')[1];
+        
         Collider collider = m_Character.GetBoneCollider(bone);
         GameObject obj = Instantiate(
-            Resources.Load("Prefabs/" + projName), transform.position, m_Rigidbody.transform.rotation) as GameObject;
+            Resources.Load("Prefabs/Projectiles/" + projectileName),
+            transform
+            ) as GameObject;
 
-        obj.GetComponent<Hurtbox>().SetAttributes(
-            GetComponent<CapsuleCollider>(), 0.1f, action.damage, action.react_hit, action.react_ko);
+        obj.GetComponent<Projectile>().SetShooterInfo(
+            GetComponent<CapsuleCollider>(), action.damage, action.react_hit, action.react_ko);
         obj.transform.position = collider.transform.position;
         obj.transform.rotation = m_Rigidbody.transform.rotation;
+
+    }
+
+
+    public void SpawnParticle(string particleName, Vector3 position, Quaternion rotation)
+    {
+
+        ParticleSystem hit = Instantiate(
+            Resources.Load("Prefabs/Particles/" + particleName),
+            position,
+            rotation
+            ) as ParticleSystem;
 
     }
 
@@ -269,6 +286,13 @@ public class Action : MonoBehaviour
         }
         else if (react_hit != null)
             StartAction(react_hit);
+
+
+        SpawnParticle(
+            "HitContact", 
+            transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height * 0.9f, 0),
+            Quaternion.Euler(new Vector3(-90, 0, 0))
+            );
 
     }
 

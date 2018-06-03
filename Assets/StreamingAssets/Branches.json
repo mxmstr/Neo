@@ -12,9 +12,60 @@
 
 			"results" : {
 				"Primary" : {
-					"AnyDirection" : {
+					"Forward" : {
 						"AnySpeed" : [
 							"B_Punch_Primary"
+							]
+						},
+					"ForwardLeft" : {
+						"AnySpeed" : [
+							"B_Punch_Primary"
+							]
+						},
+					"ForwardRight" : {
+						"AnySpeed" : [
+							"B_Punch_Primary"
+							]
+						},
+					"Left" : {
+						"AnySpeed" : [
+							"B_Punch_Primary"
+							]
+						},
+					"Right" : {
+						"AnySpeed" : [
+							"B_Punch_Primary"
+							]
+						}
+					}
+				}
+			
+        },
+		{
+
+            "name" : "B_Block_Default",
+			
+			"cooldown" : -1.0,
+
+			"actions" : [
+				"Default"
+				],
+
+			"results" : {
+				"Primary" : {
+					"Backward" : {
+						"AnySpeed" : [
+							"B_BlockB"
+							]
+						},
+					"BackwardLeft" : {
+						"AnySpeed" : [
+							"B_BlockBL"
+							]
+						},
+					"BackwardRight" : {
+						"AnySpeed" : [
+							"B_BlockBR"
 							]
 						}
 					}
@@ -245,17 +296,40 @@
 
 			"actions" : [
 				"Punch_Power1"
-				],
+				]
 
-			"results" : {
-				"Primary" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Punch_Default"
-							]
-						}
-					}
-				}
+        },
+		{
+
+            "name" : "B_BlockB",
+
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Block_Quick"
+				]
+
+        },
+		{
+
+            "name" : "B_BlockBL",
+
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Block_High"
+				]
+
+        },
+		{
+
+            "name" : "B_BlockBR",
+
+			"cooldown" : 0.0,
+
+			"actions" : [
+				"Block_Low"
+				]
 
         },
 		{
@@ -328,17 +402,7 @@
 
 			"actions" : [
 				"Kick_Triple"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Kick_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -411,17 +475,7 @@
 
 			"actions" : [
 				"Kick_JumpSpin"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Kick_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -494,17 +548,7 @@
 
 			"actions" : [
 				"Kick_JumpSpin"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Kick_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -515,17 +559,7 @@
 
 			"actions" : [
 				"Jump_Short"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -536,17 +570,7 @@
 
 			"actions" : [
 				"Jump_ShortL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -557,17 +581,7 @@
 
 			"actions" : [
 				"Jump_ShortR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -578,17 +592,7 @@
 
 			"actions" : [
 				"Jump_Long"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -599,17 +603,7 @@
 
 			"actions" : [
 				"Jump_LongL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -620,17 +614,7 @@
 
 			"actions" : [
 				"Jump_LongR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -641,17 +625,7 @@
 
 			"actions" : [
 				"Jump_SideL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -662,17 +636,7 @@
 
 			"actions" : [
 				"Jump_SideR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -683,17 +647,7 @@
 
 			"actions" : [
 				"Jump_CartL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -704,17 +658,7 @@
 
 			"actions" : [
 				"Jump_CartR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -725,17 +669,7 @@
 
 			"actions" : [
 				"Jump_HopBack"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -746,17 +680,7 @@
 
 			"actions" : [
 				"Jump_BackFlip"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -767,17 +691,7 @@
 
 			"actions" : [
 				"Jump_TwistL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -788,17 +702,7 @@
 
 			"actions" : [
 				"Jump_TwistR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -809,17 +713,7 @@
 
 			"actions" : [
 				"Jump_CartBackL"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         },
 		{
@@ -830,17 +724,7 @@
 
 			"actions" : [
 				"Jump_CartBackR"
-				],
-
-			"results" : {
-				"AnyInput" : {
-					"AnyDirection" : {
-						"AnySpeed" : [
-							"B_Jump_Default"
-							]
-						}
-					}
-				}
+				]
 
         }
 		

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Character
   - Ground
+  - Block
+  - Punch
   layers:
   - Default
   - TransparentFX

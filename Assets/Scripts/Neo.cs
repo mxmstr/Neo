@@ -17,6 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Rigidbody m_Rigidbody;
         private Action m_Action;
         private Branch m_Branch_Primary;
+        private Branch m_Branch_Block;
         private Branch m_Branch_Secondary;
         private Branch m_Branch_Jump;
         private Transform m_Cam;
@@ -41,6 +42,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Branch_Primary = Array.Find(
                 GetComponents<Branch>(),
                 delegate (Branch b) { return b.GetName() == "B_Punch_Default"; }
+                );
+            m_Branch_Block = Array.Find(
+                GetComponents<Branch>(),
+                delegate (Branch b) { return b.GetName() == "B_Block_Default"; }
                 );
             m_Branch_Secondary = Array.Find(
                 GetComponents<Branch>(),
@@ -121,7 +126,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
             if (primary)
+            {
                 m_Branch_Primary.StartAction("Primary", direction, speed);
+                m_Branch_Block.StartAction("Primary", direction, speed);
+            }
             else if (secondary)
                 m_Branch_Secondary.StartAction("Secondary", direction, speed);
             else if (jump)

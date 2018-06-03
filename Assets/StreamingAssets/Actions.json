@@ -118,6 +118,51 @@
 			"react_ko" : "Knockout_Flyback"
 		},
 		{
+			"name" : "Block_High",
+			"animation" : "matrix/player_block",
+			"rotation" : true,
+			"movement" : true,
+			"blendlegs" : true,
+            "invulnerable" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Block_Low",
+			"animation" : "matrix/LO_BLOCK",
+			"rotation" : true,
+			"movement" : true,
+			"blendlegs" : true,
+            "invulnerable" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.75,
+			"damage" : 0.0
+		},
+		{
+			"name" : "Block_Quick",
+			"animation" : "matrix/block_quick",
+			"rotation" : true,
+			"movement" : true,
+			"blendlegs" : true,
+            "invulnerable" : false,
+			"velocity" : {
+				"x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+				},
+			"speed" : 1.5,
+			"damage" : 0.0
+		},
+		{
 			"name" : "Kick_DoubleFront",
 			"animation" : "matrix/frontdoublekick",
 			"rotation" : false,

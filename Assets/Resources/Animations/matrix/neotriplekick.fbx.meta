@@ -157,24 +157,24 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.23284313
-        functionName: ApplyDamage
-        data: Foot-R
+        functionName: FireProjectile
+        data: Foot-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.45098037
-        functionName: ApplyDamage
-        data: Foot-L
+        functionName: FireProjectile
+        data: Foot-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.63235295
-        functionName: ApplyDamage
-        data: Foot-R
+        functionName: FireProjectile
+        data: Foot-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
