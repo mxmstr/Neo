@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BlendTime: 5
+  filename: Actions.json
 --- !u!114 &143683340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,10 +403,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MoveDamping: 10
-  m_GroundCheckDistance: 0.3
   m_Health: 1
   m_Lives: 2
+  m_Strength: 1
+  m_MaxSpeed: 3
+  m_TurnSmoothing: 25
+  m_MoveDamping: 6
+  m_GroundCheckDistance: 0.3
 --- !u!114 &143683341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,8 +423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sensitivity: 250
-  m_TurnSmoothing: 25
-  m_MaxSpeed: 4
   m_WalkTimeMax: 0.25
 --- !u!136 &143683342
 CapsuleCollider:
@@ -603,6 +605,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 218687159}
+  - component: {fileID: 218687160}
   m_Layer: 0
   m_Name: Foot-R
   m_TagString: Untagged
@@ -624,6 +627,18 @@ Transform:
   m_Father: {fileID: 2022886397}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &218687160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218687158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &319623959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1620,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 953816009}
+  - component: {fileID: 953816010}
   m_Layer: 0
   m_Name: Hand-L
   m_TagString: Untagged
@@ -1626,6 +1642,18 @@ Transform:
   m_Father: {fileID: 932380253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &953816010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 953816008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &988338417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1806,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1142560833}
+  - component: {fileID: 1142560834}
   m_Layer: 0
   m_Name: Foot-L
   m_TagString: Untagged
@@ -1799,6 +1828,18 @@ Transform:
   m_Father: {fileID: 1887440750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1142560834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1142560832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1151174612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BlendTime: 5
+  filename: Actions.json
 --- !u!114 &1155470304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,10 +1921,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MoveDamping: 10
-  m_GroundCheckDistance: 0.3
   m_Health: 1
   m_Lives: 2
+  m_Strength: 1
+  m_MaxSpeed: 2
+  m_TurnSmoothing: 25
+  m_MoveDamping: 6
+  m_GroundCheckDistance: 0.3
 --- !u!114 &1155470305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c688c086357c9814cad1f11e6a717206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 3
+  m_PunchRange: 1
+  m_KickRange: 2
 --- !u!136 &1155470306
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2735,6 +2781,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1702765816}
+  - component: {fileID: 1702765817}
   m_Layer: 0
   m_Name: Hand-R
   m_TagString: Untagged
@@ -2756,6 +2803,18 @@ Transform:
   m_Father: {fileID: 1579826595}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1702765817
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702765815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1709837859
 GameObject:
   m_ObjectHideFlags: 0

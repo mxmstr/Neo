@@ -5,11 +5,9 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof (Character))]
-    public class Neo : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [SerializeField] float m_Sensitivity = 10f;
-        [SerializeField] float m_TurnSmoothing = 1.0f;
-        [SerializeField] float m_MaxSpeed = 1f;
         
         public float m_WalkTimeMax = 0.25f;
 
@@ -23,7 +21,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Transform m_Cam;
         private Vector3 m_CamForward;
         private Vector3 m_Move;
-        private bool m_Jump;
         private float m_WalkTime = 0;
 
 
@@ -127,8 +124,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (primary)
             {
-                m_Branch_Primary.StartAction("Primary", direction, speed);
                 m_Branch_Block.StartAction("Primary", direction, speed);
+                m_Branch_Primary.StartAction("Primary", direction, speed);
             }
             else if (secondary)
                 m_Branch_Secondary.StartAction("Secondary", direction, speed);
@@ -150,22 +147,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move = v * m_CamForward + h * m_Cam.right;
             else
                 m_Move = v * Vector3.forward + h * Vector3.right;
+            
 
-            m_Move = m_Move.normalized * m_MaxSpeed;
+            m_Action.Rotate(m_CamForward);
+            m_Action.Move(m_Move.normalized);
 
-
-            m_Action.Rotate(m_CamForward, m_TurnSmoothing);
-            m_Action.Move(m_Move, m_MaxSpeed);
-
-            m_Jump = false;
-
-        }
-
-
-        void Update()
-        {
-            //sif (!m_Jump)
-                //m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
 
 

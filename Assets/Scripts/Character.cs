@@ -8,10 +8,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	[RequireComponent(typeof(Animator))]
 	public class Character : MonoBehaviour
 	{
-        [SerializeField] float m_MoveDamping = 1f;
-		[SerializeField] float m_GroundCheckDistance = 0.1f;
+
         [SerializeField] float m_Health = 1.0f;
         [SerializeField] int m_Lives = 2;
+        [SerializeField] float m_Strength = 1.0f;
+        [SerializeField] float m_MaxSpeed = 1f;
+        [SerializeField] float m_TurnSmoothing = 1.0f;
+        [SerializeField] float m_MoveDamping = 1f;
+        [SerializeField] float m_GroundCheckDistance = 0.1f;
+        
 
         Animator m_Animator;
         Rigidbody m_Rigidbody;
@@ -90,13 +95,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Rotate(Vector3 rotation, float smoothing)
+        public void Rotate(Vector3 rotation)
         {
 
             var currentRotation = m_Rigidbody.rotation;
 
             m_Rigidbody.rotation = Quaternion.Slerp(
-                m_Rigidbody.rotation, Quaternion.LookRotation(rotation), smoothing * Time.deltaTime);
+                m_Rigidbody.rotation, Quaternion.LookRotation(rotation), m_TurnSmoothing * Time.deltaTime);
             
             
             var forwardA = currentRotation * Vector3.forward;
@@ -110,18 +115,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Move(Vector3 direction, float maxSpeed)
+        public void Move(Vector3 direction)
 		{
             
-            m_Direction = Vector3.Lerp(m_Direction, direction, m_MoveDamping * Time.deltaTime);
+            m_Direction = Vector3.Lerp(
+                m_Direction, direction * m_MaxSpeed, m_MoveDamping * Time.deltaTime);
             m_Direction.y = m_Rigidbody.velocity.y;
             m_Rigidbody.velocity = m_Direction;
 
 
             var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
             
-            m_Animator.SetFloat("Forward", localDirection.z / maxSpeed, 0.1f, Time.deltaTime);
-            m_Animator.SetFloat("Sidestep", localDirection.x / maxSpeed, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("Forward", localDirection.z / m_MaxSpeed, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("Sidestep", localDirection.x / m_MaxSpeed, 0.1f, Time.deltaTime);
 
         }
  

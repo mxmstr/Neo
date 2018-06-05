@@ -12,27 +12,7 @@
 
 			"results" : {
 				"Primary" : {
-					"Forward" : {
-						"AnySpeed" : [
-							"B_Punch_Primary"
-							]
-						},
-					"ForwardLeft" : {
-						"AnySpeed" : [
-							"B_Punch_Primary"
-							]
-						},
-					"ForwardRight" : {
-						"AnySpeed" : [
-							"B_Punch_Primary"
-							]
-						},
-					"Left" : {
-						"AnySpeed" : [
-							"B_Punch_Primary"
-							]
-						},
-					"Right" : {
+					"AnyDirection" : {
 						"AnySpeed" : [
 							"B_Punch_Primary"
 							]

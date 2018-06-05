@@ -1538,14 +1538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
-  m_JumpPower: 12
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
+  m_MaxSpeed: 3
+  m_TurnSmoothing: 25
   m_MoveDamping: 6
-  m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
+  m_Health: 1
+  m_Lives: 2
 --- !u!114 &114270827999886436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1558,8 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sensitivity: 250
-  m_TurnSmoothing: 25
-  m_MaxSpeed: 3
+  m_WalkTimeMax: 0.25
 --- !u!114 &114443240162981476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1571,6 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b12856e4ed3b74ba8137a3b13d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Lifetime: 0
 --- !u!114 &114640439621725842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1599,6 +1597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b12856e4ed3b74ba8137a3b13d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Lifetime: 0
 --- !u!114 &114867485675046042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1610,6 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BlendTime: 1
+  filename: Actions.json
 --- !u!114 &114925936106543964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1621,6 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b12856e4ed3b74ba8137a3b13d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Lifetime: 0
 --- !u!114 &114965640538851788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1632,6 +1634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b12856e4ed3b74ba8137a3b13d65f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Lifetime: 0
 --- !u!124 &124241411574141642
 Behaviour:
   m_ObjectHideFlags: 1

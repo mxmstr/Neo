@@ -39,6 +39,8 @@ public class Action : MonoBehaviour
 
     [SerializeField] float m_BlendTime = 1.0f;
 
+    public string filename = "Actions.json";
+
     private Character m_Character;
     private Rigidbody m_Rigidbody;
     private Animator m_Animator;
@@ -46,8 +48,7 @@ public class Action : MonoBehaviour
     private ActionTable table;
     private ActionData action;
     private int slot = 1;
-    private string filename = "Actions.json";
-
+    
 
     void Start()
     {
@@ -193,20 +194,20 @@ public class Action : MonoBehaviour
     }
 
 
-    public void Rotate(Vector3 camForward, float turnSmoothing)
+    public void Rotate(Vector3 camForward)
     {
 
         if (action.rotation)
-            m_Character.Rotate(camForward, turnSmoothing);
+            m_Character.Rotate(camForward);
 
     }
 
 
-    public void Move(Vector3 move, float maxSpeed)
+    public void Move(Vector3 move)
     {
 
         if (action.movement)
-            m_Character.Move(move, maxSpeed);
+            m_Character.Move(move);
 
     }
 
