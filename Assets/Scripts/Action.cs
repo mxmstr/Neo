@@ -164,10 +164,6 @@ public class Action : MonoBehaviour
 
             m_Rigidbody.velocity = actionVelocity;
 
-            /*for (int i = 0; i < 3; i++)
-                if (actionVelocity[i] != 0)
-                    m_Rigidbody.velocity[i] = actionVelocity[i];*/
-
 
             m_Animator.SetInteger("ActionSlot", -1 * m_Animator.GetInteger("ActionSlot"));
 

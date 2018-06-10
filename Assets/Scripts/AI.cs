@@ -4,6 +4,7 @@ using UnityEngine;
 using BTAI;
 using System;
 
+
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof(Character))]
@@ -12,6 +13,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public float m_PunchRange = 1.0f;
         public float m_KickRange = 1.0f;
+        public float m_OutOfRangeDelay = 1.0f;
 
         private Character m_Character;
         private Action m_Action;
@@ -23,11 +25,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private GameObject m_Target;
         private Root m_Tree;
+        private float m_OutOfRangeTime;
 
 
         private void Start()
         {
-            
+
             m_Character = GetComponent<Character>();
             m_Action = GetComponent<Action>();
             m_Branch_Primary = Array.Find(
@@ -50,22 +53,60 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             FindPlayerCharacter();
             m_Tree = BT.Root();
+            m_OutOfRangeTime = 0;
+            int[] attackWeights = {5, 10, 1, 1};
 
             m_Tree.OpenBranch(
-                BT.If(InRange).OpenBranch(
-                    BT.Sequence().OpenBranch(
-                        BT.Call(Punch)
+
+                BT.Call(DecrementRangeTime),
+
+                BT.If(InRangeOrRangeTimeIn).OpenBranch(
+
+                    BT.If(InRange).OpenBranch(
+                        BT.Call(ResetRangeDelay)
+                    ),
+                    BT.RandomSequence(attackWeights).OpenBranch(
+                        BT.Sequence().OpenBranch(
+                            BT.Call(Punch),
+                            BT.While(ActionPlaying).OpenBranch(
+                                //BT.Call(Run),
+                                BT.Call(RotateTo)
+                            )
+                        ),
+                        BT.Sequence().OpenBranch(
+                            BT.Call(Kick),
+                            BT.While(ActionPlaying).OpenBranch(
+                                //BT.Call(Run),
+                                BT.Call(RotateTo)
+                            )
+                        ),
+                        BT.Sequence().OpenBranch(
+                            BT.Repeat(30).OpenBranch(
+                                BT.Call(SideStepRight),
+                                BT.Call(RotateTo)
+                            ),
+                            BT.Call(Stand)
+                        ),
+                        BT.Sequence().OpenBranch(
+                            BT.Repeat(30).OpenBranch(
+                                BT.Call(SideStepLeft),
+                                BT.Call(RotateTo)
+                            ),
+                            BT.Call(Stand)
+                        )
                     )
+
                 ),
-                BT.If(OutOfRange).OpenBranch(
-                    BT.Sequence().OpenBranch(
-                        BT.Call(RunTo)
-                    )
+
+                BT.If(OutOfRangeAndRangeTimeOut).OpenBranch(
+                    BT.Call(Run),
+                    BT.Call(RotateTo)
                 )
+
             );
 
         }
-        
+
 
         private void FindPlayerCharacter()
         {
@@ -77,9 +118,41 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        private bool InRange()
+        private void ResetRangeDelay()
         {
 
+            m_OutOfRangeTime = m_OutOfRangeDelay;
+
+        }
+
+
+        private void DecrementRangeTime()
+        {
+            
+            m_OutOfRangeTime -= Time.deltaTime;
+            
+        }
+
+
+        private bool RangeTimeOut()
+        {
+
+            return m_OutOfRangeTime <= 0;
+
+        }
+
+
+        private bool RangeTimeIn()
+        {
+
+            return !RangeTimeOut();
+
+        }
+
+
+        private bool InRange()
+        {
+            
             float dist = Vector3.Distance(transform.position, m_Target.transform.position);
             return dist <= m_PunchRange;
 
@@ -89,25 +162,88 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool OutOfRange()
         {
 
-            return !InRange();
+            float dist = Vector3.Distance(transform.position, m_Target.transform.position);
+            return dist > m_PunchRange;
+
+        }
+
+
+        private bool InRangeOrRangeTimeIn()
+        {
+
+            return InRange() || RangeTimeIn();
+
+        }
+
+
+        private bool OutOfRangeAndRangeTimeOut()
+        {
+
+            return OutOfRange() && RangeTimeOut();
+
+        }
+
+
+        private bool ActionPlaying()
+        {
+
+            return !m_Action.IsReset();
 
         }
 
 
         private void Punch()
         {
-            
+
             m_Branch_Primary.StartAction("Primary", "AnyDirection", "AnySpeed");
-            //RunTo();
+            
+        }
+
+
+        private void Kick()
+        {
+
+            m_Branch_Secondary.StartAction("Secondary", "AnyDirection", "AnySpeed");
+            
+        }
+
+
+        private void Stand()
+        {
+
+            m_Action.Move(new Vector3(0, 0, 0));
 
         }
 
 
-        private void RunTo()
+        private void Run()
         {
 
-            m_Action.Rotate(m_Target.transform.position - transform.position);
             m_Action.Move(transform.forward.normalized);
+
+        }
+
+
+        private void SideStepRight()
+        {
+            
+            m_Action.Move(transform.right.normalized);
+
+        }
+
+
+        private void SideStepLeft()
+        {
+
+            m_Action.Move(transform.right.normalized * -1);
+
+        }
+
+
+        private void RotateTo()
+        {
+            
+            m_Action.Rotate(m_Target.transform.position - transform.position);
 
         }
 
@@ -116,6 +252,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             m_Tree.Tick();
+            //Debug.Log(m_Tree.Children()[m_Tree.ActiveChild()]);
 
         }
 

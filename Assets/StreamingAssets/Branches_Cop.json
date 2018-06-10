@@ -1,0 +1,91 @@
+{
+    "branches": [
+        {
+
+            "name": "B_Punch_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ],
+
+            "results": {
+                "Primary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Punch_Primary"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Block_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ]
+
+        },
+        {
+
+            "name": "B_Kick_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ],
+
+            "results": {
+                "Secondary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Kick_Primary"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Jump_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ]
+
+        },
+        {
+
+            "name": "B_Punch_Primary",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Punch_Combo"
+            ]
+
+        },
+        {
+
+            "name": "B_Kick_Primary",
+
+            "cooldown": 1.0,
+
+            "actions": [
+                "Kick_Enemy"
+            ]
+
+        }
+
+    ]
+}

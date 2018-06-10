@@ -438,6 +438,7 @@ namespace BTAI
             if (activeChild == -1)
                 PickNewChild();
 
+            Debug.Log(activeChild);
             var result = children[activeChild].Tick();
 
             switch (result)
@@ -453,7 +454,7 @@ namespace BTAI
         void PickNewChild()
         {
             int choice = Random.Range(0, m_AddedWeight[m_AddedWeight.Length - 1]);
-
+            
             for (int i = 0; i < m_AddedWeight.Length; ++i)
             {
                 if (choice - m_AddedWeight[i] <= 0)
@@ -462,6 +463,8 @@ namespace BTAI
                     break;
                 }
             }
+
+            //activeChild = choice;
         }
 
         public override string ToString()

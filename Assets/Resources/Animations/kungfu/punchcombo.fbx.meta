@@ -149,16 +149,16 @@ ModelImporter:
       curves: []
       events:
       - time: 0.29041094
-        functionName: ApplyDamage
-        data: Hand-R
+        functionName: FireProjectile
+        data: Hand-R Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.59487164
-        functionName: ApplyDamage
-        data: Hand-L
+        functionName: FireProjectile
+        data: Hand-L Punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
