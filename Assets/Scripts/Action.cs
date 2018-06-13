@@ -3,10 +3,47 @@ using System.IO;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEditor;
 using System;
-
+using System.Reflection;
 
 public class Action : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class PowerData
+    {
+
+        public object this[string propertyName]
+        {
+            get
+            {
+                Type myType = typeof(PowerData);
+                FieldInfo myPropInfo = myType.GetField(propertyName);
+                return myPropInfo == null ? null : myPropInfo.GetValue(this);
+            }
+            set
+            {
+                GetType().GetField(propertyName).SetValue(this, value);
+            }
+        }
+
+        public string name;
+        public string punch;
+        public string block;
+        public Vector3 push;
+        public string[] react_light;
+        public string[] react_heavy;
+        public string[] knockout_default;
+        public string[] knockout_power;
+        public string[] death_default;
+        public string[] death_power;
+
+    }
+
+    [System.Serializable]
+    public class PowerTable
+    {
+        public PowerData[] powertypes;
+    }
 
     [System.Serializable]
     public class ActionData : ICloneable
@@ -36,17 +73,20 @@ public class Action : MonoBehaviour
     {
         public ActionData[] actions;
     }
-
-    [SerializeField] float m_BlendTime = 1.0f;
-
-    public string filename = "Actions.json";
+    
+    public string m_ActionSource = "Actions.json";
+    public string m_PowerSource = "PowerTypes.json";
+    public string m_PowerType = "Normal";
+    public float m_BlendTime = 1.0f;
 
     private Character m_Character;
     private Rigidbody m_Rigidbody;
     private Animator m_Animator;
     private AnimatorOverrideController m_AnimatorOverride;
-    private ActionTable table;
-    private ActionData action;
+    private ActionTable m_ActionTable;
+    private ActionData m_ActionData;
+    PowerTable m_PowerTable;
+    PowerData m_PowerData;
     private int slot = 1;
     
 
@@ -61,6 +101,7 @@ public class Action : MonoBehaviour
         m_Animator.runtimeAnimatorController = m_AnimatorOverride;
 
         LoadActionData();
+        LoadPowerData();
         ResetAction();
 
     }
@@ -69,7 +110,7 @@ public class Action : MonoBehaviour
     public bool IsReset()
     {
 
-        return action.name == "Default";
+        return m_ActionData.name == "Default";
 
     }
 
@@ -77,8 +118,26 @@ public class Action : MonoBehaviour
     private void LoadActionData()
     {
 
-        string filePath = Path.Combine(Application.streamingAssetsPath, filename);
-        table = JsonUtility.FromJson<ActionTable>(File.ReadAllText(filePath));
+        string filePath = Path.Combine(Application.streamingAssetsPath, m_ActionSource);
+        m_ActionTable = JsonUtility.FromJson<ActionTable>(File.ReadAllText(filePath));
+        
+    }
+
+
+    private void LoadPowerData()
+    {
+
+        string filePath = Path.Combine(Application.streamingAssetsPath, m_PowerSource);
+        m_PowerTable = JsonUtility.FromJson<PowerTable>(File.ReadAllText(filePath));
+
+        foreach (PowerData data in m_PowerTable.powertypes)
+        {
+            if (data.name == m_PowerType)
+            {
+                m_PowerData = data;
+                break;
+            }
+        }
 
     }
 
@@ -86,7 +145,7 @@ public class Action : MonoBehaviour
     public void EnableRotation(string enable)
     {
 
-        action.rotation = bool.Parse(enable);
+        m_ActionData.rotation = bool.Parse(enable);
 
     }
 
@@ -94,7 +153,7 @@ public class Action : MonoBehaviour
     public void EnableMovement(string enable)
     {
 
-        action.movement = bool.Parse(enable);
+        m_ActionData.movement = bool.Parse(enable);
 
     }
 
@@ -102,7 +161,7 @@ public class Action : MonoBehaviour
     public void EnableInvulnerable(string enable)
     {
 
-        action.invulnerable = bool.Parse(enable);
+        m_ActionData.invulnerable = bool.Parse(enable);
 
     }
 
@@ -134,7 +193,7 @@ public class Action : MonoBehaviour
         m_AnimatorOverride[currentslot].events = new AnimationEvent[0];
 
         AnimationClip clip_src = Resources.Load(
-            "Animations/" + action.animation, typeof(AnimationClip)) as AnimationClip;
+            "Animations/" + m_ActionData.animation, typeof(AnimationClip)) as AnimationClip;
         AnimationClip clip_new = new AnimationClip();
         EditorUtility.CopySerialized(clip_src, clip_new);
 
@@ -146,21 +205,21 @@ public class Action : MonoBehaviour
     public void StartAction(string actionName)
     {
 
-        foreach (ActionData data in table.actions)
+        foreach (ActionData data in m_ActionTable.actions)
         {
             if (data.name == actionName)
             {
-                action = (Action.ActionData)data.Clone();
+                m_ActionData = (Action.ActionData)data.Clone();
                 break;
             }
         }
         
 
-        if (action.name != "Default")
+        if (m_ActionData.name != "Default")
         {
 
             var rotation = m_Rigidbody.transform.rotation;
-            var actionVelocity = rotation * action.velocity;
+            var actionVelocity = rotation * m_ActionData.velocity;
 
             m_Rigidbody.velocity = actionVelocity;
 
@@ -172,7 +231,7 @@ public class Action : MonoBehaviour
             else
                 LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2");
 
-            m_Animator.SetFloat("ActionSpeed", action.speed);
+            m_Animator.SetFloat("ActionSpeed", m_ActionData.speed);
             m_Animator.SetBool("ActionPlaying", true);
 
         }
@@ -193,7 +252,7 @@ public class Action : MonoBehaviour
     public void Rotate(Vector3 camForward)
     {
 
-        if (action.rotation)
+        if (m_ActionData.rotation)
             m_Character.Rotate(camForward);
 
     }
@@ -202,13 +261,13 @@ public class Action : MonoBehaviour
     public void Move(Vector3 move)
     {
 
-        if (action.movement)
+        if (m_ActionData.movement)
             m_Character.Move(move);
 
     }
 
 
-    public void GetUp(string actionName)
+    public void Recover(string actionName)
     {
         
         if (m_Character.HasLives())
@@ -241,12 +300,12 @@ public class Action : MonoBehaviour
         
         Collider collider = m_Character.GetBoneCollider(bone);
         GameObject obj = Instantiate(
-            Resources.Load("Prefabs/Projectiles/" + projectileName),
+            Resources.Load((string)m_PowerData[projectileName]),
             transform
             ) as GameObject;
 
         obj.GetComponent<Projectile>().SetShooterInfo(
-            GetComponent<CapsuleCollider>(), action.damage, action.react_hit, action.react_ko);
+            GetComponent<CapsuleCollider>(), m_ActionData.damage, m_ActionData.react_hit, m_ActionData.react_ko);
         obj.transform.position = collider.transform.position;
         obj.transform.rotation = m_Rigidbody.transform.rotation;
 
@@ -268,28 +327,36 @@ public class Action : MonoBehaviour
     public void ReceiveDamage(float damage, Vector3 direction, string react_hit, string react_ko)
     {
 
-        if (action.invulnerable)
+        if (m_ActionData.invulnerable)
             return;
 
         m_Character.ReceiveDamage(damage);
 
-        if (m_Character.HasHealth())
+        try
         {
-            if (react_ko != null)
+
+            System.Random rand = new System.Random();
+
+            if (m_Character.HasHealth())
             {
-                StartAction(react_ko);
+                string[] reactions = (string[])m_PowerData[react_ko];
+                StartAction(reactions[rand.Next(reactions.Length)]);
                 m_Rigidbody.rotation = Quaternion.LookRotation(direction * -1);
             }
+            else
+            {
+                string[] reactions = (string[])m_PowerData[react_hit];
+                StartAction(reactions[rand.Next(reactions.Length)]);
+            }
+        
+            SpawnParticle(
+                "HitContact", 
+                transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height * 0.9f, 0),
+                Quaternion.Euler(new Vector3(-90, 0, 0))
+                );
+
         }
-        else if (react_hit != null)
-            StartAction(react_hit);
-
-
-        SpawnParticle(
-            "HitContact", 
-            transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height * 0.9f, 0),
-            Quaternion.Euler(new Vector3(-90, 0, 0))
-            );
+        catch (NullReferenceException e) { }
 
     }
 
@@ -310,9 +377,9 @@ public class Action : MonoBehaviour
     void Update()
     {
         
-        if (action.name != "Default")
+        if (m_ActionData.name != "Default")
         {
-            if (action.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
+            if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
             {
                 BlendLayer(1, -1);
                 BlendLayer(2, 1);

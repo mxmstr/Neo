@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Cop.json
+  source: Branches_Cop.json
   defaultBranch: B_Punch_Default
 --- !u!114 &114203363174236218
 MonoBehaviour:
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Cop.json
+  source: Branches_Cop.json
   defaultBranch: B_Block_Default
 --- !u!114 &114229133175409798
 MonoBehaviour:
@@ -1382,7 +1382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Health: 1
   m_Lives: 2
-  m_Strength: 1
   m_MaxSpeed: 2
   m_TurnSmoothing: 25
   m_MoveDamping: 6
@@ -1400,6 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PunchRange: 1.5
   m_KickRange: 2
+  m_OutOfRangeDelay: 0.25
 --- !u!114 &114781823193009232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Cop.json
+  source: Branches_Cop.json
   defaultBranch: B_Jump_Default
 --- !u!114 &114940063596376916
 MonoBehaviour:
@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Cop.json
+  source: Branches_Cop.json
   defaultBranch: B_Kick_Default
 --- !u!114 &114991832908336554
 MonoBehaviour:
@@ -1437,8 +1437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionSource: Actions.json
+  m_PowerSource: PowerTypes.json
+  m_PowerType: Normal
   m_BlendTime: 5
-  filename: Actions.json
 --- !u!136 &136004249192350426
 CapsuleCollider:
   m_ObjectHideFlags: 1

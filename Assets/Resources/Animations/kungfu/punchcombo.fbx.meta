@@ -150,7 +150,7 @@ ModelImporter:
       events:
       - time: 0.29041094
         functionName: FireProjectile
-        data: Hand-R Punch
+        data: Hand-R punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
@@ -158,7 +158,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.59487164
         functionName: FireProjectile
-        data: Hand-L Punch
+        data: Hand-L punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

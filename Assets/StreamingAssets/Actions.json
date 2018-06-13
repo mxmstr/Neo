@@ -1,687 +1,717 @@
 {
-    "actions" : [
+    "actions": [
         {
             "name": "Default",
-            "animation" : "Action_Default",
-            "rotation" : true,
-            "movement" : true,
-            "blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-                "x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-            "speed" : 0.0,
-            "damage" : 0.0
+            "animation": "Action_Default",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 0.0,
+            "damage": 0.0
         },
 
-		{
-			"name" : "Punch_Combo",
-			"animation" : "kungfu/punchcombo",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_LeftJabs",
-			"animation" : "matrix/punchleftjabs",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 2.0,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_RightJab",
-			"animation" : "matrix/punchrightjab",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 2.0,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_LoHi",
-			"animation" : "matrix/punchlohi",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 2.0,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_Tong",
-			"animation" : "matrix/punchtong",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_Flurry",
-			"animation" : "matrix/punchflurry",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 2.0,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Punch_Power1",
-			"animation" : "matrix/punchpower",
-			"rotation" : true,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 1.0,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Flyback"
-		},
+        {
+            "name": "Punch_Combo",
+            "animation": "kungfu/punchcombo",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_LeftJabs",
+            "animation": "matrix/punchleftjabs",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 2.0,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_RightJab",
+            "animation": "matrix/punchrightjab",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 2.0,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_LoHi",
+            "animation": "matrix/punchlohi",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 2.0,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_Tong",
+            "animation": "matrix/punchtong",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_Flurry",
+            "animation": "matrix/punchflurry",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 2.0,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Punch_Power1",
+            "animation": "matrix/punchpower",
+            "rotation": true,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 1.0,
+            "react_hit": "react_light",
+            "react_ko": "knockout_power"
+        },
 
-		{
-			"name" : "Block_High",
-			"animation" : "matrix/player_block",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Block_Low",
-			"animation" : "matrix/LO_BLOCK",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Block_Quick",
-			"animation" : "matrix/block_quick",
-			"rotation" : true,
-			"movement" : true,
-			"blendlegs" : true,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
+        {
+            "name": "Block_High",
+            "animation": "matrix/player_block",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Block_Low",
+            "animation": "matrix/LO_BLOCK",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75,
+            "damage": 0.0
+        },
+        {
+            "name": "Block_Quick",
+            "animation": "matrix/block_quick",
+            "rotation": true,
+            "movement": true,
+            "blendlegs": true,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
 
-		{
-			"name" : "Kick_Enemy",
-			"animation" : "kungfu/enemy_kick1",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 1.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.25,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_DoubleFront",
-			"animation" : "matrix/frontdoublekick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_FrontSnap",
-			"animation" : "matrix/frontsnapkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_Triple",
-			"animation" : "matrix/neotriplekick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 2.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_SpinL",
-			"animation" : "kungfu/lspinkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_SpinR",
-			"animation" : "kungfu/rspinkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_Ground",
-			"animation" : "matrix/groundkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_JumpSpin",
-			"animation" : "kungfu/jumpspinkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 1.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
-		{
-			"name" : "Kick_RoundHKick",
-			"animation" : "matrix/leftroundhkick",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.75,
-			"damage" : 0.5,
-			"react_hit" : "React_Light",
-			"react_ko" : "Knockout_Headshot"
-		},
+        {
+            "name": "Kick_Enemy",
+            "animation": "kungfu/enemy_kick1",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+            },
+            "speed": 1.5,
+            "damage": 0.25,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_DoubleFront",
+            "animation": "matrix/frontdoublekick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_FrontSnap",
+            "animation": "matrix/frontsnapkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_Triple",
+            "animation": "matrix/neotriplekick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_SpinL",
+            "animation": "kungfu/lspinkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_SpinR",
+            "animation": "kungfu/rspinkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_Ground",
+            "animation": "matrix/groundkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_JumpSpin",
+            "animation": "kungfu/jumpspinkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
+        {
+            "name": "Kick_RoundHKick",
+            "animation": "matrix/leftroundhkick",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75,
+            "damage": 0.5,
+            "react_hit": "react_light",
+            "react_ko": "knockout_default"
+        },
 
-		{
-			"name" : "Jump_Short",
-			"animation" : "payne/jumpForward",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 3.0,
-                "z" : 3.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_ShortL",
-			"animation" : "payne/jumpForwardLeft",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -2.1,
-                "y" : 3.0,
-                "z" : 2.1
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_ShortR",
-			"animation" : "payne/jumpForwardRight",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 2.1,
-                "y" : 3.0,
-                "z" : 2.1
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_Long",
-			"animation" : "kungfu/longjump",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 3.0,
-                "z" : 8.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_LongL",
-			"animation" : "kungfu/longjumpleft",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -5.6,
-                "y" : 3.0,
-                "z" : 5.6
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_LongR",
-			"animation" : "kungfu/longjumpright",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 5.6,
-                "y" : 3.0,
-                "z" : 5.6
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_SideL",
-			"animation" : "matrix/sidestepleft",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -3.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_SideR",
-			"animation" : "matrix/sidestepright",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 3.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_CartL",
-			"animation" : "kungfu/cartleft",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -4.0,
-                "y" : 3.0,
-                "z" : 0.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_CartR",
-			"animation" : "kungfu/cartright",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 4.0,
-                "y" : 3.0,
-                "z" : 0.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_HopBack",
-			"animation" : "kungfu/hopback",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : -3.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_BackFlip",
-			"animation" : "kungfu/backflip",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 5.0,
-                "z" : -3.0
-				},
-			"speed" : 1.25,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_TwistL",
-			"animation" : "matrix/agent_twist",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -0.75,
-                "y" : 0.0,
-                "z" : -0.75
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_TwistR",
-			"animation" : "matrix/agent_twist",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.75,
-                "y" : 0.0,
-                "z" : -0.75
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_CartBackL",
-			"animation" : "matrix/cartbackleft",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : -2.0,
-                "y" : 0.0,
-                "z" : -2.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Jump_CartBackR",
-			"animation" : "matrix/cartbackright",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 2.0,
-                "y" : 0.0,
-                "z" : -2.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "React_Light",
-			"animation" : "payne/GetHit_0200ms",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 8.0,
-			"damage" : 0.0
-		},
+        {
+            "name": "Jump_Short",
+            "animation": "payne/jumpForward",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": 3.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_ShortL",
+            "animation": "payne/jumpForwardLeft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -2.1,
+                "y": 3.0,
+                "z": 2.1
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_ShortR",
+            "animation": "payne/jumpForwardRight",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 2.1,
+                "y": 3.0,
+                "z": 2.1
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_Long",
+            "animation": "kungfu/longjump",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": 8.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_LongL",
+            "animation": "kungfu/longjumpleft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -5.6,
+                "y": 3.0,
+                "z": 5.6
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_LongR",
+            "animation": "kungfu/longjumpright",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 5.6,
+                "y": 3.0,
+                "z": 5.6
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_SideL",
+            "animation": "matrix/sidestepleft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -3.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_SideR",
+            "animation": "matrix/sidestepright",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 3.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_CartL",
+            "animation": "kungfu/cartleft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -4.0,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_CartR",
+            "animation": "kungfu/cartright",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 4.0,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_HopBack",
+            "animation": "kungfu/hopback",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -3.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_BackFlip",
+            "animation": "kungfu/backflip",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 5.0,
+                "z": -3.0
+            },
+            "speed": 1.25,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_TwistL",
+            "animation": "matrix/agent_twist",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -0.75,
+                "y": 0.0,
+                "z": -0.75
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_TwistR",
+            "animation": "matrix/agent_twist",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.75,
+                "y": 0.0,
+                "z": -0.75
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_CartBackL",
+            "animation": "matrix/cartbackleft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -2.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_CartBackR",
+            "animation": "matrix/cartbackright",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 2.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Jump_SpringBack",
+            "animation": "matrix/backhandspring",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -1.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "React_Light1",
+            "animation": "payne/GetHit_0200ms",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 8.0,
+            "damage": 0.0
+        },
 
-		{
-			"name" : "Knockout_Headshot",
-			"animation" : "payne/Death_Headshot",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Knockout_Flyback",
-			"animation" : "matrix/death_flyback",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : false,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 3.0,
-                "z" : -3.0
-				},
-			"speed" : 1.5,
-			"damage" : 0.0
-		}, 
+        {
+            "name": "Knockout_Headshot",
+            "animation": "payne/Death_Headshot",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Knockout_Flyback",
+            "animation": "matrix/death_flyback",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 1.5,
+            "damage": 0.0
+        },
+        {
+            "name": "Knockout_SpringBack",
+            "animation": "Knockout_SpringBack",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
 
-		{
-			"name" : "Getup_BackSlow",
-			"animation" : "payne/custom_max_tenements_getup2",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : true,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 3.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Getup_FrontSlow",
-			"animation" : "payne/idle_on_train_roof_getup",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : true,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 2.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Getup_DodgeLeft",
-			"animation" : "payne/ShootDodgeLeft_Getup",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : true,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		},
-		{
-			"name" : "Getup_DodgeRight",
-			"animation" : "payne/ShootDodgeRight_Getup",
-			"rotation" : false,
-			"movement" : false,
-			"blendlegs" : false,
-            "invulnerable" : true,
-			"velocity" : {
-				"x" : 0.0,
-                "y" : 0.0,
-                "z" : 0.0
-				},
-			"speed" : 1.0,
-			"damage" : 0.0
-		}
+        {
+            "name": "Getup_BackSlow",
+            "animation": "payne/custom_max_tenements_getup2",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 3.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Getup_FrontSlow",
+            "animation": "payne/idle_on_train_roof_getup",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 2.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Getup_DodgeLeft",
+            "animation": "payne/ShootDodgeLeft_Getup",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        },
+        {
+            "name": "Getup_DodgeRight",
+            "animation": "payne/ShootDodgeRight_Getup",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0,
+            "damage": 0.0
+        }
     ]
 }

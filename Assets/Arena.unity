@@ -328,6 +328,31 @@ Prefab:
       propertyPath: m_Health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114858477455802712, guid: a123dae711eb5dd4fbe8ab4401214d7b,
+        type: 2}
+      propertyPath: source
+      value: Branches_Neo.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114712421333380172, guid: a123dae711eb5dd4fbe8ab4401214d7b,
+        type: 2}
+      propertyPath: source
+      value: Branches_Neo.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114949857478196514, guid: a123dae711eb5dd4fbe8ab4401214d7b,
+        type: 2}
+      propertyPath: source
+      value: Branches_Neo.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114599495980888270, guid: a123dae711eb5dd4fbe8ab4401214d7b,
+        type: 2}
+      propertyPath: source
+      value: Branches_Neo.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541688955916092, guid: a123dae711eb5dd4fbe8ab4401214d7b,
+        type: 2}
+      propertyPath: m_PowerType
+      value: One
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a123dae711eb5dd4fbe8ab4401214d7b, type: 2}
   m_IsPrefabParent: 0
@@ -374,6 +399,56 @@ Prefab:
         type: 2}
       propertyPath: m_OutOfRangeDelay
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078255062663198, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: source
+      value: Branches_Cop.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203363174236218, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: source
+      value: Branches_Cop.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940063596376916, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: source
+      value: Branches_Cop.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114781823193009232, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: source
+      value: Branches_Cop.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_ReactLight.Array.data[0]
+      value: React_Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_ReactHeavy.Array.data[0]
+      value: React_Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_KnockoutDefault.Array.data[0]
+      value: Knockout_Headshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_DeathDefault.Array.data[0]
+      value: Knockout_Headshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_KnockoutPower.Array.data[0]
+      value: Knockout_Flyback
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229133175409798, guid: 2576dee10beaee744af7c4c04c1a4339,
+        type: 2}
+      propertyPath: m_DeathPower.Array.data[0]
+      value: Knockout_Flyback
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2576dee10beaee744af7c4c04c1a4339, type: 2}

@@ -1513,9 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Health: 1
+  m_MaxHealth: 3
   m_Lives: 2
-  m_Strength: 1
   m_MaxSpeed: 3
   m_TurnSmoothing: 25
   m_MoveDamping: 6
@@ -1569,8 +1568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionSource: Actions.json
+  m_PowerSource: PowerTypes.json
+  m_PowerType: One
   m_BlendTime: 5
-  filename: Actions.json
 --- !u!114 &114599495980888270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1582,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Neo.json
+  source: Branches_Neo.json
   defaultBranch: B_Jump_Default
 --- !u!114 &114712421333380172
 MonoBehaviour:
@@ -1595,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Neo.json
+  source: Branches_Neo.json
   defaultBranch: B_Block_Default
 --- !u!114 &114823903993456740
 MonoBehaviour:
@@ -1625,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Neo.json
+  source: Branches_Neo.json
   defaultBranch: B_Punch_Default
 --- !u!114 &114949857478196514
 MonoBehaviour:
@@ -1638,7 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d0867e9b6cfc47917a31de2948df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Branches_Neo.json
+  source: Branches_Neo.json
   defaultBranch: B_Kick_Default
 --- !u!124 &124005301135111588
 Behaviour:

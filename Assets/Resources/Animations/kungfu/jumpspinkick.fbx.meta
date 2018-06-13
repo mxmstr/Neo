@@ -158,7 +158,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.5261438
         functionName: FireProjectile
-        data: Foot-R Punch
+        data: Foot-R punch
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

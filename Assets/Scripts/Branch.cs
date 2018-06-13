@@ -164,7 +164,7 @@ public class Branch : MonoBehaviour
         public BranchData[] branches;
     }
 
-    public string filename = "Branches.json";
+    public string source = "Branches.json";
     public string defaultBranch = "B_Punch_Default";
 
     private Action m_Action;
@@ -193,7 +193,7 @@ public class Branch : MonoBehaviour
     private void LoadBranchData()
     {
 
-        string filePath = Path.Combine(Application.streamingAssetsPath, filename);
+        string filePath = Path.Combine(Application.streamingAssetsPath, source);
         table = JsonUtility.FromJson<BranchTable>(File.ReadAllText(filePath));
         
         foreach (BranchData data in table.branches)

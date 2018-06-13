@@ -158,7 +158,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.08608059
         functionName: FireProjectile
-        data: Hand-R Block
+        data: Hand-R block
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

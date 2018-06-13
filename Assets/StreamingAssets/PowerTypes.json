@@ -1,0 +1,82 @@
+{
+    "powertypes": [
+        {
+            "name": "Normal",
+            "punch": "Prefabs/Projectiles/Punch",
+            "block": "Prefabs/Projectiles/Block",
+            "push": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "react_light": [
+                "React_Light"
+            ],
+            "react_heavy": [
+                "React_Light"
+            ],
+            "knockout_default": [
+                "Knockout_Headshot"
+            ],
+            "knockout_power": [
+                "Knockout_Flyback"
+            ],
+            "death_default": [
+                "Knockout_Headshot"
+            ],
+            "death_power": [
+                "Knockout_Flyback"
+            ]
+        },
+        {
+            "name": "One",
+            "punch": "Prefabs/Projectiles/Punch",
+            "block": "Prefabs/Projectiles/Block",
+            "push": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.5
+            },
+            "react_heavy": [
+                "React_Light"
+            ],
+            "knockout_default": [
+                "Knockout_Headshot"
+            ],
+            "knockout_power": [
+                "Jump_SpringBack"
+            ],
+            "death_default": [
+                "Knockout_Headshot"
+            ],
+            "death_power": [
+                "Knockout_Flyback"
+            ]
+        },
+        {
+            "name": "Agent",
+            "punch": "Prefabs/Projectiles/Punch",
+            "block": "Prefabs/Projectiles/Block",
+            "push": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.5
+            },
+            "react_heavy": [
+                "React_Light"
+            ],
+            "knockout_default": [
+                "React_Light"
+            ],
+            "knockout_power": [
+                "Knockout_SpringBack"
+            ],
+            "death_default": [
+                "Knockout_Headshot"
+            ],
+            "death_power": [
+                "Knockout_Flyback"
+            ]
+        }
+    ]
+}

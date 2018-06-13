@@ -437,8 +437,7 @@ namespace BTAI
         {
             if (activeChild == -1)
                 PickNewChild();
-
-            Debug.Log(activeChild);
+            
             var result = children[activeChild].Tick();
 
             switch (result)
@@ -463,8 +462,6 @@ namespace BTAI
                     break;
                 }
             }
-
-            //activeChild = choice;
         }
 
         public override string ToString()

@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 
@@ -9,9 +10,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	public class Character : MonoBehaviour
 	{
 
-        [SerializeField] float m_Health = 1.0f;
+        [SerializeField] float m_MaxHealth = 1.0f;
         [SerializeField] int m_Lives = 2;
-        [SerializeField] float m_Strength = 1.0f;
         [SerializeField] float m_MaxSpeed = 1f;
         [SerializeField] float m_TurnSmoothing = 1.0f;
         [SerializeField] float m_MoveDamping = 1f;
@@ -23,7 +23,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         CapsuleCollider m_Capsule;
         BoxCollider[] m_Colliders;
         Action m_Action;
-        
+
+        float m_Health;
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
         Vector3 m_Direction;
@@ -38,8 +39,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
             m_Colliders = GetComponentsInChildren<BoxCollider>();
-            
             m_Action = GetComponent<Action>();
+
+            m_Health = m_MaxHealth;
+
             m_Direction = new Vector3(0, 0, 0);
             m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
@@ -70,7 +73,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             m_Lives--;
-            m_Health = 1.0f;
+            m_Health = m_MaxHealth;
 
         }
         
