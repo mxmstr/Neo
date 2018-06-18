@@ -1,0 +1,164 @@
+{
+    "branches": [
+        {
+
+            "name": "B_Punch_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ],
+
+            "results": {
+                "Primary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Punch_ComboA1"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Block_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ]
+
+        },
+        {
+
+            "name": "B_Kick_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ],
+
+            "results": {
+                "Secondary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Kick_ComboA1"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Jump_Default",
+
+            "cooldown": -1.0,
+
+            "actions": [
+                "Default"
+            ],
+
+            "results": {
+                "Jump": {
+                    "Forward": {
+                        "AnySpeed": [
+                            "B_JumpF"
+                        ]
+                    },
+                    "Left": {
+                        "AnySpeed": [
+                            "B_JumpL"
+                        ]
+                    },
+                    "Right": {
+                        "AnySpeed": [
+                            "B_JumpR"
+                        ]
+                    },
+                    "Backward": {
+                        "AnySpeed": [
+                            "B_JumpB"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Punch_ComboA1",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Punch_LoJabs",
+                "Punch_HiJabs",
+                "Punch_Smith"
+            ]
+
+        },
+        {
+
+            "name": "B_Kick_ComboA1",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Kick_Double",
+                "Kick_DoubleSpin",
+                "Kick_FlyQuick"
+            ]
+
+        },
+        {
+
+            "name": "B_JumpF",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Jump_RollForward"
+            ]
+
+        },
+        {
+
+            "name": "B_JumpL",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Jump_RollLeft"
+            ]
+
+        },
+        {
+
+            "name": "B_JumpR",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Jump_RollRight"
+            ]
+
+        },
+        {
+
+            "name": "B_JumpB",
+
+            "cooldown": 0.0,
+
+            "actions": [
+                "Jump_RollBackward"
+            ]
+
+        }
+
+    ]
+}

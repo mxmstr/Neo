@@ -1,0 +1,98 @@
+{
+    "phases": [
+        {
+            "name": "CopFight1",
+            "characters": [
+                {
+                    "prefab": "Characters/Cop",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 3.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": -3.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "SwatFight1",
+            "characters": [
+                {
+                    "prefab": "Characters/Swat",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Swat",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 3.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Swat",
+                    "scripts": [],
+                    "position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": -3.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -14,7 +14,7 @@
                 "Primary": {
                     "AnyDirection": {
                         "AnySpeed": [
-                            "B_Punch_Primary"
+                            "B_Punch_ComboA1"
                         ]
                     }
                 }
@@ -66,12 +66,54 @@
         },
         {
 
-            "name": "B_Punch_Primary",
+            "name": "B_Punch_ComboA1",
+
+            "cooldown": 2.0,
+
+            "actions": [
+                "Punch_Combo"
+            ],
+
+            "results": {
+                "Primary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Punch_ComboA2"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Punch_ComboA2",
+
+            "cooldown": 2.0,
+
+            "actions": [
+                "Punch_MidHook"
+            ],
+
+            "results": {
+                "Primary": {
+                    "AnyDirection": {
+                        "AnySpeed": [
+                            "B_Punch_ComboA3"
+                        ]
+                    }
+                }
+            }
+
+        },
+        {
+
+            "name": "B_Punch_ComboA3",
 
             "cooldown": 0.0,
 
             "actions": [
-                "Punch_Combo"
+                "Punch_RightJab"
             ]
 
         },
@@ -79,10 +121,11 @@
 
             "name": "B_Kick_Primary",
 
-            "cooldown": 1.0,
+            "cooldown": 0.5,
 
             "actions": [
-                "Kick_Enemy"
+                "Kick_Enemy",
+                "Kick_Fly"
             ]
 
         }

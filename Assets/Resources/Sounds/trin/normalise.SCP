@@ -1,0 +1,19 @@
+Collection: New Collection
+Title: normalise
+Description: 
+Mode: 2
+
+Selected: none at 0 scaled 207760 SR 44100
+cmd: Channel Both
+
+Selected: 0 to 207759 scaled 207760 SR 44100
+cmd: Amplitude\Normalize
+1: 1
+2: 0
+3: 0
+4: 0.96
+5: 0
+
+Selected: none at 0 scaled 207760 SR 44100
+End:
+

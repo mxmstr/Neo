@@ -2,13 +2,10 @@
     "powertypes": [
         {
             "name": "Normal",
-            "punch": "Prefabs/Projectiles/Punch",
-            "block": "Prefabs/Projectiles/Block",
-            "push": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
+            "punch": "Projectiles/Punch",
+            "kick": "Projectiles/Kick",
+            "power": "Projectiles/Power",
+            "block": "Projectiles/Block",
             "react_light": [
                 "React_Light"
             ],
@@ -30,13 +27,10 @@
         },
         {
             "name": "One",
-            "punch": "Prefabs/Projectiles/Punch",
-            "block": "Prefabs/Projectiles/Block",
-            "push": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.5
-            },
+            "punch": "Projectiles/Punch_One",
+            "kick": "Projectiles/Kick_One",
+            "power": "Projectiles/Power",
+            "block": "Projectiles/Block",
             "react_heavy": [
                 "React_Light"
             ],
@@ -44,7 +38,7 @@
                 "Knockout_Headshot"
             ],
             "knockout_power": [
-                "Jump_SpringBack"
+                "Knockout_SpringBack"
             ],
             "death_default": [
                 "Knockout_Headshot"
@@ -55,13 +49,10 @@
         },
         {
             "name": "Agent",
-            "punch": "Prefabs/Projectiles/Punch",
-            "block": "Prefabs/Projectiles/Block",
-            "push": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.5
-            },
+            "punch": "Projectiles/Punch",
+            "kick": "Projectiles/Kick",
+            "power": "Projectiles/Power",
+            "block": "Projectiles/Block",
             "react_heavy": [
                 "React_Light"
             ],
