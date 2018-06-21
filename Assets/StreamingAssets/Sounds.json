@@ -1,0 +1,169 @@
+{
+    "sounds": [
+        {
+            "name": "Neo_Grunt",
+            "type": "Voice",
+            "clips": [
+                "Sounds/Matrix/enemy/grunts/02",
+                "Sounds/Matrix/enemy/grunts/03"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Kungfu_Punch",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh1",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh2",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh3",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh4",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh5",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh6",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh7",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh8",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh9"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Kungfu_Kick",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh_big1",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh_big2",
+                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh_big3"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Kungfu_Woosh",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh1",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh2",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh3",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh4",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh5",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh6",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh7",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh8",
+                "Sounds/Matrix/weapons/NewMatrix/Whoosh9"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "DodgeForward",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/characters/Dodge"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "DodgeBackward",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/characters/Dodgebackward"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "FootStepL",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/characters/footsteps/default_left_01",
+                "Sounds/Payne/characters/footsteps/default_left_02"
+            ],
+            "priority": 128,
+            "volume": 0.1,
+            "pitch": 1.0
+        },
+        {
+            "name": "FootStepR",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/characters/footsteps/default_right_01",
+                "Sounds/Payne/characters/footsteps/default_right_02"
+            ],
+            "priority": 128,
+            "volume": 0.1,
+            "pitch": 1.0
+        },
+        {
+            "name": "Woosh_Small",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/weapons/whoosh_small1",
+                "Sounds/Matrix/weapons/whoosh_small2",
+                "Sounds/Matrix/weapons/whoosh_small3",
+                "Sounds/Matrix/weapons/whoosh_small4",
+                "Sounds/Matrix/weapons/whoosh_small5"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Woosh_Big",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/weapons/whoosh_big1",
+                "Sounds/Matrix/weapons/whoosh_big2",
+                "Sounds/Matrix/weapons/whoosh_big3",
+                "Sounds/Matrix/weapons/whoosh_big4",
+                "Sounds/Matrix/weapons/whoosh_big5"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Fall_Light",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/Characters/death/bodyfall_09",
+                "Sounds/Payne/Characters/death/bodyfall_15"
+            ],
+            "priority": 128,
+            "volume": 1.0,
+            "pitch": 1.0
+        },
+        {
+            "name": "Fall_Hard",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Payne/Characters/death/Death_falling"
+            ],
+            "priority": 128,
+            "volume": 1.0,
+            "pitch": 1.0
+        },
+        {
+            "name": "Hit_Body",
+            "type": "Effect",
+            "clips": [
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body1",
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body2",
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body3",
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body4",
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body5",
+                "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body6"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        }
+    ]
+}

@@ -148,6 +148,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: PlaySound
+        data: Woosh_Big
+        objectReferenceParameter: {fileID: 11500000, guid: ee761294cc5cd304f8a43153e7958b6f,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: ResetAction
         data: 

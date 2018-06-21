@@ -8,7 +8,7 @@ using System.Reflection;
 
 public class Action : MonoBehaviour
 {
-
+    
     [System.Serializable]
     public class PowerData
     {
@@ -81,6 +81,7 @@ public class Action : MonoBehaviour
     private Character m_Character;
     private Rigidbody m_Rigidbody;
     private Animator m_Animator;
+    private AudioSource m_Audio;
     private AnimatorOverrideController m_AnimatorOverride;
     private ActionTable m_ActionTable;
     private ActionData m_ActionData;
@@ -362,17 +363,20 @@ public class Action : MonoBehaviour
         {
             if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
             {
+                m_Animator.SetFloat("MoveSpeed", 1.0f);
                 BlendLayer(1, -1);
                 BlendLayer(2, 1);
             }
             else
             {
+                m_Animator.SetFloat("MoveSpeed", 0.0f);
                 BlendLayer(1, 1);
                 BlendLayer(2, -1);
             }
         }
         else
         {
+            m_Animator.SetFloat("MoveSpeed", 1.0f);
             BlendLayer(1, -1);
             BlendLayer(2, -1);
         }

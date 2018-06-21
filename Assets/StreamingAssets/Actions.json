@@ -490,7 +490,7 @@
             "velocity": {
                 "x": 0.0,
                 "y": 3.0,
-                "z": 8.0
+                "z": 7.0
             },
             "speed": 1.5
         },
@@ -502,9 +502,9 @@
             "blendlegs": false,
             "invulnerable": false,
             "velocity": {
-                "x": -5.6,
+                "x": -4.9,
                 "y": 3.0,
-                "z": 5.6
+                "z": 4.9
             },
             "speed": 1.5
         },
@@ -516,9 +516,9 @@
             "blendlegs": false,
             "invulnerable": false,
             "velocity": {
-                "x": 5.6,
+                "x": 4.9,
                 "y": 3.0,
-                "z": 5.6
+                "z": 4.9
             },
             "speed": 1.5
         },
@@ -635,6 +635,34 @@
             "speed": 1.0
         },
         {
+            "name": "Jump_CartBackL",
+            "animation": "kungfu/cartbackleft",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": -2.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Jump_CartBackR",
+            "animation": "kungfu/cartbackright",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 2.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.0
+        },
+        {
             "name": "Jump_HopBack",
             "animation": "kungfu/hopback",
             "rotation": false,
@@ -674,7 +702,7 @@
                 "y": 0.0,
                 "z": -0.75
             },
-            "speed": 1.0
+            "speed": 1.5
         },
         {
             "name": "Jump_TwistR",
@@ -688,35 +716,7 @@
                 "y": 0.0,
                 "z": -0.75
             },
-            "speed": 1.0
-        },
-        {
-            "name": "Jump_CartBackL",
-            "animation": "matrix/cartbackleft",
-            "rotation": false,
-            "movement": false,
-            "blendlegs": false,
-            "invulnerable": false,
-            "velocity": {
-                "x": -2.0,
-                "y": 0.0,
-                "z": -2.0
-            },
-            "speed": 1.0
-        },
-        {
-            "name": "Jump_CartBackR",
-            "animation": "matrix/cartbackright",
-            "rotation": false,
-            "movement": false,
-            "blendlegs": false,
-            "invulnerable": false,
-            "velocity": {
-                "x": 2.0,
-                "y": 0.0,
-                "z": -2.0
-            },
-            "speed": 1.0
+            "speed": 1.5
         },
         {
             "name": "Jump_SpringBack",

@@ -150,7 +150,7 @@ ModelImporter:
       events:
       - time: 0.6141479
         functionName: FireProjectile
-        data: Hand-R punch
+        data: Hand-R power
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0
@@ -160,6 +160,14 @@ ModelImporter:
         functionName: ResetAction
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4628821
+        functionName: PlaySound
+        data: Kungfu_Kick
+        objectReferenceParameter: {fileID: 11500000, guid: ee761294cc5cd304f8a43153e7958b6f,
           type: 3}
         floatParameter: 0
         intParameter: 0

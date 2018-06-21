@@ -172,6 +172,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.11490683
+        functionName: PlaySound
+        data: Kungfu_Punch
+        objectReferenceParameter: {fileID: 11500000, guid: ee761294cc5cd304f8a43153e7958b6f,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.49068323
+        functionName: PlaySound
+        data: Kungfu_Punch
+        objectReferenceParameter: {fileID: 11500000, guid: ee761294cc5cd304f8a43153e7958b6f,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

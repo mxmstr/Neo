@@ -248,8 +248,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void RotateTo()
         {
-            
-            m_Action.Rotate(m_Target.transform.position - transform.position);
+
+            Vector3 direction = m_Target.transform.position - transform.position;
+            direction.y = 0;
+
+            m_Action.Rotate(direction);
 
         }
 

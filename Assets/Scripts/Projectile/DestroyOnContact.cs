@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DestroyOnContact : MonoBehaviour {
 
     [SerializeField] string m_TagName = "Character";
