@@ -84,12 +84,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
 
-            try
-            {
+            //try
+            //{
                 m_Tree.Tick();
                 //Debug.Log(m_Tree.Children()[m_Tree.ActiveChild()]);
-            }
-            catch (NullReferenceException e) { }
+            //}
+            //catch (NullReferenceException e) { }
 
         }
 

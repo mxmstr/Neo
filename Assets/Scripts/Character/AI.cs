@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Reflection;
+using UnityEngine.AI;
 
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -14,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public float m_PunchRange = 1.0f;
         public float m_KickRange = 1.0f;
         public float m_OutOfRangeDelay = 1.0f;
+        public NavMeshData m_NavMeshData;
 
         private Character m_Character;
         private Action m_Action;
@@ -22,6 +24,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Branch m_Branch_Secondary;
         private Branch m_Branch_Jump;
         private Vector3 m_Move;
+        private bool m_UsingPath;
+        private List<Vector3> m_Path;
         private GameObject m_Target;
         private float m_OutOfRangeTime;
 
@@ -39,7 +43,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             yield return new WaitForFixedUpdate();
 
+            NavMesh.AddNavMeshData(m_NavMeshData);
+            NavMesh.CalculateTriangulation();
+
             m_OutOfRangeTime = 0;
+            m_UsingPath = false;
+            m_Path = new List<Vector3>();
 
             m_Character = GetComponent<Character>();
             m_Action = GetComponent<Action>();
@@ -224,7 +233,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void Run()
         {
-
+            
             m_Action.Move(transform.forward.normalized);
 
         }
@@ -248,10 +257,64 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void RotateTo()
         {
+            
+            Vector3 direction;
+            NavMeshHit hit;// = new NavMeshHit();
 
-            Vector3 direction = m_Target.transform.position - transform.position;
+            /*Debug.Log(
+                NavMesh.Raycast(
+                    transform.position,
+                    m_Target.transform.position,
+                    out hit,
+                    1
+                ));
+
+            /*NavMeshPath path = new NavMeshPath();
+            Debug.Log(
+                NavMesh.CalculatePath(
+                    transform.position,
+                    m_Target.transform.position,
+                    1, 
+                    path
+                ));
+
+            foreach (Vector3 v in path.corners)
+            {
+                Instantiate(
+                        Resources.Load("Characters/Sphere", typeof(GameObject)),
+                        v,
+                        Quaternion.identity
+                        );
+            }*/
+
+            if (NavMesh.Raycast(transform.position, m_Target.transform.position, out hit, 1))
+            {
+
+                if (!m_UsingPath || m_Path.Count == 0)
+                {
+                    NavMeshPath path = new NavMeshPath();
+                    NavMesh.CalculatePath(transform.position, m_Target.transform.position, 1, path);
+                    
+                    m_Path.Clear();
+                    m_Path.AddRange(path.corners);
+                    m_UsingPath = true;
+
+                    return;
+                }
+
+                direction = m_Path[0] - transform.position;
+
+                if (direction.magnitude < 1.0f)
+                    m_Path.RemoveAt(0);
+
+            }
+            else
+            {
+                m_UsingPath = false;
+                direction = m_Target.transform.position - transform.position;
+            }
+
             direction.y = 0;
-
             m_Action.Rotate(direction);
 
         }
