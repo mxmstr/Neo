@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Reflection;
 using UnityEngine.AI;
+using System;
 
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -15,7 +14,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public float m_PunchRange = 1.0f;
         public float m_KickRange = 1.0f;
         public float m_OutOfRangeDelay = 1.0f;
-        public NavMeshData m_NavMeshData;
 
         private Character m_Character;
         private Action m_Action;
@@ -42,10 +40,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             yield return new WaitForFixedUpdate();
-
-            NavMesh.AddNavMeshData(m_NavMeshData);
-            NavMesh.CalculateTriangulation();
-
+            
             m_OutOfRangeTime = 0;
             m_UsingPath = false;
             m_Path = new List<Vector3>();
@@ -79,7 +74,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             foreach (GameObject character in GameObject.FindGameObjectsWithTag("Character"))
-                if (character.name == "Neo")
+                if (character.name.Contains("Neo"))
                     m_Target = character;
 
         }

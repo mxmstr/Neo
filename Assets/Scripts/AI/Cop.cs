@@ -12,13 +12,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public int m_StrafeRightWeight = 1;
         public int m_StrafeLeftWeight = 1;
         public int m_StrafeLength = 30;
-
+        
+        private Character m_Character;
         private AI m_AI;
         private Root m_Tree;
 
 
         void Start() {
 
+            m_Character = GetComponent<Character>();
             m_AI = GetComponent<AI>();
             m_Tree = BT.Root();
             int[] attackWeights = { m_PunchWeight, m_KickWeight, m_StrafeRightWeight, m_StrafeLeftWeight };
@@ -84,12 +86,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
 
-            //try
-            //{
-                m_Tree.Tick();
-                //Debug.Log(m_Tree.Children()[m_Tree.ActiveChild()]);
-            //}
-            //catch (NullReferenceException e) { }
+            if (!m_Character.IsActive())
+                return;
+            
+            m_Tree.Tick();
 
         }
 
