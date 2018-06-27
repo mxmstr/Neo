@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public int m_RunWeight = 1;
         public int m_RunJumpWeight = 1;
 
+        private Character m_Character;
         private AI m_AI;
         private Root m_Tree;
 
@@ -22,6 +23,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Start()
         {
 
+            m_Character = GetComponent<Character>();
             m_AI = GetComponent<AI>();
             m_Tree = BT.Root();
             int[] attackWeights = { m_AttackPunchWeight, m_AttackKickWeight, m_AttackJumpRightWeight, m_AttackJumpLeftWeight };
@@ -81,13 +83,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void FixedUpdate()
         {
+            
+            if (!m_Character.IsActive())
+                return;
 
-            try
-            {
-                m_Tree.Tick();
-                //Debug.Log(m_Tree.Children()[m_Tree.ActiveChild()]);
-            }
-            catch (NullReferenceException e) { }
+            m_Tree.Tick();
 
         }
 

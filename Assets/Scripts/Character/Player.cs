@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityStandardAssets.Cameras;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -7,9 +9,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (Character))]
     public class Player : MonoBehaviour
     {
+
+        [SerializeField] GameObject m_CameraRig;
         [SerializeField] float m_Sensitivity = 10f;
-        
-        public float m_WalkTimeMax = 0.25f;
+        [SerializeField] float m_WalkTimeMax = 0.25f;
 
         private Character m_Character;
         private Rigidbody m_Rigidbody;
@@ -27,12 +30,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void Start()
         {
 
+            
+
+            StartCoroutine(LateStart());
+
+        }
+
+
+        IEnumerator LateStart()
+        {
+
+            yield return new WaitForFixedUpdate();
+
+            GameObject rig = Instantiate(m_CameraRig, gameObject.transform);
+
             if (Camera.main != null)
                 m_Cam = GetComponentInChildren<Camera>().transform;
             else
                 Debug.LogWarning(
                     "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
-            
+
             m_Character = GetComponent<Character>();
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Action = GetComponent<Action>();
@@ -54,8 +71,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 );
 
         }
-
         
+
         private string GetDirection(float h, float v)
         {
             
@@ -157,7 +174,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         void FixedUpdate()
         {
-            
+
+            if (!m_Character.IsActive())
+                return;
+
             InputAction();
             InputMovement();
 

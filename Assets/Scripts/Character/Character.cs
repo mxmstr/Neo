@@ -16,6 +16,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	public class Character : MonoBehaviour
 	{
 
+        [SerializeField] bool m_Active = true;
+        [SerializeField] int m_ID = 0;
         [SerializeField] Group m_Group = Group.Red;
         [SerializeField] float m_MaxHealth = 1.0f;
         [SerializeField] int m_Lives = 2;
@@ -57,6 +59,38 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
             
+        }
+
+
+        public void SetID(int id)
+        {
+
+            m_ID = id;
+
+        }
+
+
+        public int GetID()
+        {
+
+            return m_ID;
+
+        }
+
+
+        public void SetActive(bool active)
+        {
+
+            m_Active = active;
+
+        }
+
+
+        public bool IsActive()
+        {
+
+            return m_Active;
+
         }
 
 

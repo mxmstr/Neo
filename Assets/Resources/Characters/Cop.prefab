@@ -1562,13 +1562,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Active: 1
+  m_ID: 0
   m_Group: 1
-  m_MaxHealth: 1
-  m_Lives: 2
+  m_MaxHealth: 0
+  m_Lives: 0
   m_MaxSpeed: 2
   m_TurnSmoothing: 25
   m_MoveDamping: 6
-  m_GroundCheckDistance: 0.3
+  m_GroundCheckDistance: 0.5
 --- !u!114 &114578887222245684
 MonoBehaviour:
   m_ObjectHideFlags: 1

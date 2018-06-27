@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_MaxSpeed: 3
   m_TurnSmoothing: 25
   m_MoveDamping: 6
-  m_GroundCheckDistance: 0.3
+  m_GroundCheckDistance: 0.5
 --- !u!114 &114482766820685926
 MonoBehaviour:
   m_ObjectHideFlags: 1

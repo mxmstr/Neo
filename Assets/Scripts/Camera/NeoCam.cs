@@ -10,7 +10,7 @@ namespace UnityStandardAssets.Cameras
     [ExecuteInEditMode]
     public class NeoCam : PivotBasedCameraRig
     {
-
+        
         [SerializeField] float m_Sensitivity = 10f;
         [SerializeField] private float m_TiltMax = 75f;
         [SerializeField] private float m_TiltMin = 75f;
@@ -34,7 +34,7 @@ namespace UnityStandardAssets.Cameras
         private Vector3 m_PivotEulers;
         private Quaternion m_PivotTargetRot;
         private Quaternion m_TransformTargetRot;
-
+        
 
         protected override void Awake()
         {
