@@ -22,6 +22,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MaxHealth = 1.0f;
         [SerializeField] int m_Lives = 2;
         [SerializeField] float m_MaxSpeed = 1f;
+        [SerializeField] float m_AnimSpeedMultiplier = 1f;
         [SerializeField] float m_TurnSmoothing = 1.0f;
         [SerializeField] float m_MoveDamping = 1f;
         [SerializeField] float m_GroundCheckDistance = 0.1f;
@@ -184,10 +185,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Rigidbody.velocity = m_Direction;
 
 
-            var localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
-            
+            Vector3 localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
+
             m_Animator.SetFloat("Forward", localDirection.z / m_MaxSpeed, 0.1f, Time.deltaTime);
             m_Animator.SetFloat("Sidestep", localDirection.x / m_MaxSpeed, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("MoveSpeed", localDirection.magnitude * m_AnimSpeedMultiplier);
 
         }
  

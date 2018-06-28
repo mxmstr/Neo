@@ -76,7 +76,8 @@ public class Action : MonoBehaviour
     public string m_ActionSource = "Actions.json";
     public string m_PowerSource = "PowerTypes.json";
     public string m_PowerType = "Normal";
-    public float m_BlendTime = 1.0f;
+    public float m_LayerBlendTime = 1.0f;
+    public float m_SlotBlendTime = 1.0f;
 
     private Character m_Character;
     private Rigidbody m_Rigidbody;
@@ -198,7 +199,7 @@ public class Action : MonoBehaviour
         EditorUtility.CopySerialized(clip_src, clip_new);
 
         m_AnimatorOverride[newslot] = clip_new;
-        
+
     }
 
 
@@ -214,7 +215,6 @@ public class Action : MonoBehaviour
             }
         }
         
-
         if (m_ActionData.name != "Default")
         {
 
@@ -223,14 +223,31 @@ public class Action : MonoBehaviour
 
             m_Rigidbody.velocity = actionVelocity;
 
+            slot++;
+            if (slot > 3)
+                slot = 1;
 
-            m_Animator.SetInteger("ActionSlot", -1 * m_Animator.GetInteger("ActionSlot"));
+            switch (slot)
+            {
 
-            if (m_Animator.GetInteger("ActionSlot") == 1)
-                LoadSlotAnimation("neo_reference_skeleton|Action_Slot2", "neo_reference_skeleton|Action_Slot1");
-            else
-                LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2");
+                case 1:
+                    LoadSlotAnimation("neo_reference_skeleton|Action_Slot3", "neo_reference_skeleton|Action_Slot1");
+                    m_Animator.CrossFade("Action1", m_SlotBlendTime, 1);
+                    m_Animator.CrossFade("Action1", m_SlotBlendTime, 2);
+                    break;
+                case 2:
+                    LoadSlotAnimation("neo_reference_skeleton|Action_Slot1", "neo_reference_skeleton|Action_Slot2");
+                    m_Animator.CrossFade("Action2", m_SlotBlendTime, 1);
+                    m_Animator.CrossFade("Action2", m_SlotBlendTime, 2);
+                    break;
+                case 3:
+                    LoadSlotAnimation("neo_reference_skeleton|Action_Slot2", "neo_reference_skeleton|Action_Slot3");
+                    m_Animator.CrossFade("Action3", m_SlotBlendTime, 1);
+                    m_Animator.CrossFade("Action3", m_SlotBlendTime, 2);
+                    break;
 
+            }
+            
             m_Animator.SetFloat("ActionSpeed", m_ActionData.speed);
             m_Animator.SetBool("ActionPlaying", true);
 
@@ -350,7 +367,7 @@ public class Action : MonoBehaviour
 
         m_Animator.SetLayerWeight(
                     layer,
-                    Mathf.Clamp(weight + amount * m_BlendTime * Time.deltaTime, 0.0f, 1.0f)
+                    Mathf.Clamp(weight + amount * m_LayerBlendTime * Time.deltaTime, 0.0f, 1.0f)
                     );
 
     }
@@ -363,20 +380,20 @@ public class Action : MonoBehaviour
         {
             if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
             {
-                m_Animator.SetFloat("MoveSpeed", 1.0f);
+                //m_Animator.SetFloat("MoveSpeed", 1.0f);
                 BlendLayer(1, -1);
                 BlendLayer(2, 1);
             }
             else
             {
-                m_Animator.SetFloat("MoveSpeed", 0.0f);
+                //m_Animator.SetFloat("MoveSpeed", 0.0f);
                 BlendLayer(1, 1);
                 BlendLayer(2, -1);
             }
         }
         else
         {
-            m_Animator.SetFloat("MoveSpeed", 1.0f);
+            //m_Animator.SetFloat("MoveSpeed", 1.0f);
             BlendLayer(1, -1);
             BlendLayer(2, -1);
         }

@@ -23,7 +23,7 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 10,
-                    "active": true,
+                    "active": false,
                     "scripts": [],
                     "position": {
                         "x": 1.54,
@@ -39,7 +39,7 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 11,
-                    "active": true,
+                    "active": false,
                     "scripts": [],
                     "position": {
                         "x": 1.54,
@@ -55,7 +55,7 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 12,
-                    "active": true,
+                    "active": false,
                     "scripts": [],
                     "position": {
                         "x": 1.54,
@@ -79,13 +79,13 @@
                     "active": true,
                     "scripts": [],
                     "position": {
-                        "x": 1.54,
+                        "x": 24.5,
                         "y": 6.0,
-                        "z": 7.49
+                        "z": -0.58
                     },
                     "rotation": {
                         "x": 0.0,
-                        "y": 90.0,
+                        "y": -90.0,
                         "z": 0.0
                     }
                 },
@@ -95,13 +95,13 @@
                     "active": true,
                     "scripts": [],
                     "position": {
-                        "x": 1.54,
+                        "x": 25.0,
                         "y": 6.0,
-                        "z": 10.49
+                        "z": -0.58
                     },
                     "rotation": {
                         "x": 0.0,
-                        "y": 90.0,
+                        "y": -90.0,
                         "z": 0.0
                     }
                 },
@@ -111,9 +111,26 @@
                     "active": true,
                     "scripts": [],
                     "position": {
-                        "x": 1.54,
+                        "x": 25.5,
                         "y": 6.0,
-                        "z": 4.49
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "existing": [
+                {
+                    "id": 0,
+                    "active": true,
+                    "scripts": [],
+                    "position": {
+                        "x": -4.75,
+                        "y": 6.0,
+                        "z": 2.49
                     },
                     "rotation": {
                         "x": 0.0,

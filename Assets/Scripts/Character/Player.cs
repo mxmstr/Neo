@@ -128,7 +128,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void InputAction()
         {
-            
+
+            if (!m_Character.IsActive())
+                return;
+
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool primary = Input.GetKey(KeyCode.Mouse0);
@@ -155,29 +158,33 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void InputMovement()
         {
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            if (m_Character.IsActive())
+            {
 
-            m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
+                float h = CrossPlatformInputManager.GetAxis("Horizontal");
+                float v = CrossPlatformInputManager.GetAxis("Vertical");
 
-            if (m_Cam != null)
-                m_Move = v * m_CamForward + h * m_Cam.right;
+                m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
+
+                if (m_Cam != null)
+                    m_Move = v * m_CamForward + h * m_Cam.right;
+                else
+                    m_Move = v * Vector3.forward + h * Vector3.right;
+
+
+                m_Action.Rotate(m_CamForward);
+                m_Action.Move(m_Move.normalized);
+
+            }
             else
-                m_Move = v * Vector3.forward + h * Vector3.right;
-            
-
-            m_Action.Rotate(m_CamForward);
-            m_Action.Move(m_Move.normalized);
+                m_Action.Move(new Vector3(0, 0, 0));
 
         }
 
 
         void FixedUpdate()
         {
-
-            if (!m_Character.IsActive())
-                return;
-
+            
             InputAction();
             InputMovement();
 

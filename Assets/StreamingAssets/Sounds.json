@@ -87,7 +87,7 @@
                 "Sounds/Payne/characters/footsteps/default_left_02"
             ],
             "priority": 128,
-            "volume": 0.1,
+            "volume": 0.05,
             "pitch": 1.0
         },
         {
@@ -98,7 +98,7 @@
                 "Sounds/Payne/characters/footsteps/default_right_02"
             ],
             "priority": 128,
-            "volume": 0.1,
+            "volume": 0.05,
             "pitch": 1.0
         },
         {

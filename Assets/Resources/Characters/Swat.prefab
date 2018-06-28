@@ -1501,7 +1501,7 @@ Animator:
   m_GameObject: {fileID: 1453993582693472}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bbc13b0994bb30e45afeb958dfa7c584, type: 3}
-  m_Controller: {fileID: 9100000, guid: 44539ff8b5c31d542901ab96ac87a169, type: 2}
+  m_Controller: {fileID: 9100000, guid: ac001105e7a52444ea8c8ac92ba56392, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1533,11 +1533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e0dd0620236ac4d8be2b1dda212b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackPunchWeight: 4
-  m_AttackKickWeight: 4
+  m_AttackPunchWeight: 3
+  m_AttackKickWeight: 3
   m_AttackJumpRightWeight: 1
   m_AttackJumpLeftWeight: 1
-  m_RunWeight: 500
+  m_RunWeight: 250
   m_RunRollWeight: 1
 --- !u!114 &114530567188741144
 MonoBehaviour:
@@ -1567,7 +1567,8 @@ MonoBehaviour:
   m_ActionSource: Actions.json
   m_PowerSource: PowerTypes.json
   m_PowerType: Normal
-  m_BlendTime: 5
+  m_LayerBlendTime: 5
+  m_SlotBlendTime: 0.15
 --- !u!114 &114604900386011812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1591,10 +1592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a5c553d94741d458fd7ca9b10ebb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Active: 1
+  m_ID: 0
   m_Group: 1
   m_MaxHealth: 1
   m_Lives: 2
   m_MaxSpeed: 2
+  m_AnimSpeedMultiplier: 0.4
   m_TurnSmoothing: 25
   m_MoveDamping: 6
   m_GroundCheckDistance: 0.5

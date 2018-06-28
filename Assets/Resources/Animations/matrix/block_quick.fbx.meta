@@ -166,7 +166,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.58791214
         functionName: FireProjectile
-        data: Hand-L Block
+        data: Hand-L block
         objectReferenceParameter: {fileID: 11500000, guid: b292992da2d029b489161c5f0b208b46,
           type: 3}
         floatParameter: 0

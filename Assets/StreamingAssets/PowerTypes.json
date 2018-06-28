@@ -7,10 +7,10 @@
             "power": "Projectiles/Power",
             "block": "Projectiles/Block",
             "react_light": [
-                "React_Light"
+                "React_Light1"
             ],
             "react_heavy": [
-                "React_Light"
+                "React_Light1"
             ],
             "knockout_default": [
                 "Knockout_Headshot"
@@ -32,7 +32,7 @@
             "power": "Projectiles/Power",
             "block": "Projectiles/Block",
             "react_heavy": [
-                "React_Light"
+                "React_Light1"
             ],
             "knockout_default": [
                 "Knockout_Headshot"
@@ -48,16 +48,16 @@
             ]
         },
         {
-            "name": "Agent",
-            "punch": "Projectiles/Punch",
-            "kick": "Projectiles/Kick",
+            "name": "One",
+            "punch": "Projectiles/Punch_One",
+            "kick": "Projectiles/Kick_One",
             "power": "Projectiles/Power",
             "block": "Projectiles/Block",
             "react_heavy": [
-                "React_Light"
+                "React_Light1"
             ],
             "knockout_default": [
-                "React_Light"
+                "Knockout_Headshot"
             ],
             "knockout_power": [
                 "Knockout_SpringBack"

@@ -1501,7 +1501,7 @@ Animator:
   m_GameObject: {fileID: 1835910387855348}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f8d0c0df4863af1428302e79604fdbd5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 44539ff8b5c31d542901ab96ac87a169, type: 2}
+  m_Controller: {fileID: 9100000, guid: ac001105e7a52444ea8c8ac92ba56392, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1565,9 +1565,10 @@ MonoBehaviour:
   m_Active: 1
   m_ID: 0
   m_Group: 1
-  m_MaxHealth: 0
-  m_Lives: 0
+  m_MaxHealth: 1
+  m_Lives: 2
   m_MaxSpeed: 2
+  m_AnimSpeedMultiplier: 0.4
   m_TurnSmoothing: 25
   m_MoveDamping: 6
   m_GroundCheckDistance: 0.5
@@ -1637,7 +1638,8 @@ MonoBehaviour:
   m_ActionSource: Actions.json
   m_PowerSource: PowerTypes.json
   m_PowerType: Normal
-  m_BlendTime: 5
+  m_LayerBlendTime: 5
+  m_SlotBlendTime: 0.15
 --- !u!136 &136004249192350426
 CapsuleCollider:
   m_ObjectHideFlags: 1
