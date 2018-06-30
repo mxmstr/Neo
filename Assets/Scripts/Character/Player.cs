@@ -44,12 +44,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             GameObject rig = Instantiate(m_CameraRig, gameObject.transform);
 
-            if (Camera.main != null)
-                m_Cam = GetComponentInChildren<Camera>().transform;
-            else
-                Debug.LogWarning(
-                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
-
+            m_Cam = GetComponentInChildren<Camera>().transform;
             m_Character = GetComponent<Character>();
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Action = GetComponent<Action>();

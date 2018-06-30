@@ -50,7 +50,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Capsule = GetComponent<CapsuleCollider>();
             m_Colliders = GetComponentsInChildren<BoxCollider>();
             m_Action = GetComponent<Action>();
-
+            
             m_Health = m_MaxHealth;
 
             m_Direction = new Vector3(0, 0, 0);

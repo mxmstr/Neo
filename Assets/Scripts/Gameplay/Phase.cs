@@ -21,6 +21,14 @@ public class Phase : MonoBehaviour {
     }
 
     [System.Serializable]
+    public class ScriptData
+    {
+
+        public string prefab;
+
+    }
+
+    [System.Serializable]
     public class CharacterData
     {
 
@@ -38,6 +46,12 @@ public class Phase : MonoBehaviour {
     {
 
         public string name;
+        public bool cursor_visible;
+        public int cursor_lock;
+        public string active_camera;
+        public Vector3 freecam_pos;
+        public Vector3 freecam_rot;
+        public string freecam_script;
         public string next_trigger;
         public CharacterData[] spawned;
         public CharacterData[] existing;
@@ -54,6 +68,7 @@ public class Phase : MonoBehaviour {
     public NavMeshData m_NavMeshData;
     public List<string> m_Phases = new List<string>();
 
+    private GameObject m_CameraRig;
     private PhaseTable m_PhaseTable;
     private PhaseData m_PhaseData;
     private GameObject m_Characters;
@@ -65,9 +80,18 @@ public class Phase : MonoBehaviour {
 
         NavMesh.AddNavMeshData(m_NavMeshData);
         NavMesh.CalculateTriangulation();
+        
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            if (transform.GetChild(i).name.Contains("FreeCamRig"))
+            {
+                m_CameraRig = transform.GetChild(i).gameObject;
+                break;
+            }
+        }
+            
 
         LoadPhasesData();
-
         NextPhase();
 
     }
@@ -82,14 +106,18 @@ public class Phase : MonoBehaviour {
     }
 
 
-    void NextPhase()
+    public void NextPhase()
     {
         
         if (m_Phases.Count == 0)
             return;
 
+        string currentCamScript = null;
         string phaseName = m_Phases[0];
         m_Phases.RemoveAt(0);
+
+        if (m_PhaseData != null)
+            currentCamScript = m_PhaseData.freecam_script;
 
 
         foreach (PhaseData data in m_PhaseTable.phases)
@@ -100,6 +128,7 @@ public class Phase : MonoBehaviour {
                 break;
             }
         }
+
 
         if (m_PhaseData.next_trigger != null)
         {
@@ -115,6 +144,7 @@ public class Phase : MonoBehaviour {
                     return false;
                 };
         }
+
 
         if (m_PhaseData.spawned != null)
         {
@@ -137,6 +167,7 @@ public class Phase : MonoBehaviour {
 
             }
         }
+
 
         if (m_PhaseData.existing != null)
         {
@@ -163,7 +194,38 @@ public class Phase : MonoBehaviour {
 
             }
         }
-        
+
+
+        Cursor.visible = m_PhaseData.cursor_visible;
+        Cursor.lockState = (CursorLockMode)m_PhaseData.cursor_lock;
+
+
+        foreach (GameObject camera in GameObject.FindGameObjectsWithTag("MainCamera")) {
+            if (camera.name.Contains(m_PhaseData.active_camera))
+                camera.SetActive(true);
+            else
+                camera.SetActive(false);
+        }
+
+
+        if (m_PhaseData.freecam_pos != null)
+            m_CameraRig.transform.position = m_PhaseData.freecam_pos;
+        if (m_PhaseData.freecam_rot != null)
+            m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
+
+
+        if (currentCamScript != null)
+            foreach (MonoBehaviour script in m_CameraRig.GetComponents<MonoBehaviour>())
+                DestroyImmediate(script);
+
+
+        if (m_PhaseData.freecam_script != null)
+        {
+            Type t = Type.GetType(m_PhaseData.freecam_script);
+            m_CameraRig.AddComponent(t);
+        }
+            
+
     }
 
 

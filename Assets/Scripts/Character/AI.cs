@@ -254,33 +254,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             
             Vector3 direction;
-            NavMeshHit hit;// = new NavMeshHit();
-
-            /*Debug.Log(
-                NavMesh.Raycast(
-                    transform.position,
-                    m_Target.transform.position,
-                    out hit,
-                    1
-                ));
-
-            /*NavMeshPath path = new NavMeshPath();
-            Debug.Log(
-                NavMesh.CalculatePath(
-                    transform.position,
-                    m_Target.transform.position,
-                    1, 
-                    path
-                ));
-
-            foreach (Vector3 v in path.corners)
-            {
-                Instantiate(
-                        Resources.Load("Characters/Sphere", typeof(GameObject)),
-                        v,
-                        Quaternion.identity
-                        );
-            }*/
+            NavMeshHit hit;
 
             if (NavMesh.Raycast(transform.position, m_Target.transform.position, out hit, 1))
             {

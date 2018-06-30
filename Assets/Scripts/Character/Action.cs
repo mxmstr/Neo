@@ -281,6 +281,14 @@ public class Action : MonoBehaviour
         if (m_ActionData.movement)
             m_Character.Move(move);
 
+        if (m_ActionData.blendlegs)
+        {
+            if (m_Rigidbody.velocity.magnitude < 0.1f)
+                m_Animator.SetFloat("MoveSpeed", 1.0f);
+        }
+        else
+            m_Animator.SetFloat("MoveSpeed", 0.0f);
+
     }
 
 

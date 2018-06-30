@@ -1,7 +1,27 @@
 {
     "phases": [
         {
+            "name": "Menu",
+            "cursor_visible": true,
+            "cursor_lock": 0,
+            "active_camera": "FreeCam",
+            "freecam_pos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "freecam_rot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "freecam_script": "MenuCam"
+        },
+        {
             "name": "CopFight1",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "active_camera": "NeoCam",
             "next_trigger": "AllBlueDead",
             "spawned": [
                 {
@@ -72,6 +92,8 @@
         },
         {
             "name": "SwatFight1",
+            "cursor_visible": false,
+            "cursor_lock": 1,
             "spawned": [
                 {
                     "prefab": "Characters/Swat",
