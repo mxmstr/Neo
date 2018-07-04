@@ -30,7 +30,7 @@
                     "active": true,
                     "scripts": [],
                     "position": {
-                        "x": -4.75,
+                        "x": -1.75,
                         "y": 6.0,
                         "z": 2.49
                     },
@@ -43,12 +43,12 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 10,
-                    "active": false,
-                    "scripts": [],
+                    "active": true,
+                    "scripts": ["Arrest"],
                     "position": {
-                        "x": 1.54,
+                        "x": 2.45,
                         "y": 6.0,
-                        "z": 7.49
+                        "z": 2.67
                     },
                     "rotation": {
                         "x": 0.0,
@@ -59,12 +59,12 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 11,
-                    "active": false,
-                    "scripts": [],
+                    "active": true,
+                    "scripts": ["WaitForArrest"],
                     "position": {
-                        "x": 1.54,
+                        "x": 5.45,
                         "y": 6.0,
-                        "z": 10.49
+                        "z": 6.68
                     },
                     "rotation": {
                         "x": 0.0,
@@ -75,12 +75,12 @@
                 {
                     "prefab": "Characters/Cop",
                     "id": 12,
-                    "active": false,
-                    "scripts": [],
+                    "active": true,
+                    "scripts": ["WaitForArrest"],
                     "position": {
-                        "x": 1.54,
+                        "x": 5.45,
                         "y": 6.0,
-                        "z": 4.49
+                        "z": -1.02
                     },
                     "rotation": {
                         "x": 0.0,

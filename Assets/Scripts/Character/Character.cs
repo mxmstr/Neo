@@ -1,6 +1,7 @@
+using System;
 using System.IO;
 using UnityEngine;
-
+using UnityStandardAssets.Cameras;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -22,6 +23,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MaxHealth = 1.0f;
         [SerializeField] int m_Lives = 2;
         [SerializeField] float m_MaxSpeed = 1f;
+        [SerializeField] float m_AnimTransitionMultiplier = 1f;
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
         [SerializeField] float m_TurnSmoothing = 1.0f;
         [SerializeField] float m_MoveDamping = 1f;
@@ -33,6 +35,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         CapsuleCollider m_Capsule;
         BoxCollider[] m_Colliders;
         Action m_Action;
+        GameObject m_CameraRig;
 
         float m_Health;
         bool m_IsGrounded;
@@ -40,6 +43,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         Vector3 m_Direction;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
+
+
+        private void Awake()
+        {
+
+            if (GetComponentInChildren<NeoCam>() != null)
+                m_CameraRig = GetComponentInChildren<NeoCam>().gameObject;
+
+        }
 
 
         void Start()
@@ -75,6 +87,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             return m_ID;
+
+        }
+
+
+        public void SetMaxSpeed(float speed)
+        {
+
+            m_MaxSpeed = speed;
+
+        }
+
+
+        public float GetMaxSpeed()
+        {
+
+            return m_MaxSpeed;
 
         }
 
@@ -156,6 +184,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
+        public void SetCameraRotation(float look)
+        {
+
+            if (m_CameraRig != null)
+                m_CameraRig.GetComponent<NeoCam>().SetLookAngle(look);//.transform.rotation = //Quaternion.Euler(rotation);
+
+        }
+
+
         public void Rotate(Vector3 rotation)
         {
 
@@ -186,15 +223,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
             Vector3 localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);
-
-            m_Animator.SetFloat("Forward", localDirection.z / m_MaxSpeed, 0.1f, Time.deltaTime);
-            m_Animator.SetFloat("Sidestep", localDirection.x / m_MaxSpeed, 0.1f, Time.deltaTime);
+            
+            m_Animator.SetFloat("Forward", localDirection.z * m_AnimTransitionMultiplier, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("Sidestep", localDirection.x * m_AnimTransitionMultiplier, 0.1f, Time.deltaTime);
             m_Animator.SetFloat("MoveSpeed", localDirection.magnitude * m_AnimSpeedMultiplier);
 
         }
- 
 
-		private void CheckGroundStatus()
+
+        private void CheckGroundStatus()
 		{
 
 			RaycastHit hitInfo;
@@ -218,7 +255,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		}
 
-
+        
         void Update()
         {
             

@@ -27,9 +27,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Tree.OpenBranch(
 
-                BT.Call(m_AI.DecrementRangeTime),
+                BT.If(m_AI.HasScript).OpenBranch(
+                    BT.Call(m_AI.RunScript)
+                ),
 
-                    //BT.If(TargetHasLives).OpenBranch(
+                BT.If(m_AI.NoScript).OpenBranch(
+
+                    BT.Call(m_AI.DecrementRangeTime),
 
                     BT.If(m_AI.InRangeOrRangeTimeIn).OpenBranch(
 
@@ -71,11 +75,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
                     ),
 
-                //),
+                    BT.If(m_AI.OutOfRangeAndRangeTimeOut).OpenBranch(
+                        BT.Call(m_AI.Run),
+                        BT.Call(m_AI.RotateTo)
+                    )
 
-                BT.If(m_AI.OutOfRangeAndRangeTimeOut).OpenBranch(
-                    BT.Call(m_AI.Run),
-                    BT.Call(m_AI.RotateTo)
                 )
 
             );

@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour {
 
 	void Start () {
         
-        m_Phase = GetComponentInParent<Phase>();
+        m_Phase = GameObject.Find("EventManager").GetComponent<Phase>();
 
 	}
 
@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour {
     public void ExitGame()
     {
 
-        
+        Application.Quit();
 
     }
 

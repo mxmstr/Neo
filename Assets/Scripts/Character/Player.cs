@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             yield return new WaitForFixedUpdate();
 
-            GameObject rig = Instantiate(m_CameraRig, gameObject.transform);
+            //GameObject rig = Instantiate(m_CameraRig, gameObject.transform);
 
             m_Cam = GetComponentInChildren<Camera>().transform;
             m_Character = GetComponent<Character>();

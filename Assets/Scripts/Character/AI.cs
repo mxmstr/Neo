@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public float m_KickRange = 1.0f;
         public float m_OutOfRangeDelay = 1.0f;
 
+        private ScriptedBehavior m_Script;
         private Character m_Character;
         private Action m_Action;
         private Branch m_Branch_Primary;
@@ -25,6 +26,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool m_UsingPath;
         private List<Vector3> m_Path;
         private GameObject m_Target;
+
+        
         private float m_OutOfRangeTime;
 
 
@@ -45,6 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_UsingPath = false;
             m_Path = new List<Vector3>();
 
+            m_Script = GetComponent<ScriptedBehavior>();
             m_Character = GetComponent<Character>();
             m_Action = GetComponent<Action>();
             m_Branch_Primary = Array.Find(
@@ -170,6 +174,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
+        public bool HasScript()
+        {
+
+            return m_Script != null;
+
+        }
+
+
+        public bool NoScript()
+        {
+
+            return !HasScript();
+
+        }
+
+
+        public void RunScript()
+        {
+
+            m_Script.Tick();
+
+        }
+
+
         public void Punch()
         {
 
@@ -223,6 +251,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Action.Move(new Vector3(0, 0, 0));
 
+        }
+
+
+        public void Walk()
+        {
+
+            float speed = m_Character.GetMaxSpeed();
+
+            m_Character.SetMaxSpeed(speed * 0.3f);
+            m_Action.Move(transform.forward.normalized);
+            m_Character.SetMaxSpeed(speed);
+            //6173310031
         }
 
 

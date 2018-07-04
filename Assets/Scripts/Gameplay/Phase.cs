@@ -146,29 +146,6 @@ public class Phase : MonoBehaviour {
         }
 
 
-        if (m_PhaseData.spawned != null)
-        {
-            foreach (CharacterData data in m_PhaseData.spawned)
-            {
-
-                GameObject character = Instantiate(
-                    Resources.Load(data.prefab),
-                    data.position,
-                    Quaternion.Euler(data.rotation)
-                    ) as GameObject;
-
-                character.GetComponent<Character>().SetActive(data.active);
-
-                foreach (string script in data.scripts)
-                {
-                    Type t = Type.GetType(script);
-                    character.AddComponent(t);
-                }
-
-            }
-        }
-
-
         if (m_PhaseData.existing != null)
         {
             foreach (CharacterData data in m_PhaseData.existing)
@@ -184,7 +161,33 @@ public class Phase : MonoBehaviour {
                 if (data.rotation != null)
                     character.transform.rotation = Quaternion.Euler(data.rotation);
 
+                character.GetComponent<Character>().SetCameraRotation(data.rotation.y);
                 character.GetComponent<Character>().SetActive(data.active);
+
+                foreach (string script in data.scripts)
+                {
+                    Type t = Type.GetType(script);
+                    character.AddComponent(t);
+                }
+
+            }
+        }
+
+
+        if (m_PhaseData.spawned != null)
+        {
+            foreach (CharacterData data in m_PhaseData.spawned)
+            {
+
+                GameObject character = Instantiate(
+                    Resources.Load(data.prefab),
+                    data.position,
+                    Quaternion.Euler(data.rotation)
+                    ) as GameObject;
+
+                character.GetComponent<Character>().SetCameraRotation(data.rotation.y);
+                character.GetComponent<Character>().SetActive(data.active);
+                character.GetComponent<Character>().SetID(data.id);
 
                 foreach (string script in data.scripts)
                 {

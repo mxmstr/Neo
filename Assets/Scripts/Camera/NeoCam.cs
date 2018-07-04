@@ -53,6 +53,14 @@ namespace UnityStandardAssets.Cameras
         }
 
 
+        public void SetLookAngle(float angle)
+        {
+
+            m_LookAngle = angle;
+
+        }
+
+
         protected override void FollowTarget(float deltaTime)
         {
             

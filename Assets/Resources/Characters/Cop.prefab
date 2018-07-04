@@ -1568,6 +1568,7 @@ MonoBehaviour:
   m_MaxHealth: 1
   m_Lives: 2
   m_MaxSpeed: 2
+  m_AnimTransitionMultiplier: 0.4
   m_AnimSpeedMultiplier: 0.4
   m_TurnSmoothing: 25
   m_MoveDamping: 6
@@ -1595,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c688c086357c9814cad1f11e6a717206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PunchRange: 1.5
+  m_PunchRange: 1
   m_KickRange: 2
   m_OutOfRangeDelay: 0.05
 --- !u!114 &114781823193009232
