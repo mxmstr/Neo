@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TagName: Character
+  m_PushVelocity: {x: 0, y: 0, z: 0}
   m_ContactParticle: {fileID: 0}
   m_ContactSound: Hit_Body
 --- !u!114 &114404452148838756

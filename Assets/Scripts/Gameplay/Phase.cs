@@ -10,7 +10,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Phase : MonoBehaviour {
 
-    private object this[string propertyName]
+    private MethodInfo this[string propertyName]
     {
         get
         {
@@ -36,6 +36,7 @@ public class Phase : MonoBehaviour {
         public int id;
         public bool active;
         public string[] scripts;
+        public bool transform;
         public Vector3 position;
         public Vector3 rotation;
 
@@ -48,7 +49,8 @@ public class Phase : MonoBehaviour {
         public string name;
         public bool cursor_visible;
         public int cursor_lock;
-        public string active_camera;
+        public string camera;
+        public string canvas;
         public Vector3 freecam_pos;
         public Vector3 freecam_rot;
         public string freecam_script;
@@ -64,13 +66,16 @@ public class Phase : MonoBehaviour {
         public PhaseData[] phases;
     }
 
-    public string m_Source = "Phases.json";
-    public NavMeshData m_NavMeshData;
-    public List<string> m_Phases = new List<string>();
+    [SerializeField] string m_Source = "Phases.json";
+    [SerializeField] NavMeshData m_NavMeshData;
+    [SerializeField] List<string> m_Phases = new List<string>();
+    [SerializeField] List<string> m_Events = new List<string>();
 
     private GameObject m_CameraRig;
+    private GameObject m_Canvas;
     private PhaseTable m_PhaseTable;
     private PhaseData m_PhaseData;
+    private IDictionary<string, MethodInfo> m_EventList;
     private GameObject m_Characters;
     private delegate bool Trigger();
     private Trigger m_NextTrigger;
@@ -89,7 +94,16 @@ public class Phase : MonoBehaviour {
                 break;
             }
         }
+
+        m_EventList = new Dictionary<string, MethodInfo>();
+
+        foreach (string e in m_Events) {
+            string eventName = e.Split(' ')[0];
+            string phaseName = e.Split(' ')[1];
             
+            m_EventList.Add(phaseName, this[eventName]);
+        }
+
 
         LoadPhasesData();
         NextPhase();
@@ -108,17 +122,20 @@ public class Phase : MonoBehaviour {
 
     public void NextPhase()
     {
-        
+
         if (m_Phases.Count == 0)
             return;
 
-        string currentCamScript = null;
         string phaseName = m_Phases[0];
         m_Phases.RemoveAt(0);
 
-        if (m_PhaseData != null)
-            currentCamScript = m_PhaseData.freecam_script;
+        StartPhase(phaseName);
 
+    }
+
+
+    public void StartPhase(string phaseName)
+    {
 
         foreach (PhaseData data in m_PhaseTable.phases)
         {
@@ -134,7 +151,7 @@ public class Phase : MonoBehaviour {
         {
             m_NextTrigger = delegate ()
                 {
-                    return (bool)((MethodInfo)this[m_PhaseData.next_trigger]).Invoke(this, null);
+                    return (bool)(this[m_PhaseData.next_trigger]).Invoke(this, null);
                 };
         }
         else
@@ -150,24 +167,34 @@ public class Phase : MonoBehaviour {
         {
             foreach (CharacterData data in m_PhaseData.existing)
             {
+                
+                List<GameObject> characters = new List<GameObject>();
 
-                GameObject character = Array.Find(
-                    GameObject.FindGameObjectsWithTag("Character"),
-                    delegate (GameObject go) { return go.GetComponent<Character>().GetID() == data.id; }
-                    );
+                if (data.id == -1)
+                    characters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Character"));
+                else
+                    characters.Add(Array.Find(
+                        GameObject.FindGameObjectsWithTag("Character"),
+                        delegate (GameObject go) { return go.GetComponent<Character>().GetID() == data.id; }
+                        ));
 
-                if (data.position != null)
-                    character.transform.position = data.position;
-                if (data.rotation != null)
-                    character.transform.rotation = Quaternion.Euler(data.rotation);
-
-                character.GetComponent<Character>().SetCameraRotation(data.rotation.y);
-                character.GetComponent<Character>().SetActive(data.active);
-
-                foreach (string script in data.scripts)
+                foreach (GameObject character in characters)
                 {
-                    Type t = Type.GetType(script);
-                    character.AddComponent(t);
+                    
+                    if (data.transform)
+                    {
+                        character.transform.position = data.position;
+                        character.transform.rotation = Quaternion.Euler(data.rotation);
+                    }
+                    
+                    character.GetComponent<Character>().SetCameraRotation(data.rotation.y);
+                    character.GetComponent<Character>().SetActive(data.active);
+
+                    foreach (string script in data.scripts)
+                    {
+                        Type t = Type.GetType(script);
+                        character.AddComponent(t);
+                    }
                 }
 
             }
@@ -178,7 +205,7 @@ public class Phase : MonoBehaviour {
         {
             foreach (CharacterData data in m_PhaseData.spawned)
             {
-
+                
                 GameObject character = Instantiate(
                     Resources.Load(data.prefab),
                     data.position,
@@ -202,32 +229,70 @@ public class Phase : MonoBehaviour {
         Cursor.visible = m_PhaseData.cursor_visible;
         Cursor.lockState = (CursorLockMode)m_PhaseData.cursor_lock;
 
-
-        foreach (GameObject camera in GameObject.FindGameObjectsWithTag("MainCamera")) {
-            if (camera.name.Contains(m_PhaseData.active_camera))
-                camera.SetActive(true);
+        
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("MainCamera")) {
+            Camera camera = go.GetComponent<Camera>();
+            if (camera.name.Contains(m_PhaseData.camera))
+            {
+                camera.enabled = true;
+                camera.GetComponent<AudioListener>().enabled = true;
+            } 
             else
-                camera.SetActive(false);
+            {
+                camera.enabled = false;
+                camera.GetComponent<AudioListener>().enabled = false;
+            }
+        }
+
+        if (m_Canvas != null)
+        {
+            /*for (int i = 0; i < transform.childCount; ++i)
+            {
+                if (transform.GetChild(i).name.Contains("FreeCamRig"))
+                {
+                    m_CameraRig = transform.GetChild(i).gameObject;
+                    break;
+                }
+            }*/
+            DestroyImmediate(m_Canvas);
+            m_Canvas = null;
+        }
+            
+
+        if (m_PhaseData.canvas != null)
+        {
+            m_Canvas = Instantiate(Resources.Load(m_PhaseData.canvas)) as GameObject;
         }
 
 
-        if (m_PhaseData.freecam_pos != null)
-            m_CameraRig.transform.position = m_PhaseData.freecam_pos;
-        if (m_PhaseData.freecam_rot != null)
-            m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
+        m_CameraRig.transform.position = m_PhaseData.freecam_pos;
+        m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
 
-
-        if (currentCamScript != null)
-            foreach (MonoBehaviour script in m_CameraRig.GetComponents<MonoBehaviour>())
-                DestroyImmediate(script);
-
-
+        
+        foreach (MonoBehaviour script in m_CameraRig.GetComponents<MonoBehaviour>())
+            DestroyImmediate(script);
+        
         if (m_PhaseData.freecam_script != null)
         {
             Type t = Type.GetType(m_PhaseData.freecam_script);
             m_CameraRig.AddComponent(t);
         }
             
+
+    }
+
+
+    public bool PlayerDead()
+    {
+
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Character"))
+        {
+            Character character = go.GetComponent<Character>();
+            if (character.GetID() == 0)
+                return !character.HasLives() && !character.HasHealth();
+        }
+
+        return false;
 
     }
 
@@ -252,6 +317,13 @@ public class Phase : MonoBehaviour {
         if (m_NextTrigger())
             NextPhase();
 
-	}
+        foreach (string phaseName in m_EventList.Keys)
+        {
+            if (phaseName != m_PhaseData.name && (bool)m_EventList[phaseName].Invoke(this, null))
+                    StartPhase(phaseName);
+        }
+
+
+    }
 
 }

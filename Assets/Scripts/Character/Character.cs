@@ -48,6 +48,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void Awake()
         {
 
+            m_Health = m_MaxHealth;
+
             if (GetComponentInChildren<NeoCam>() != null)
                 m_CameraRig = GetComponentInChildren<NeoCam>().gameObject;
 
@@ -62,8 +64,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Capsule = GetComponent<CapsuleCollider>();
             m_Colliders = GetComponentsInChildren<BoxCollider>();
             m_Action = GetComponent<Action>();
-            
-            m_Health = m_MaxHealth;
 
             m_Direction = new Vector3(0, 0, 0);
             m_CapsuleHeight = m_Capsule.height;
@@ -157,9 +157,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void ResetHealth()
         {
-
+            
             m_Lives--;
-            m_Health = m_MaxHealth;
+
+            if (HasLives())
+                m_Health = m_MaxHealth;
 
         }
         

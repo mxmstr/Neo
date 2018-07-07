@@ -4,7 +4,8 @@
             "name": "Menu",
             "cursor_visible": true,
             "cursor_lock": 0,
-            "active_camera": "FreeCam",
+            "camera": "FreeCam",
+            "canvas": "Canvases/MainMenu",
             "freecam_pos": {
                 "x": 0.0,
                 "y": 0.0,
@@ -18,10 +19,26 @@
             "freecam_script": "MenuCam"
         },
         {
+            "name": "Death",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "camera": "FreeCam",
+            "freecam_script": "DeathCam",
+            "existing": [
+                {
+                    "id": -1,
+                    "active": false,
+                    "scripts": [],
+                    "transform": false
+                }
+            ]
+        },
+        {
             "name": "CopFight1",
             "cursor_visible": false,
             "cursor_lock": 1,
-            "active_camera": "NeoCam",
+            "camera": "NeoCam",
+            "canvas": "Canvases/HUD",
             "next_trigger": "AllBlueDead",
             "spawned": [
                 {
@@ -29,6 +46,7 @@
                     "id": 0,
                     "active": true,
                     "scripts": [],
+                    "transform": true,
                     "position": {
                         "x": -1.75,
                         "y": 6.0,
@@ -44,7 +62,7 @@
                     "prefab": "Characters/Cop",
                     "id": 10,
                     "active": true,
-                    "scripts": ["Arrest"],
+                    "scripts": [ "Arrest" ],
                     "position": {
                         "x": 2.45,
                         "y": 6.0,
@@ -60,7 +78,7 @@
                     "prefab": "Characters/Cop",
                     "id": 11,
                     "active": true,
-                    "scripts": ["WaitForArrest"],
+                    "scripts": [ "WaitForArrest" ],
                     "position": {
                         "x": 5.45,
                         "y": 6.0,
@@ -76,7 +94,7 @@
                     "prefab": "Characters/Cop",
                     "id": 12,
                     "active": true,
-                    "scripts": ["WaitForArrest"],
+                    "scripts": [ "WaitForArrest" ],
                     "position": {
                         "x": 5.45,
                         "y": 6.0,
@@ -94,6 +112,8 @@
             "name": "SwatFight1",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "camera": "NeoCam",
+            "canvas": "Canvases/HUD",
             "spawned": [
                 {
                     "prefab": "Characters/Swat",
@@ -149,6 +169,7 @@
                     "id": 0,
                     "active": true,
                     "scripts": [],
+                    "transform": true,
                     "position": {
                         "x": -4.75,
                         "y": 6.0,

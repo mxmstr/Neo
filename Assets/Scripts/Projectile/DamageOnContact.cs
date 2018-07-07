@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class DamageOnContact : MonoBehaviour {
 
     [SerializeField] string m_TagName = "Character";
+    [SerializeField] Vector3 m_PushVelocity = new Vector3(0, 0, 0);
     [SerializeField] GameObject m_ContactParticle;
     [SerializeField] string m_ContactSound;
 
@@ -34,6 +35,8 @@ public class DamageOnContact : MonoBehaviour {
             {
                 c.GetComponent<Action>().ReceiveDamage(
                     m_Projectile.GetDamage(), transform.forward, m_Projectile.GetReactHit(), m_Projectile.GetReactKO());
+                
+                c.GetComponent<Rigidbody>().velocity += m_PushVelocity;
 
                 if (m_ContactSound != null)
                     c.GetComponent<Sound>().PlaySound(m_ContactSound);

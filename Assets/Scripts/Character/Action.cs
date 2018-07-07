@@ -294,12 +294,11 @@ public class Action : MonoBehaviour
 
     public void Recover(string actionName)
     {
-        
-        if (m_Character.HasLives())
-        {
-            m_Character.ResetHealth();
+
+        m_Character.ResetHealth();
+
+        if (m_Character.HasHealth())
             StartAction(actionName);
-        }
         
     }
 
