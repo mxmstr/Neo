@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_MaxHealth: 1
   m_Lives: 2
   m_MaxSpeed: 2
-  m_AnimTransitionMultiplier: 0.25
+  m_AnimTransitionMultiplier: 0.4
   m_AnimSpeedMultiplier: 0.4
   m_TurnSmoothing: 25
   m_MoveDamping: 6

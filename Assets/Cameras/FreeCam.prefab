@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 92118815423462616}
   - component: {fileID: 124351635477856394}
   - component: {fileID: 81749249155640062}
+  - component: {fileID: 114446688053634372}
   m_Layer: 0
   m_Name: FreeCam
   m_TagString: MainCamera
@@ -191,6 +192,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &114446688053634372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546650575809256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3722914362306784a8a1b3f3501fd8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timer: 0
 --- !u!114 &114575069517314732
 MonoBehaviour:
   m_ObjectHideFlags: 1

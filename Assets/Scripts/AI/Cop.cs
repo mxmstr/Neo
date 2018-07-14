@@ -91,7 +91,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             if (!m_Character.IsActive())
+            {
+                m_AI.Stand();
                 return;
+            }
             
             m_Tree.Tick();
 

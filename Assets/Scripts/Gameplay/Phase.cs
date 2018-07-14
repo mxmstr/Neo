@@ -51,6 +51,7 @@ public class Phase : MonoBehaviour {
         public int cursor_lock;
         public string camera;
         public string canvas;
+        public float freecam_timer;
         public Vector3 freecam_pos;
         public Vector3 freecam_rot;
         public string freecam_script;
@@ -85,7 +86,7 @@ public class Phase : MonoBehaviour {
 
         NavMesh.AddNavMeshData(m_NavMeshData);
         NavMesh.CalculateTriangulation();
-        
+
         for (int i = 0; i < transform.childCount; ++i)
         {
             if (transform.GetChild(i).name.Contains("FreeCamRig"))
@@ -107,7 +108,7 @@ public class Phase : MonoBehaviour {
 
         LoadPhasesData();
         NextPhase();
-
+        
     }
 
 
@@ -230,45 +231,41 @@ public class Phase : MonoBehaviour {
         Cursor.lockState = (CursorLockMode)m_PhaseData.cursor_lock;
 
         
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("MainCamera")) {
-            Camera camera = go.GetComponent<Camera>();
+        foreach (GameObject camera in GameObject.FindGameObjectsWithTag("MainCamera")) {
             if (camera.name.Contains(m_PhaseData.camera))
             {
-                camera.enabled = true;
+                camera.GetComponent<Camera>().enabled = true;
                 camera.GetComponent<AudioListener>().enabled = true;
             } 
             else
             {
-                camera.enabled = false;
+                camera.GetComponent<Camera>().enabled = false;
                 camera.GetComponent<AudioListener>().enabled = false;
             }
         }
+        
 
         if (m_Canvas != null)
         {
-            /*for (int i = 0; i < transform.childCount; ++i)
+            if (!(m_PhaseData.canvas != null && m_PhaseData.canvas.Contains(m_Canvas.name)))
             {
-                if (transform.GetChild(i).name.Contains("FreeCamRig"))
-                {
-                    m_CameraRig = transform.GetChild(i).gameObject;
-                    break;
-                }
-            }*/
-            DestroyImmediate(m_Canvas);
-            m_Canvas = null;
+                DestroyImmediate(m_Canvas);
+                m_Canvas = null;
+            }
         }
             
-
-        if (m_PhaseData.canvas != null)
-        {
+        if (m_PhaseData.canvas != null && 
+            !(m_Canvas != null && m_PhaseData.canvas.Contains(m_Canvas.name)))
             m_Canvas = Instantiate(Resources.Load(m_PhaseData.canvas)) as GameObject;
-        }
-
-
-        m_CameraRig.transform.position = m_PhaseData.freecam_pos;
-        m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
 
         
+        m_CameraRig.GetComponentInChildren<CameraBase>().SetTimer(m_PhaseData.freecam_timer);
+        m_CameraRig.transform.position = m_PhaseData.freecam_pos;
+        m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
+        m_CameraRig.GetComponentInChildren<Camera>().transform.localPosition = new Vector3(0, 0, 0);
+        m_CameraRig.GetComponentInChildren<Camera>().transform.localRotation = new Quaternion();
+
+
         foreach (MonoBehaviour script in m_CameraRig.GetComponents<MonoBehaviour>())
             DestroyImmediate(script);
         
@@ -277,7 +274,15 @@ public class Phase : MonoBehaviour {
             Type t = Type.GetType(m_PhaseData.freecam_script);
             m_CameraRig.AddComponent(t);
         }
-            
+        
+
+    }
+
+
+    public bool FreeCamTimedOut()
+    {
+
+        return m_CameraRig.GetComponentInChildren<CameraBase>().IsTimedOut();
 
     }
 

@@ -63,6 +63,7 @@
                     "id": 10,
                     "active": true,
                     "scripts": [ "Arrest" ],
+                    "transform": true,
                     "position": {
                         "x": 2.45,
                         "y": 6.0,
@@ -79,6 +80,7 @@
                     "id": 11,
                     "active": true,
                     "scripts": [ "WaitForArrest" ],
+                    "transform": true,
                     "position": {
                         "x": 5.45,
                         "y": 6.0,
@@ -95,10 +97,135 @@
                     "id": 12,
                     "active": true,
                     "scripts": [ "WaitForArrest" ],
+                    "transform": true,
                     "position": {
                         "x": 5.45,
                         "y": 6.0,
                         "z": -1.02
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "CopFight2_Intro",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "camera": "FreeCam",
+            "freecam_timer": 3.0,
+            "freecam_pos": {
+                "x": 18.72,
+                "y": 14.23,
+                "z": -0.37
+            },
+            "freecam_rot": {
+                "x": 67.5,
+                "y": 90.0,
+                "z": 0.0
+            },
+            "next_trigger": "FreeCamTimedOut",
+            "spawned": [
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 20,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 24.5,
+                        "y": 6.0,
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 21,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 25.0,
+                        "y": 6.0,
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 25.5,
+                        "y": 6.0,
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                }
+            ],
+            "existing": [
+                {
+                    "id": 0,
+                    "active": false,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 9.77,
+                        "y": 6.0,
+                        "z": 0.47
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "CopFight2",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "camera": "NeoCam",
+            "freecam_pos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "freecam_rot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "next_trigger": "AllBlueDead",
+            "existing": [
+                {
+                    "id": 0,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 9.77,
+                        "y": 6.0,
+                        "z": 0.47
                     },
                     "rotation": {
                         "x": 0.0,
@@ -120,6 +247,7 @@
                     "id": 20,
                     "active": true,
                     "scripts": [],
+                    "transform": true,
                     "position": {
                         "x": 24.5,
                         "y": 6.0,
@@ -136,6 +264,7 @@
                     "id": 21,
                     "active": true,
                     "scripts": [],
+                    "transform": true,
                     "position": {
                         "x": 25.0,
                         "y": 6.0,
@@ -152,6 +281,7 @@
                     "id": 22,
                     "active": true,
                     "scripts": [],
+                    "transform": true,
                     "position": {
                         "x": 25.5,
                         "y": 6.0,
@@ -160,24 +290,6 @@
                     "rotation": {
                         "x": 0.0,
                         "y": -90.0,
-                        "z": 0.0
-                    }
-                }
-            ],
-            "existing": [
-                {
-                    "id": 0,
-                    "active": true,
-                    "scripts": [],
-                    "transform": true,
-                    "position": {
-                        "x": -4.75,
-                        "y": 6.0,
-                        "z": 2.49
-                    },
-                    "rotation": {
-                        "x": 0.0,
-                        "y": 90.0,
                         "z": 0.0
                     }
                 }

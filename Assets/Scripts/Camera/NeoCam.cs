@@ -57,6 +57,7 @@ namespace UnityStandardAssets.Cameras
         {
 
             m_LookAngle = angle;
+            HandleRotationMovement();
 
         }
 
