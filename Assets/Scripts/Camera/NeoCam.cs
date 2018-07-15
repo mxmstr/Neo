@@ -47,7 +47,7 @@ namespace UnityStandardAssets.Cameras
 
         protected void Update()
         {
-
+            
             HandleRotationMovement();
 
         }

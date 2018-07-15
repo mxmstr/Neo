@@ -49,6 +49,7 @@ public class Phase : MonoBehaviour {
         public string name;
         public bool cursor_visible;
         public int cursor_lock;
+        public string music;
         public string camera;
         public string canvas;
         public float freecam_timer;
@@ -74,6 +75,8 @@ public class Phase : MonoBehaviour {
 
     private GameObject m_CameraRig;
     private GameObject m_Canvas;
+    private Sound m_Sound;
+    private string m_SoundName;
     private PhaseTable m_PhaseTable;
     private PhaseData m_PhaseData;
     private IDictionary<string, MethodInfo> m_EventList;
@@ -83,6 +86,8 @@ public class Phase : MonoBehaviour {
 
 
     void Start () {
+
+        m_Sound = GetComponent<Sound>();
 
         NavMesh.AddNavMeshData(m_NavMeshData);
         NavMesh.CalculateTriangulation();
@@ -230,35 +235,39 @@ public class Phase : MonoBehaviour {
         Cursor.visible = m_PhaseData.cursor_visible;
         Cursor.lockState = (CursorLockMode)m_PhaseData.cursor_lock;
 
-        
-        foreach (GameObject camera in GameObject.FindGameObjectsWithTag("MainCamera")) {
-            if (camera.name.Contains(m_PhaseData.camera))
-            {
-                camera.GetComponent<Camera>().enabled = true;
-                camera.GetComponent<AudioListener>().enabled = true;
-            } 
-            else
-            {
-                camera.GetComponent<Camera>().enabled = false;
-                camera.GetComponent<AudioListener>().enabled = false;
-            }
-        }
-        
 
-        if (m_Canvas != null)
+        if (m_SoundName != m_PhaseData.music)
         {
-            if (!(m_PhaseData.canvas != null && m_PhaseData.canvas.Contains(m_Canvas.name)))
+            m_Sound.StopSound();
+            if (m_PhaseData.music != null)
             {
-                DestroyImmediate(m_Canvas);
-                m_Canvas = null;
+                m_Sound.PlaySound(m_PhaseData.music);
+                m_SoundName = m_PhaseData.music;
             }
         }
-            
-        if (m_PhaseData.canvas != null && 
-            !(m_Canvas != null && m_PhaseData.canvas.Contains(m_Canvas.name)))
-            m_Canvas = Instantiate(Resources.Load(m_PhaseData.canvas)) as GameObject;
 
-        
+
+        foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>())
+        {
+            if (obj.tag == "MainCamera")
+            {
+                if (obj.name.Contains(m_PhaseData.camera))
+                {
+                    obj.GetComponent<Camera>().enabled = true;
+                    obj.GetComponent<AudioListener>().enabled = true;
+                }
+                else
+                {
+                    obj.GetComponent<Camera>().enabled = false;
+                    obj.GetComponent<AudioListener>().enabled = false;
+                }
+            }
+        }
+
+
+        SetCanvas(m_PhaseData.canvas);
+
+
         m_CameraRig.GetComponentInChildren<CameraBase>().SetTimer(m_PhaseData.freecam_timer);
         m_CameraRig.transform.position = m_PhaseData.freecam_pos;
         m_CameraRig.transform.rotation = Quaternion.Euler(m_PhaseData.freecam_rot);
@@ -276,6 +285,25 @@ public class Phase : MonoBehaviour {
         }
         
 
+    }
+
+
+    public void SetCanvas(string canvasName)
+    {
+
+        if (m_Canvas != null)
+        {
+            if (!(canvasName != null && canvasName.Contains(m_Canvas.name)))
+            {
+                DestroyImmediate(m_Canvas);
+                m_Canvas = null;
+            }
+        }
+
+        if (canvasName != null &&
+            !(m_Canvas != null && canvasName.Contains(m_Canvas.name)))
+            m_Canvas = Instantiate(Resources.Load(canvasName)) as GameObject;
+        
     }
 
 

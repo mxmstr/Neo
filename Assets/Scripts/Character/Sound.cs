@@ -34,8 +34,10 @@ public class Sound : MonoBehaviour {
     private Animator m_Animator;
     private AudioSource m_Voice;
     private AudioSource m_Effects;
+    private AudioSource m_Music;
     private SoundTable m_SoundTable;
     private SoundData m_SoundData;
+    private AudioSource m_Source;
 
 
     void Start () {
@@ -48,6 +50,10 @@ public class Sound : MonoBehaviour {
         m_Effects = Array.Find(
                 GetComponents<AudioSource>(),
                 delegate (AudioSource a) { return a.outputAudioMixerGroup.name == "Effects"; }
+                );
+        m_Music = Array.Find(
+                GetComponents<AudioSource>(),
+                delegate (AudioSource a) { return a.outputAudioMixerGroup.name == "Music"; }
                 );
 
         LoadSoundData();
@@ -78,17 +84,27 @@ public class Sound : MonoBehaviour {
         
         System.Random rand = new System.Random();
         string clip = m_SoundData.clips[rand.Next(m_SoundData.clips.Length)];
-        AudioSource source;
 
         if (m_SoundData.type == "Voice")
-            source = m_Voice;
+            m_Source = m_Voice;
+        else if (m_SoundData.type == "Effect")
+            m_Source = m_Effects;
         else
-            source = m_Effects;
+            m_Source = m_Music;
+        
+        m_Source.priority = m_SoundData.priority;
+        m_Source.volume = m_SoundData.volume;
+        m_Source.pitch = m_SoundData.pitch;
+        m_Source.PlayOneShot(Resources.Load(clip, typeof(AudioClip)) as AudioClip);
 
-        source.priority = m_SoundData.priority;
-        source.volume = m_SoundData.volume;
-        source.pitch = m_SoundData.pitch;
-        source.PlayOneShot(Resources.Load(clip, typeof(AudioClip)) as AudioClip);
+    }
+
+
+    public void StopSound()
+    {
+
+        if (m_Source != null)
+            m_Source.Stop();
 
     }
 

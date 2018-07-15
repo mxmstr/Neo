@@ -1,27 +1,28 @@
 {
     "phases": [
         {
-            "name": "Menu",
+            "name": "MainMenu",
             "cursor_visible": true,
             "cursor_lock": 0,
+            "music": "FightMusic",
             "camera": "FreeCam",
             "canvas": "Canvases/MainMenu",
-            "freecam_pos": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "freecam_rot": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
+            "freecam_script": "MenuCam"
+        },
+        {
+            "name": "CreditsMenu",
+            "cursor_visible": true,
+            "cursor_lock": 0,
+            "music": "FightMusic",
+            "camera": "FreeCam",
+            "canvas": "Canvases/CreditsMenu",
             "freecam_script": "MenuCam"
         },
         {
             "name": "Death",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "music": "DeathMusic2",
             "camera": "FreeCam",
             "freecam_script": "DeathCam",
             "existing": [
@@ -37,6 +38,7 @@
             "name": "CopFight1",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "music": "FightMusic",
             "camera": "NeoCam",
             "canvas": "Canvases/HUD",
             "next_trigger": "AllBlueDead",
@@ -115,6 +117,7 @@
             "name": "CopFight2_Intro",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "music": "FightMusic",
             "camera": "FreeCam",
             "freecam_timer": 3.0,
             "freecam_pos": {
@@ -204,6 +207,7 @@
             "name": "CopFight2",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "music": "FightMusic",
             "camera": "NeoCam",
             "freecam_pos": {
                 "x": 0.0,
@@ -239,6 +243,7 @@
             "name": "SwatFight1",
             "cursor_visible": false,
             "cursor_lock": 1,
+            "music": "FightMusic",
             "camera": "NeoCam",
             "canvas": "Canvases/HUD",
             "spawned": [

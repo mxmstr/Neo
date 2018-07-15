@@ -113,88 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 2bda4c3becde66d48acb3496768b5d02, type: 2}
---- !u!1001 &284013541
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Events.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.data[0]
-      value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.data[1]
-      value: CopFight1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Events.Array.data[0]
-      value: PlayerDead Death
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.data[2]
-      value: CopFight2_Intro
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.data[3]
-      value: CopFight2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
-        type: 2}
-      propertyPath: m_Phases.Array.data[4]
-      value: SwatFight
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: aa994cbbe102d294a93c8097851885e3, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &364792817
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,11 +268,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364792817}
   m_Mesh: {fileID: 4300116, guid: 32f1caf5562651f40b40f4d3e77b52eb, type: 3}
---- !u!4 &755408711 stripped
+--- !u!4 &755408711
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4086706027586784, guid: aa994cbbe102d294a93c8097851885e3,
     type: 2}
-  m_PrefabInternal: {fileID: 284013541}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580016953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 890637164}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &890637163
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +396,140 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1580016953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1024162116482400, guid: aa994cbbe102d294a93c8097851885e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 755408711}
+  - component: {fileID: 1580016956}
+  - component: {fileID: 1580016955}
+  - component: {fileID: 1580016954}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1580016954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114757567737508130, guid: aa994cbbe102d294a93c8097851885e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580016953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fa6f994c32fb14a81811c63c3503fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Source: Phases.json
+  m_NavMeshData: {fileID: 23800000, guid: fdc5895c1e874be48b35c26e591b7c7b, type: 2}
+  m_Phases:
+  - MainMenu
+  - CopFight1
+  - CopFight2_Intro
+  - CopFight2
+  - SwatFight
+  m_Events:
+  - PlayerDead Death
+--- !u!114 &1580016955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580016953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee761294cc5cd304f8a43153e7958b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SoundSource: Sounds.json
+--- !u!82 &1580016956
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580016953}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243230366328062228, guid: ee94d9bca3231d1408cb699380ae9aaf,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1661358960
 GameObject:
   m_ObjectHideFlags: 0

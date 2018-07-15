@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour {
 
+
+
     private Phase m_Phase;
 
 	void Start () {
@@ -18,6 +20,22 @@ public class Menu : MonoBehaviour {
     {
         
         m_Phase.NextPhase();
+
+    }
+
+
+    public void ToCredits()
+    {
+
+        m_Phase.SetCanvas("Canvases/CreditsMenu");
+
+    }
+
+
+    public void ToMain()
+    {
+
+        m_Phase.SetCanvas("Canvases/MainMenu");
 
     }
 

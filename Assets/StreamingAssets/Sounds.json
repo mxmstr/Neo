@@ -1,6 +1,36 @@
 {
     "sounds": [
         {
+            "name": "FightMusic",
+            "type": "Music",
+            "clips": [
+                "Sounds/Matrix/music/FIGHT"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "DeathMusic1",
+            "type": "Music",
+            "clips": [
+                "Sounds/Matrix/music/DEATH"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "DeathMusic2",
+            "type": "Music",
+            "clips": [
+                "Sounds/Matrix/music/DEATH2"
+            ],
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
             "name": "Neo_Grunt",
             "type": "Voice",
             "clips": [

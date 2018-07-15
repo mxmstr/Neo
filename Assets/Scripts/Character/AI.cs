@@ -262,7 +262,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character.SetMaxSpeed(speed * 0.3f);
             m_Action.Move(transform.forward.normalized);
             m_Character.SetMaxSpeed(speed);
-            //6173310031
+
         }
 
 
