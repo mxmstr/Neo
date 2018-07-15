@@ -10,8 +10,10 @@ public class DeathCam : MonoBehaviour
     [SerializeField] float m_Speed = -10.0f;
     [SerializeField] Vector3 m_Offset = new Vector3(0, 0, 3);
     [SerializeField] Vector3 m_TargetPos = new Vector3(0, 1, 0);
+    [SerializeField] float m_MessageTimer = 3.0f;
 
     private Camera m_Cam;
+    private Phase m_Phase;
 
     /*{
                 "name": "MenuCam",
@@ -28,6 +30,7 @@ public class DeathCam : MonoBehaviour
 
     void Start() {
         
+        m_Phase = GameObject.Find("EventManager").GetComponent<Phase>();
         m_Cam = GetComponentInChildren<Camera>();
         m_Cam.transform.localPosition = m_Offset;
 
@@ -44,6 +47,11 @@ public class DeathCam : MonoBehaviour
 
 
     void Update() {
+
+        float currentTime = m_MessageTimer;
+        m_MessageTimer -= Time.deltaTime;
+        if (currentTime > 0 && m_MessageTimer <= 0)
+            m_Phase.SetCanvas("Canvases/DeathMenu");
 
         transform.position = m_TargetPos;
         transform.RotateAround(m_TargetPos, new Vector3(0, 1, 0), m_Speed * Time.deltaTime);

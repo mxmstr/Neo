@@ -6,6 +6,7 @@
             "clips": [
                 "Sounds/Matrix/music/FIGHT"
             ],
+            "loop": true,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -16,6 +17,7 @@
             "clips": [
                 "Sounds/Matrix/music/DEATH"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -26,6 +28,7 @@
             "clips": [
                 "Sounds/Matrix/music/DEATH2"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -37,6 +40,7 @@
                 "Sounds/Matrix/enemy/grunts/02",
                 "Sounds/Matrix/enemy/grunts/03"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -55,6 +59,7 @@
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh8",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh9"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -67,6 +72,7 @@
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh_big2",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh_big3"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -85,6 +91,7 @@
                 "Sounds/Matrix/weapons/NewMatrix/Whoosh8",
                 "Sounds/Matrix/weapons/NewMatrix/Whoosh9"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -95,6 +102,7 @@
             "clips": [
                 "Sounds/Payne/characters/Dodge"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -105,6 +113,7 @@
             "clips": [
                 "Sounds/Payne/characters/Dodgebackward"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -116,6 +125,7 @@
                 "Sounds/Payne/characters/footsteps/default_left_01",
                 "Sounds/Payne/characters/footsteps/default_left_02"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.05,
             "pitch": 1.0
@@ -127,6 +137,7 @@
                 "Sounds/Payne/characters/footsteps/default_right_01",
                 "Sounds/Payne/characters/footsteps/default_right_02"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.05,
             "pitch": 1.0
@@ -141,6 +152,7 @@
                 "Sounds/Matrix/weapons/whoosh_small4",
                 "Sounds/Matrix/weapons/whoosh_small5"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -155,6 +167,7 @@
                 "Sounds/Matrix/weapons/whoosh_big4",
                 "Sounds/Matrix/weapons/whoosh_big5"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0
@@ -166,6 +179,7 @@
                 "Sounds/Payne/Characters/death/bodyfall_09",
                 "Sounds/Payne/Characters/death/bodyfall_15"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 1.0,
             "pitch": 1.0
@@ -176,6 +190,7 @@
             "clips": [
                 "Sounds/Payne/Characters/death/Death_falling"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 1.0,
             "pitch": 1.0
@@ -191,6 +206,7 @@
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body5",
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body6"
             ],
+            "loop": false,
             "priority": 128,
             "volume": 0.5,
             "pitch": 1.0

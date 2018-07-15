@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using UnityStandardAssets.Characters.ThirdPerson;
-using UnityEditor;
+//using UnityEditor;
 using System;
 using System.Reflection;
 
@@ -195,8 +195,15 @@ public class Action : MonoBehaviour
 
         AnimationClip clip_src = Resources.Load(
             "Animations/" + m_ActionData.animation, typeof(AnimationClip)) as AnimationClip;
-        AnimationClip clip_new = new AnimationClip();
-        EditorUtility.CopySerialized(clip_src, clip_new);
+        AnimationClip clip_new = Instantiate(clip_src);
+        //new AnimationClip();
+        //EditorUtility.CopySerialized(clip_src, clip_new);
+        
+
+        /*FieldInfo[] fields = typeof(AnimationClip).GetFields(); 
+        foreach (FieldInfo field in fields)
+            field.SetValue(clip_new, field.GetValue(clip_src));*/
+
 
         m_AnimatorOverride[newslot] = clip_new;
 

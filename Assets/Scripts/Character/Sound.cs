@@ -16,6 +16,7 @@ public class Sound : MonoBehaviour {
         public string name;
         public string type;
         public string[] clips;
+        public bool loop;
         public int priority;
         public float volume;
         public float pitch;
@@ -95,8 +96,18 @@ public class Sound : MonoBehaviour {
         m_Source.priority = m_SoundData.priority;
         m_Source.volume = m_SoundData.volume;
         m_Source.pitch = m_SoundData.pitch;
-        m_Source.PlayOneShot(Resources.Load(clip, typeof(AudioClip)) as AudioClip);
 
+        if (m_SoundData.loop)
+        {
+            m_Source.clip = Resources.Load(clip, typeof(AudioClip)) as AudioClip;
+            m_Source.Play();
+        }
+        else
+        {
+            m_Source.clip = null;
+            m_Source.PlayOneShot(Resources.Load(clip, typeof(AudioClip)) as AudioClip);
+        }
+        
     }
 
 

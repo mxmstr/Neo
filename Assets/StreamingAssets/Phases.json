@@ -10,18 +10,9 @@
             "freecam_script": "MenuCam"
         },
         {
-            "name": "CreditsMenu",
+            "name": "Death",
             "cursor_visible": true,
             "cursor_lock": 0,
-            "music": "FightMusic",
-            "camera": "FreeCam",
-            "canvas": "Canvases/CreditsMenu",
-            "freecam_script": "MenuCam"
-        },
-        {
-            "name": "Death",
-            "cursor_visible": false,
-            "cursor_lock": 1,
             "music": "DeathMusic2",
             "camera": "FreeCam",
             "freecam_script": "DeathCam",
