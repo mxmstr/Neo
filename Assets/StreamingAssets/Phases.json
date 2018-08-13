@@ -26,6 +26,49 @@
             ]
         },
         {
+            "name": "Test",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "camera": "NeoCam",
+            "canvas": "Canvases/HUD",
+            "spawned": [
+                {
+                    "prefab": "Characters/Neo",
+                    "id": 0,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": -1.75,
+                        "y": 6.0,
+                        "z": 2.49
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 10,
+                    "active": false,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 2.45,
+                        "y": 6.0,
+                        "z": 2.67
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
             "name": "CopFight1",
             "cursor_visible": false,
             "cursor_lock": 1,

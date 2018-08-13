@@ -34,7 +34,8 @@ public class Action : MonoBehaviour
         public string block;
         public string[] react_light;
         public string[] react_heavy;
-        public string[] knockout_default;
+        public string[] knockout_light;
+        public string[] knockout_heavy;
         public string[] knockout_power;
         public string[] death_default;
         public string[] death_power;
@@ -112,6 +113,14 @@ public class Action : MonoBehaviour
     {
 
         return m_ActionData.name == "Default";
+
+    }
+
+
+    public bool IsInvulnerable()
+    {
+
+        return m_ActionData.invulnerable;
 
     }
 

@@ -199,6 +199,22 @@
             "name": "Hit_Body",
             "type": "Effect",
             "clips": [
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit01",
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit02",
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit03",
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit04",
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit05",
+                "Sounds/Matrix/dynamic/FIGHT/woosh_hit06"
+            ],
+            "loop": false,
+            "priority": 128,
+            "volume": 0.5,
+            "pitch": 1.0
+        },
+        {
+            "name": "Hit_Body2",
+            "type": "Effect",
+            "clips": [
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body1",
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body2",
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body3",

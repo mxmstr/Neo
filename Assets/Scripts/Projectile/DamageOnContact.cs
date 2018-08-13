@@ -33,21 +33,30 @@ public class DamageOnContact : MonoBehaviour {
         {
             if (c != m_Projectile.GetShooter() && c.tag == m_TagName && c.GetComponent<Character>().GetGroup() != group)
             {
-                c.GetComponent<Action>().ReceiveDamage(
-                    m_Projectile.GetDamage(), transform.forward, m_Projectile.GetReactHit(), m_Projectile.GetReactKO());
-                
-                c.GetComponent<Rigidbody>().velocity += m_PushVelocity;
+                Action action = c.GetComponent<Action>();
 
-                if (m_ContactSound != null)
-                    c.GetComponent<Sound>().PlaySound(m_ContactSound);
+                action.ReceiveDamage(
+                    m_Projectile.GetDamage(), 
+                    transform.forward, 
+                    m_Projectile.GetReactHit(), 
+                    m_Projectile.GetReactKO()
+                    );
 
-                if (m_ContactParticle != null)
-                    Instantiate(
-                        m_ContactParticle,
-                        c.transform.position + new Vector3(0, ((CapsuleCollider)c).height * 0.9f, 0),
-                        c.transform.rotation
-                        //Quaternion.Euler(new Vector3(-90, 0, 0))
-                        );
+                if (!action.IsInvulnerable())
+                {
+                    c.GetComponent<Rigidbody>().velocity += m_PushVelocity;
+
+                    if (m_ContactSound != null)
+                        c.GetComponent<Sound>().PlaySound(m_ContactSound);
+
+                    if (m_ContactParticle != null)
+                        Instantiate(
+                            m_ContactParticle,
+                            c.transform.position + new Vector3(0, ((CapsuleCollider)c).height * 0.9f, 0),
+                            c.transform.rotation
+                            //Quaternion.Euler(new Vector3(-90, 0, 0))
+                            );
+                }
             }
         }
         

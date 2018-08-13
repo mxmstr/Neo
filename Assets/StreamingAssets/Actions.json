@@ -746,6 +746,20 @@
             },
             "speed": 8.0
         },
+        {
+            "name": "React_Heavy1",
+            "animation": "payne/GetHit_1500ms",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 8.0
+        },
 
         {
             "name": "Knockout_Headshot",
@@ -762,15 +776,253 @@
             "speed": 1.0
         },
         {
-            "name": "Knockout_Flyback",
-            "animation": "matrix/death_flyback",
+            "name": "Knockout_Backward",
+            "animation": "payne/Death_Backward",
             "rotation": false,
             "movement": false,
             "blendlegs": false,
             "invulnerable": false,
             "velocity": {
                 "x": 0.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Knockout_Forward",
+            "animation": "payne/Death_Forward",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Knockout_Minimum",
+            "animation": "payne/Death_Minimum",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Knockout_Knees",
+            "animation": "matrix/death_knees",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.25
+        },
+        {
+            "name": "Knockout_GutBomb",
+            "animation": "matrix/death_gutbomb",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_NeckBreak",
+            "animation": "matrix/death_neckbreak",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.75
+        },
+        {
+            "name": "Knockout_Stabbed",
+            "animation": "matrix/death_stabbered",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_Stomach",
+            "animation": "payne/Death_Stomach",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": false,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -1.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Knockout_Spin",
+            "animation": "payne/Death_Spin",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -1.0
+            },
+            "speed": 1.0
+        },
+        {
+            "name": "Knockout_Flip",
+            "animation": "payne/Death_Flip",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_450",
+            "animation": "matrix/death_450flip",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
                 "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_Trip",
+            "animation": "matrix/death_trip",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -2.0
+            },
+            "speed": 2.0
+        },
+        {
+            "name": "Knockout_Flyback1",
+            "animation": "matrix/death_flyback",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_Flyback2",
+            "animation": "matrix/death_shotgun_a",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 0.75
+        },
+        {
+            "name": "Knockout_Flyback3",
+            "animation": "matrix/death_shotgun_b",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 0.75
+        },
+        {
+            "name": "Knockout_Flyspin1",
+            "animation": "matrix/death_spinning",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 1.25
+        },
+        {
+            "name": "Knockout_Flyspin2",
+            "animation": "matrix/death_tekspin",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": -3.0
+            },
+            "speed": 1.5
+        },
+        {
+            "name": "Knockout_Frontslam",
+            "animation": "matrix/death_frontslam",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
                 "z": -3.0
             },
             "speed": 1.5
@@ -792,6 +1044,20 @@
 
         {
             "name": "Getup_BackSlow",
+            "animation": "payne/custom_max_tenements_getup",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 4.0
+        },
+        {
+            "name": "Getup_BackSlow2",
             "animation": "payne/custom_max_tenements_getup2",
             "rotation": false,
             "movement": false,
@@ -802,7 +1068,7 @@
                 "y": 0.0,
                 "z": 0.0
             },
-            "speed": 3.0
+            "speed": 4.0
         },
         {
             "name": "Getup_FrontSlow",
@@ -817,6 +1083,20 @@
                 "z": 0.0
             },
             "speed": 2.0
+        },
+        {
+            "name": "Getup_DodgeFront",
+            "animation": "payne/ShootDodgeForward_Getup",
+            "rotation": false,
+            "movement": false,
+            "blendlegs": false,
+            "invulnerable": true,
+            "velocity": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "speed": 1.0
         },
         {
             "name": "Getup_DodgeLeft",

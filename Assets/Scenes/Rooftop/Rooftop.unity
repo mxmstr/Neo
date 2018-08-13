@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Source: Phases.json
   m_NavMeshData: {fileID: 23800000, guid: fdc5895c1e874be48b35c26e591b7c7b, type: 2}
   m_Phases:
-  - MainMenu
+  - Test
   - CopFight1
   - CopFight2_Intro
   - CopFight2

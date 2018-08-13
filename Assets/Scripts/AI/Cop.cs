@@ -89,7 +89,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void FixedUpdate()
         {
-
+            
             if (!m_Character.IsActive())
             {
                 m_AI.Stand();

@@ -151,7 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TagName: Character
   m_PushVelocity: {x: 0, y: 1.25, z: 0}
-  m_ContactParticle: {fileID: 0}
+  m_ContactParticle: {fileID: 1445176574672108, guid: 88ee3ef0bc62b854990e1a2d38980a40,
+    type: 2}
   m_ContactSound: Hit_Body
 --- !u!114 &114355809416522366
 MonoBehaviour:
@@ -191,4 +192,4 @@ MonoBehaviour:
   m_Lifetime: 0.1
   m_Damage: 0.5
   m_ReactHit: react_light
-  m_ReactKO: knockout_default
+  m_ReactKO: knockout_heavy

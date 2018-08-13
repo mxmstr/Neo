@@ -10,13 +10,32 @@
                 "React_Light1"
             ],
             "react_heavy": [
-                "React_Light1"
+                "React_Heavy1"
             ],
-            "knockout_default": [
-                "Knockout_Headshot"
+            "knockout_light": [
+                "Knockout_Headshot",
+                "Knockout_Backward",
+                "Knockout_Forward",
+                "Knockout_Minimum",
+                "Knockout_Knees",
+                "Knockout_GutBomb",
+                "Knockout_NeckBreak",
+                "Knockout_Stabbed",
+                "Knockout_Stomach"
+            ],
+            "knockout_heavy": [
+                "Knockout_Spin",
+                "Knockout_Flip",
+                "Knockout_450",
+                "Knockout_Trip"
             ],
             "knockout_power": [
-                "Knockout_Flyback"
+                "Knockout_Flyback1",
+                "Knockout_Flyback2",
+                "Knockout_Flyback3",
+                "Knockout_Flyspin1",
+                "Knockout_Flyspin2",
+                "Knockout_Frontslam"
             ],
             "death_default": [
                 "Knockout_Headshot"
@@ -31,33 +50,14 @@
             "kick": "Projectiles/Kick_One",
             "power": "Projectiles/Power",
             "block": "Projectiles/Block",
-            "react_heavy": [
-                "React_Light1"
+            "knockout_light": [
+                "Knockout_Headshot",
+                "Knockout_Backward",
+                "Knockout_Forward"
             ],
-            "knockout_default": [
-                "Knockout_Headshot"
-            ],
-            "knockout_power": [
-                "Knockout_SpringBack"
-            ],
-            "death_default": [
-                "Knockout_Headshot"
-            ],
-            "death_power": [
-                "Knockout_Flyback"
-            ]
-        },
-        {
-            "name": "One",
-            "punch": "Projectiles/Punch_One",
-            "kick": "Projectiles/Kick_One",
-            "power": "Projectiles/Power",
-            "block": "Projectiles/Block",
-            "react_heavy": [
-                "React_Light1"
-            ],
-            "knockout_default": [
-                "Knockout_Headshot"
+            "knockout_heavy": [
+                "Knockout_Flip",
+                "Knockout_450"
             ],
             "knockout_power": [
                 "Knockout_SpringBack"
