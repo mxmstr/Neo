@@ -176,7 +176,7 @@ MonoBehaviour:
   m_TagName: Character
   m_PushVelocity: {x: 0, y: 0, z: 0}
   m_ContactParticle: {fileID: 0}
-  m_ContactSound: Hit_Body
+  m_ContactSound: HitBody_Light
 --- !u!114 &114326631306058388
 MonoBehaviour:
   m_ObjectHideFlags: 1

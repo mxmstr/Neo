@@ -55,7 +55,6 @@
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh4",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh5",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh6",
-                "Sounds/Matrix/weapons/NewMatrix/MXwhoosh7",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh8",
                 "Sounds/Matrix/weapons/NewMatrix/MXwhoosh9"
             ],
@@ -196,15 +195,13 @@
             "pitch": 1.0
         },
         {
-            "name": "Hit_Body",
+            "name": "HitBody_Light",
             "type": "Effect",
             "clips": [
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit01",
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit02",
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit03",
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit04",
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit05",
-                "Sounds/Matrix/dynamic/FIGHT/woosh_hit06"
+                "Sounds/Matrix/dynamic/FIGHT/HIT01",
+                "Sounds/Matrix/dynamic/FIGHT/HIT02",
+                "Sounds/Matrix/dynamic/FIGHT/HIT03",
+                "Sounds/Matrix/dynamic/FIGHT/HIT04"
             ],
             "loop": false,
             "priority": 128,
@@ -212,7 +209,7 @@
             "pitch": 1.0
         },
         {
-            "name": "Hit_Body2",
+            "name": "HitBody_Hard",
             "type": "Effect",
             "clips": [
                 "Sounds/Matrix/fight/IMPACTS/MatrixHit_Body1",

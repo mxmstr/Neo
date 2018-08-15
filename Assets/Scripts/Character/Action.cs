@@ -236,7 +236,6 @@ public class Action : MonoBehaviour
 
             var rotation = m_Rigidbody.transform.rotation;
             var actionVelocity = rotation * m_ActionData.velocity;
-
             m_Rigidbody.velocity = actionVelocity;
 
             slot++;
@@ -282,11 +281,11 @@ public class Action : MonoBehaviour
     }
 
 
-    public void Rotate(Vector3 camForward)
+    public void Rotate(Vector3 rotation)
     {
 
         if (m_ActionData.rotation)
-            m_Character.Rotate(camForward);
+            m_Character.SetRotateTarget(rotation);
 
     }
 
@@ -295,7 +294,9 @@ public class Action : MonoBehaviour
     {
 
         if (m_ActionData.movement)
-            m_Character.Move(move);
+            m_Character.SetMoveTarget(move);
+        else
+            m_Character.SetMoveTarget(new Vector3(0, 0, 0));
 
         if (m_ActionData.blendlegs)
         {
@@ -396,9 +397,22 @@ public class Action : MonoBehaviour
     }
 
 
+    private void FixedUpdate()
+    {
+
+        m_Character.Rotate();
+        
+        if (m_ActionData.velocity.magnitude == 0)
+        {
+            m_Character.Move();
+        }
+
+    }
+
+
     void Update()
     {
-        
+
         if (m_ActionData.name != "Default")
         {
             if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)

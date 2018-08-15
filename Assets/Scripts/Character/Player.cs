@@ -177,7 +177,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        void FixedUpdate()
+        void Update()
         {
             
             InputAction();

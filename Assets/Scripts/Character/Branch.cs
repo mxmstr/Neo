@@ -6,7 +6,7 @@ using System.Reflection;
 
 public class Branch : MonoBehaviour
 {
-
+    
     [System.Serializable]
     private class ResultSpeed
     {
@@ -29,6 +29,8 @@ public class Branch : MonoBehaviour
         public string[] Stand;
         public string[] Walk;
         public string[] Run;
+
+        //public string[][] speeds;
 
         public void OverrideResults()
         {
@@ -70,6 +72,8 @@ public class Branch : MonoBehaviour
         public ResultSpeed Backward;
         public ResultSpeed BackwardLeft;
         public ResultSpeed BackwardRight;
+
+        //public ResultDirection[] directions;
 
         public void OverrideResults()
         {
@@ -120,6 +124,8 @@ public class Branch : MonoBehaviour
         public ResultDirection Primary;
         public ResultDirection Secondary;
         public ResultDirection Jump;
+
+        //public ResultDirection[] inputs;
 
         public void OverrideResults()
         {
@@ -271,3 +277,4 @@ public class Branch : MonoBehaviour
     }
 
 }
+ 

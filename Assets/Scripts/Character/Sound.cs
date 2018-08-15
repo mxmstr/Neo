@@ -85,7 +85,7 @@ public class Sound : MonoBehaviour {
         
         System.Random rand = new System.Random();
         string clip = m_SoundData.clips[rand.Next(m_SoundData.clips.Length)];
-
+        
         if (m_SoundData.type == "Voice")
             m_Source = m_Voice;
         else if (m_SoundData.type == "Effect")

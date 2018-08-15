@@ -41,7 +41,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
         Vector3 m_Direction;
-		float m_CapsuleHeight;
+        Vector3  m_MoveTarget;
+        Vector3 m_RotateTarget;
+        float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 
 
@@ -66,6 +68,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Action = GetComponent<Action>();
 
             m_Direction = new Vector3(0, 0, 0);
+            m_MoveTarget = new Vector3(0, 0, 0);
+            m_RotateTarget = new Vector3(0, 0, 1);
             m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
 
@@ -195,13 +199,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Rotate(Vector3 rotation)
+        public void SetRotateTarget(Vector3 rotation)
+        {
+
+            m_RotateTarget = rotation;
+
+        }
+
+
+        public void Rotate()
         {
 
             var currentRotation = m_Rigidbody.rotation;
 
             m_Rigidbody.rotation = Quaternion.Slerp(
-                m_Rigidbody.rotation, Quaternion.LookRotation(rotation), m_TurnSmoothing * Time.deltaTime);
+                m_Rigidbody.rotation, 
+                Quaternion.LookRotation(m_RotateTarget), 
+                m_TurnSmoothing * Time.deltaTime
+                );
             
             
             var forwardA = currentRotation * Vector3.forward;
@@ -215,11 +230,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void Move(Vector3 direction)
+        public void SetMoveTarget(Vector3 direction)
+        {
+
+            m_MoveTarget = direction;
+
+        }
+
+
+        public void Move()
 		{
             
             m_Direction = Vector3.Lerp(
-                m_Direction, direction * m_MaxSpeed, m_MoveDamping * Time.deltaTime);
+                m_Direction, m_MoveTarget * m_MaxSpeed, m_MoveDamping * Time.deltaTime);
             m_Direction.y = m_Rigidbody.velocity.y;
             m_Rigidbody.velocity = m_Direction;
 

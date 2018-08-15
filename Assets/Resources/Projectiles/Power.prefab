@@ -189,5 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TagName: Character
-  m_ContactParticle: {fileID: 0}
-  m_ContactSound: Hit_Body
+  m_PushVelocity: {x: 0, y: 0, z: 0}
+  m_ContactParticle: {fileID: 1445176574672108, guid: 88ee3ef0bc62b854990e1a2d38980a40,
+    type: 2}
+  m_ContactSound: HitBody_Hard
