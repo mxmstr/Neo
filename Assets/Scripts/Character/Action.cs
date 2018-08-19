@@ -180,7 +180,11 @@ public class Action : MonoBehaviour
     {
 
         Vector3 v = m_Rigidbody.velocity;
-        m_Rigidbody.velocity = new Vector3(0, v.y, 0);
+        m_Rigidbody.velocity = new Vector3(v.x, 0, v.z);
+
+        m_Character.SetMoveTarget(new Vector3(0, 0, 0));
+        //Vector3 v = m_Rigidbody.velocity;
+        //m_Rigidbody.velocity = new Vector3(0, v.y, 0);
 
     }
 
@@ -202,6 +206,8 @@ public class Action : MonoBehaviour
         
         m_AnimatorOverride[currentslot].events = new AnimationEvent[0];
 
+
+
         AnimationClip clip_src = Resources.Load(
             "Animations/" + m_ActionData.animation, typeof(AnimationClip)) as AnimationClip;
         AnimationClip clip_new = Instantiate(clip_src);
@@ -212,8 +218,6 @@ public class Action : MonoBehaviour
         /*FieldInfo[] fields = typeof(AnimationClip).GetFields(); 
         foreach (FieldInfo field in fields)
             field.SetValue(clip_new, field.GetValue(clip_src));*/
-
-
         m_AnimatorOverride[newslot] = clip_new;
 
     }
@@ -234,9 +238,13 @@ public class Action : MonoBehaviour
         if (m_ActionData.name != "Default")
         {
 
-            var rotation = m_Rigidbody.transform.rotation;
+            Vector3 v = m_Rigidbody.velocity;
+            m_Rigidbody.velocity = new Vector3(v.x, m_ActionData.velocity.y, v.z);
+
+            m_Character.SetMoveTarget(m_ActionData.velocity);
+            /*var rotation = Quaternion.LookRotation();//m_Rigidbody.transform.rotation;
             var actionVelocity = rotation * m_ActionData.velocity;
-            m_Rigidbody.velocity = actionVelocity;
+            m_Rigidbody.velocity = actionVelocity;*/
 
             slot++;
             if (slot > 3)
@@ -295,8 +303,8 @@ public class Action : MonoBehaviour
 
         if (m_ActionData.movement)
             m_Character.SetMoveTarget(move);
-        else
-            m_Character.SetMoveTarget(new Vector3(0, 0, 0));
+        //else
+        //    m_Character.SetMoveTarget(new Vector3(0, 0, 0));
 
         if (m_ActionData.blendlegs)
         {
@@ -375,6 +383,7 @@ public class Action : MonoBehaviour
             {
                 string[] reactions = (string[])m_PowerData[react_ko];
                 StartAction(reactions[rand.Next(reactions.Length)]);
+                m_Character.SetRotateTarget(direction * -1);
                 m_Rigidbody.rotation = Quaternion.LookRotation(direction * -1);
             }
             
@@ -393,7 +402,7 @@ public class Action : MonoBehaviour
                     layer,
                     Mathf.Clamp(weight + amount * m_LayerBlendTime * Time.deltaTime, 0.0f, 1.0f)
                     );
-
+                    
     }
 
 
@@ -402,10 +411,8 @@ public class Action : MonoBehaviour
 
         m_Character.Rotate();
         
-        if (m_ActionData.velocity.magnitude == 0)
-        {
-            m_Character.Move();
-        }
+        //if (m_ActionData.velocity.magnitude == 0)
+        m_Character.Move();
 
     }
 
@@ -417,20 +424,20 @@ public class Action : MonoBehaviour
         {
             if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
             {
-                //m_Animator.SetFloat("MoveSpeed", 1.0f);
+                m_Animator.SetFloat("MoveSpeed", 1.0f);
                 BlendLayer(1, -1);
                 BlendLayer(2, 1);
             }
             else
             {
-                //m_Animator.SetFloat("MoveSpeed", 0.0f);
+                m_Animator.SetFloat("MoveSpeed", 0.0f);
                 BlendLayer(1, 1);
                 BlendLayer(2, -1);
             }
         }
         else
         {
-            //m_Animator.SetFloat("MoveSpeed", 1.0f);
+            m_Animator.SetFloat("MoveSpeed", 1.0f);
             BlendLayer(1, -1);
             BlendLayer(2, -1);
         }

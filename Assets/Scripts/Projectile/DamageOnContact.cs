@@ -34,16 +34,16 @@ public class DamageOnContact : MonoBehaviour {
             if (c != m_Projectile.GetShooter() && c.tag == m_TagName && c.GetComponent<Character>().GetGroup() != group)
             {
                 Action action = c.GetComponent<Action>();
-
-                action.ReceiveDamage(
-                    m_Projectile.GetDamage(), 
-                    transform.forward, 
-                    m_Projectile.GetReactHit(), 
-                    m_Projectile.GetReactKO()
-                    );
-
+                
                 if (!action.IsInvulnerable())
                 {
+                    action.ReceiveDamage(
+                        m_Projectile.GetDamage(),
+                        transform.forward,
+                        m_Projectile.GetReactHit(),
+                        m_Projectile.GetReactKO()
+                        );
+
                     c.GetComponent<Rigidbody>().velocity += m_PushVelocity;
 
                     if (m_ContactSound != null)

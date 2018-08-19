@@ -162,7 +162,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
 
                 if (m_Cam != null)
-                    m_Move = v * m_CamForward + h * m_Cam.right;
+                    m_Move = v * Vector3.forward + h * Vector3.right;//v * m_CamForward + h * m_Cam.right;
                 else
                     m_Move = v * Vector3.forward + h * Vector3.right;
 

@@ -244,7 +244,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Direction = Vector3.Lerp(
                 m_Direction, m_MoveTarget * m_MaxSpeed, m_MoveDamping * Time.deltaTime);
             m_Direction.y = m_Rigidbody.velocity.y;
-            m_Rigidbody.velocity = m_Direction;
+            m_Rigidbody.velocity = m_Rigidbody.transform.rotation * m_Direction;
 
 
             Vector3 localDirection = transform.InverseTransformDirection(m_Rigidbody.velocity);

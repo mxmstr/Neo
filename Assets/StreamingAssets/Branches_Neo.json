@@ -25,7 +25,7 @@
 
             "name": "B_Punch_Primary",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Punch_LeftJabs"
@@ -46,7 +46,7 @@
 
             "name": "B_Punch_ComboA1",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Punch_RightJab"
@@ -67,7 +67,7 @@
 
             "name": "B_Punch_ComboA2",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Punch_LoHi"
@@ -88,7 +88,7 @@
 
             "name": "B_Punch_ComboA3",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Punch_Tong"
@@ -109,7 +109,7 @@
 
             "name": "B_Punch_ComboA4",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Punch_Flurry"
@@ -245,7 +245,7 @@
 
             "name": "B_KickF_Primary",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_DoubleFront"
@@ -276,7 +276,7 @@
 
             "name": "B_KickF_ComboA",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_FrontSnap"
@@ -318,7 +318,7 @@
 
             "name": "B_KickFL_Primary",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_SpinL"
@@ -349,7 +349,7 @@
 
             "name": "B_KickFL_ComboA",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_Ground"
@@ -391,7 +391,7 @@
 
             "name": "B_KickFR_Primary",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_RoundHKick"
@@ -422,7 +422,7 @@
 
             "name": "B_KickFR_ComboA",
 
-            "cooldown": 2.0,
+            "cooldown": 5.0,
 
             "actions": [
                 "Kick_SpinR"

@@ -66,7 +66,7 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 1
+    m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
@@ -613,10 +613,10 @@ BlendTree:
     m_DirectBlendParameter: Turn
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1a8ca20afd492664ea03f6e57a8f9548, type: 3}
+    m_Motion: {fileID: 7400000, guid: 00c31fd003745bd4bbb4397934a9ba1a, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.25
+    m_TimeScale: 0.1
     m_CycleOffset: 0
     m_DirectBlendParameter: Turn
     m_Mirror: 0
