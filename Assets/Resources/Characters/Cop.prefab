@@ -1522,9 +1522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PunchWeight: 4
   m_KickWeight: 4
-  m_StrafeRightWeight: 1
-  m_StrafeLeftWeight: 1
-  m_StrafeLength: 30
+  m_StrafeRightWeight: 3
+  m_StrafeLeftWeight: 3
+  m_StrafeLength: 15
 --- !u!114 &114078255062663198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Active: 1
   m_ID: 0
   m_Group: 1
-  m_MaxHealth: 5
+  m_MaxHealth: 1
   m_Lives: 2
   m_MaxSpeed: 2
   m_AnimTransitionMultiplier: 0.4
@@ -1573,6 +1573,7 @@ MonoBehaviour:
   m_TurnSmoothing: 25
   m_MoveDamping: 6
   m_GroundCheckDistance: 0.5
+  m_SpeedMultiplier: 0
 --- !u!114 &114578887222245684
 MonoBehaviour:
   m_ObjectHideFlags: 1

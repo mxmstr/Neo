@@ -68,7 +68,7 @@
 
             "name": "B_Punch_ComboA1",
 
-            "cooldown": 2.0,
+            "cooldown": 4.0,
 
             "actions": [
                 "Punch_Combo"
@@ -89,7 +89,7 @@
 
             "name": "B_Punch_ComboA2",
 
-            "cooldown": 2.0,
+            "cooldown": 4.0,
 
             "actions": [
                 "Punch_MidHook"

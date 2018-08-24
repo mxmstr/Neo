@@ -306,13 +306,13 @@ public class Action : MonoBehaviour
         //else
         //    m_Character.SetMoveTarget(new Vector3(0, 0, 0));
 
-        if (m_ActionData.blendlegs)
+        /*if (m_ActionData.blendlegs)
         {
             if (m_Rigidbody.velocity.magnitude < 0.1f)
                 m_Animator.SetFloat("MoveSpeed", 1.0f);
         }
         else
-            m_Animator.SetFloat("MoveSpeed", 0.0f);
+            m_Animator.SetFloat("MoveSpeed", 0.0f);*/
 
     }
 
@@ -409,17 +409,6 @@ public class Action : MonoBehaviour
     private void FixedUpdate()
     {
 
-        m_Character.Rotate();
-        
-        //if (m_ActionData.velocity.magnitude == 0)
-        m_Character.Move();
-
-    }
-
-
-    void Update()
-    {
-
         if (m_ActionData.name != "Default")
         {
             if (m_ActionData.blendlegs && m_Rigidbody.velocity.magnitude > 0.1f)
@@ -441,6 +430,21 @@ public class Action : MonoBehaviour
             BlendLayer(1, -1);
             BlendLayer(2, -1);
         }
+        
+
+        //if (m_ActionData.velocity.magnitude == 0 && !m_ActionData.movement)
+        //    m_Character.SetMoveTarget(new Vector3(0, 0, 0));
+
+        m_Character.Rotate();
+        m_Character.Move();
+
+    }
+
+
+    void Update()
+    {
+
+        
         
     }
 

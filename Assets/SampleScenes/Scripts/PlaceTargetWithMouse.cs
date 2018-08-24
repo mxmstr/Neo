@@ -12,11 +12,11 @@ namespace UnityStandardAssets.SceneUtils
         // Update is called once per frame
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0))
+            if (!UnityEngine.Input.GetMouseButtonDown(0))
             {
                 return;
             }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
             RaycastHit hit;
             if (!Physics.Raycast(ray, out hit))
             {

@@ -68,7 +68,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         
 
-        private string GetDirection(float h, float v)
+        private Direction GetDirection(float h, float v)
         {
             
             bool right = h >= 0.5;
@@ -76,30 +76,28 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             bool forward = v >= 0.5;
             bool backward = v <= -0.5;
 
+            bool[] activeDirections = {
+                !forward && !backward && !right && !left,
+                forward && !right && !left,
+                forward && !right && left,
+                forward && right && !left,
+                left && !forward && !backward,
+                right && !forward && !backward,
+                backward && !right && !left,
+                backward && !right && left,
+                backward && right && !left,
+                };
+            
+            for (int i = 0; i < activeDirections.Length; i++)
+                if (activeDirections[i])
+                    return (Direction)(i + 1);
 
-            if (forward && !right && !left)
-                return "Forward";
-            else if (forward && right && !left)
-                return "ForwardRight";
-            else if (forward && !right && left)
-                return "ForwardLeft";
-            else if (backward && !right && !left)
-                return "Backward";
-            else if (backward && right && !left)
-                return "BackwardRight";
-            else if (backward && !right && left)
-                return "BackwardLeft";
-            else if (right && !forward && !backward)
-                return "Right";
-            else if (left && !forward && !backward)
-                return "Left";
-
-            return "Stand";
+            return Direction.Stand;
 
         }
 
 
-        private string GetSpeed(float h, float v)
+        private Speed GetSpeed(float h, float v)
         {
 
             bool moving = ((Mathf.Abs(h) + Mathf.Abs(v)) / 2) > 0;
@@ -107,16 +105,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (moving)
             {
                 m_WalkTime += Time.deltaTime;
-
-                if (m_WalkTime < m_WalkTimeMax)
-                    return "Walk";
-
-                return "Run";
+                return m_WalkTime < m_WalkTimeMax ? Speed.Walk : Speed.Run;
             }
 
             m_WalkTime = 0;
 
-            return "Stand";
+            return Speed.Stand;
 
         }
 
@@ -129,23 +123,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-            bool primary = Input.GetKey(KeyCode.Mouse0);
-            bool secondary = Input.GetKey(KeyCode.Mouse1);
+            bool primary = UnityEngine.Input.GetKey(KeyCode.Mouse0);
+            bool secondary = UnityEngine.Input.GetKey(KeyCode.Mouse1);
             bool jump = CrossPlatformInputManager.GetButton("Jump");
 
-            string direction = GetDirection(h, v);
-            string speed = GetSpeed(h, v);
-
-
+            Direction direction = GetDirection(h, v);
+            Speed speed = GetSpeed(h, v);
+            
             if (primary)
             {
-                m_Branch_Block.StartAction("Primary", direction, speed);
-                m_Branch_Primary.StartAction("Primary", direction, speed);
+                m_Branch_Block.StartAction(Input.Primary, direction, speed);
+                m_Branch_Primary.StartAction(Input.Primary, direction, speed);
             }
             else if (secondary)
-                m_Branch_Secondary.StartAction("Secondary", direction, speed);
+                m_Branch_Secondary.StartAction(Input.Secondary, direction, speed);
             else if (jump)
-                m_Branch_Jump.StartAction("Jump", direction, speed);
+                m_Branch_Jump.StartAction(Input.Jump, direction, speed);
 
         }
 

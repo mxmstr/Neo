@@ -207,9 +207,26 @@
                     "scripts": [],
                     "transform": true,
                     "position": {
-                        "x": 25.5,
+                        "x": 26.5,
                         "y": 6.0,
                         "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 26.5,
+                        "y": 6.0,
+                        "z": -0.48
                     },
                     "rotation": {
                         "x": 0.0,
@@ -274,6 +291,119 @@
             ]
         },
         {
+            "name": "CopFight3",
+            "cursor_visible": false,
+            "cursor_lock": 1,
+            "music": "FightMusic",
+            "camera": "NeoCam",
+            "canvas": "Canvases/HUD",
+            "next_trigger": "AllBlueDead",
+            "spawned": [
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 20,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 24.5,
+                        "y": 6.0,
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 21,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 24.0,
+                        "y": 6.0,
+                        "z": -0.48
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 25.0,
+                        "y": 6.0,
+                        "z": -0.58
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 25.0,
+                        "y": 6.0,
+                        "z": -0.48
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 25.0,
+                        "y": 6.0,
+                        "z": -0.38
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                },
+                {
+                    "prefab": "Characters/Cop",
+                    "id": 22,
+                    "active": true,
+                    "scripts": [],
+                    "transform": true,
+                    "position": {
+                        "x": 24.0,
+                        "y": 6.0,
+                        "z": -0.28
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": -90.0,
+                        "z": 0.0
+                    }
+                }
+            ]
+        },
+        {
             "name": "SwatFight1",
             "cursor_visible": false,
             "cursor_lock": 1,
@@ -305,9 +435,9 @@
                     "scripts": [],
                     "transform": true,
                     "position": {
-                        "x": 25.0,
+                        "x": 24.0,
                         "y": 6.0,
-                        "z": -0.58
+                        "z": -0.48
                     },
                     "rotation": {
                         "x": 0.0,
@@ -322,7 +452,7 @@
                     "scripts": [],
                     "transform": true,
                     "position": {
-                        "x": 25.5,
+                        "x": 25.0,
                         "y": 6.0,
                         "z": -0.58
                     },

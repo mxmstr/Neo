@@ -201,7 +201,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void Punch()
         {
 
-            m_Branch_Primary.StartAction("Primary", "AnyDirection", "AnySpeed");
+            m_Branch_Primary.StartAction(Input.Primary, Direction.AnyDirection, Speed.AnySpeed);
             
         }
 
@@ -209,7 +209,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void Kick()
         {
 
-            m_Branch_Secondary.StartAction("Secondary", "AnyDirection", "AnySpeed");
+            m_Branch_Secondary.StartAction(Input.Secondary, Direction.AnyDirection, Speed.AnySpeed);
             
         }
 
@@ -217,7 +217,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void JumpForward()
         {
 
-            m_Branch_Jump.StartAction("Jump", "Forward", "AnySpeed");
+            m_Branch_Jump.StartAction(Input.Jump, Direction.Forward, Speed.AnySpeed);
 
         }
 
@@ -225,7 +225,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void JumpLeft()
         {
 
-            m_Branch_Jump.StartAction("Jump", "Left", "AnySpeed");
+            m_Branch_Jump.StartAction(Input.Jump, Direction.Left, Speed.AnySpeed);
 
         }
 
@@ -233,7 +233,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void JumpRight()
         {
 
-            m_Branch_Jump.StartAction("Jump", "Right", "AnySpeed");
+            m_Branch_Jump.StartAction(Input.Jump, Direction.Right, Speed.AnySpeed);
 
         }
 
@@ -241,7 +241,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void JumpBackward()
         {
 
-            m_Branch_Jump.StartAction("Jump", "Backward", "AnySpeed");
+            m_Branch_Jump.StartAction(Input.Jump, Direction.Backward, Speed.AnySpeed);
 
         }
 
@@ -256,28 +256,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void Walk()
         {
-
-            float speed = m_Character.GetMaxSpeed();
-
-            m_Character.SetMaxSpeed(speed * 0.3f);
-            m_Action.Move(transform.forward.normalized);
-            m_Character.SetMaxSpeed(speed);
+            
+            m_Character.SetSpeedMultiplier(0.3f);
+            m_Action.Move(new Vector3(0, 0, 1));
 
         }
 
 
         public void Run()
         {
-            
-            m_Action.Move(transform.forward.normalized);
+
+            m_Character.SetSpeedMultiplier(1.0f);
+            m_Action.Move(new Vector3(0, 0, 1));
 
         }
 
 
         public void SideStepRight()
         {
-            
-            m_Action.Move(transform.right.normalized);
+
+            m_Character.SetSpeedMultiplier(1.0f);
+            m_Action.Move(new Vector3(1, 0, 0));
 
         }
 
@@ -285,7 +284,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void SideStepLeft()
         {
 
-            m_Action.Move(transform.right.normalized * -1);
+            m_Character.SetSpeedMultiplier(1.0f);
+            m_Action.Move(new Vector3(-1, 0, 0));
 
         }
 

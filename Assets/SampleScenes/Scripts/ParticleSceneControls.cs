@@ -104,12 +104,12 @@ namespace UnityStandardAssets.SceneUtils
 
             if (CheckForGuiCollision()) return;
 
-            bool oneShotClick = (Input.GetMouseButtonDown(0) && s_Selected.mode == Mode.Instantiate);
-            bool repeat = (Input.GetMouseButton(0) && s_Selected.mode == Mode.Trail);
+            bool oneShotClick = (UnityEngine.Input.GetMouseButtonDown(0) && s_Selected.mode == Mode.Instantiate);
+            bool repeat = (UnityEngine.Input.GetMouseButton(0) && s_Selected.mode == Mode.Trail);
 
             if (oneShotClick || repeat)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -168,10 +168,10 @@ namespace UnityStandardAssets.SceneUtils
 #if !MOBILE_INPUT
         void KeyboardInput()
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            if(UnityEngine.Input.GetKeyDown(KeyCode.LeftArrow))
                 Previous();
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.RightArrow))
                 Next();
         }
 #endif
@@ -180,8 +180,8 @@ namespace UnityStandardAssets.SceneUtils
         bool CheckForGuiCollision()
         {
             PointerEventData eventData = new PointerEventData(eventSystem);
-            eventData.pressPosition = Input.mousePosition;
-            eventData.position = Input.mousePosition;
+            eventData.pressPosition = UnityEngine.Input.mousePosition;
+            eventData.position = UnityEngine.Input.mousePosition;
 
             List<RaycastResult> list = new List<RaycastResult>();
             graphicRaycaster.Raycast(eventData, list);

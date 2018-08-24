@@ -38,6 +38,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         GameObject m_CameraRig;
 
         float m_Health;
+        public float m_SpeedMultiplier;
         bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
         Vector3 m_Direction;
@@ -51,6 +52,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 
             m_Health = m_MaxHealth;
+            m_SpeedMultiplier = 1.0f;
 
             if (GetComponentInChildren<NeoCam>() != null)
                 m_CameraRig = GetComponentInChildren<NeoCam>().gameObject;
@@ -95,10 +97,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        public void SetMaxSpeed(float speed)
+        public void SetSpeedMultiplier(float mult)
         {
 
-            m_MaxSpeed = speed;
+            m_SpeedMultiplier = mult;
 
         }
 
@@ -242,7 +244,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
             
             m_Direction = Vector3.Lerp(
-                m_Direction, m_MoveTarget * m_MaxSpeed, m_MoveDamping * Time.deltaTime);
+                m_Direction, m_MoveTarget * m_MaxSpeed * m_SpeedMultiplier, m_MoveDamping * Time.deltaTime);
             m_Direction.y = m_Rigidbody.velocity.y;
             m_Rigidbody.velocity = m_Rigidbody.transform.rotation * m_Direction;
 

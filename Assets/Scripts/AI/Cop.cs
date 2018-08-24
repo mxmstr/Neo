@@ -89,11 +89,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-
-            m_AI.Stand();
-
+            
             if (!m_Character.IsActive())
+            {
+                m_AI.Stand();
                 return;
+            }
             
             m_Tree.Tick();
 

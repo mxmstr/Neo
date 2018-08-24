@@ -4,6 +4,37 @@ using System;
 using System.Reflection;
 
 
+public enum Input
+{
+    AnyInput,
+    Primary,
+    Secondary,
+    Jump
+}
+
+public enum Direction
+{
+    AnyDirection,
+    Stand,
+    Forward,
+    ForwardLeft,
+    ForwardRight,
+    Left,
+    Right,
+    Backward,
+    BackwardLeft,
+    BackwardRight
+}
+
+public enum Speed
+{
+    AnySpeed,
+    Stand,
+    Walk,
+    Run
+}
+
+
 public class Branch : MonoBehaviour
 {
     
@@ -11,18 +42,9 @@ public class Branch : MonoBehaviour
     private class ResultSpeed
     {
 
-        public object this[string propertyName]
+        public BranchData[] this[Speed speed]
         {
-            get
-            {
-                Type myType = typeof(ResultSpeed);
-                FieldInfo myPropInfo = myType.GetField(propertyName);
-                return myPropInfo == null ? null : myPropInfo.GetValue(this);
-            }
-            set
-            {
-                GetType().GetField(propertyName).SetValue(this, value);
-            }
+            get { return results[(int)speed]; }
         }
 
         public string[] AnySpeed;
@@ -30,15 +52,39 @@ public class Branch : MonoBehaviour
         public string[] Walk;
         public string[] Run;
 
-        //public string[][] speeds;
+        private BranchData[][] results = null;
+
+        private BranchData GetBranch(BranchData[] branches, string branchName)
+        {
+
+            foreach (BranchData data in branches)
+                if (data.name == branchName)
+                    return data;
+
+            return null;
+
+        }
 
         public void OverrideResults()
         {
-            
+
             if (AnySpeed != null)
                 foreach (FieldInfo field in GetType().GetFields())
-                    if (field.Name != "AnySpeed")
-                        this[field.Name] = AnySpeed;
+                    if (field.Name != "AnySpeed" && field.Name != "branches")
+                        field.SetValue(this, AnySpeed);
+
+        }
+
+        public void SetResults(BranchData[] branches)
+        {
+
+            BranchData[][] arr = {
+                AnySpeed == null ? null : Array.ConvertAll(AnySpeed, x => GetBranch(branches, x)),
+                Stand == null ? null : Array.ConvertAll(Stand, x => GetBranch(branches, x)),
+                Walk == null ? null : Array.ConvertAll(Walk, x => GetBranch(branches, x)),
+                Run == null ? null :  Array.ConvertAll(Run, x => GetBranch(branches, x))
+            };
+            results = arr;
 
         }
 
@@ -48,18 +94,9 @@ public class Branch : MonoBehaviour
     private class ResultDirection
     {
 
-        public object this[string propertyName]
+        public ResultSpeed this[Direction direction]
         {
-            get
-            {
-                Type myType = typeof(ResultDirection);
-                FieldInfo myPropInfo = myType.GetField(propertyName);
-                return myPropInfo == null ? null : myPropInfo.GetValue(this);
-            }
-            set
-            {
-                GetType().GetField(propertyName).SetValue(this, value);
-            }
+            get { return speeds[(int)direction]; }
         }
 
         public ResultSpeed AnyDirection;
@@ -73,30 +110,46 @@ public class Branch : MonoBehaviour
         public ResultSpeed BackwardLeft;
         public ResultSpeed BackwardRight;
 
-        //public ResultDirection[] directions;
-
+        public ResultSpeed[] speeds = null;
+        
         public void OverrideResults()
         {
 
             bool hasResults = false;
 
-            if (AnyDirection == null)
-                return;
-
-            foreach (FieldInfo field in AnyDirection.GetType().GetFields())
-                if (AnyDirection[field.Name] != null)
-                    hasResults = true;
-
-            foreach (FieldInfo field in GetType().GetFields())
+            if (AnyDirection != null)
             {
 
-                if (hasResults && field.Name != "AnyDirection")
-                    this[field.Name] = AnyDirection;
+                foreach (FieldInfo field in AnyDirection.GetType().GetFields())
+                    if (field.GetValue(AnyDirection) != null)
+                        hasResults = true;
 
-                if (this[field.Name] != null)
-                    ((ResultSpeed)this[field.Name]).OverrideResults();
+                foreach (FieldInfo field in GetType().GetFields())
+                {
+
+                    if (hasResults && field.Name != "AnyDirection" && field.Name != "speeds")
+                        field.SetValue(this, AnyDirection);
+
+                    if (field.GetValue(this) != null)
+                        ((ResultSpeed)field.GetValue(this)).OverrideResults();
+
+                }
 
             }
+
+        }
+
+        public void SetSpeeds(BranchData[] branches)
+        {
+
+            ResultSpeed[] arr = {
+                AnyDirection, Stand, Forward, ForwardLeft, ForwardRight, Left, Right, Backward, BackwardLeft, BackwardRight
+            };
+            speeds = arr;
+
+            foreach (ResultSpeed speed in speeds)
+                if (speed != null)
+                    speed.SetResults(branches);
 
         }
 
@@ -106,18 +159,9 @@ public class Branch : MonoBehaviour
     private class ResultInput
     {
 
-        public object this[string propertyName]
+        public ResultDirection this[Input input]
         {
-            get
-            {
-                Type myType = typeof(ResultInput);
-                FieldInfo myPropInfo = myType.GetField(propertyName);
-                return myPropInfo == null ? null : myPropInfo.GetValue(this);
-            }
-            set
-            {
-                GetType().GetField(propertyName).SetValue(this, value);
-            }
+            get { return directions[(int)input]; }
         }
 
         public ResultDirection AnyInput;
@@ -125,8 +169,8 @@ public class Branch : MonoBehaviour
         public ResultDirection Secondary;
         public ResultDirection Jump;
 
-        //public ResultDirection[] inputs;
-
+        private ResultDirection[] directions = null;
+        
         public void OverrideResults()
         {
 
@@ -136,18 +180,31 @@ public class Branch : MonoBehaviour
                 return;
 
             foreach (FieldInfo field in AnyInput.GetType().GetFields())
-                if (AnyInput[field.Name] != null)
+                if (field.GetValue(AnyInput) != null)
                     hasResults = true;
             
-            foreach (FieldInfo field in GetType().GetFields()) {
+            foreach (FieldInfo field in GetType().GetFields())
+            {
 
-                if (hasResults && field.Name != "AnyInput")
-                    this[field.Name] = AnyInput;
+                if (hasResults && field.Name != "AnyInput" && field.Name != "speeds")
+                    field.SetValue(this, AnyInput);
 
-                if (this[field.Name] != null)
-                    ((ResultDirection)this[field.Name]).OverrideResults();
-
+                if (field.GetValue(this) != null)
+                    ((ResultDirection)field.GetValue(this)).OverrideResults();
+                
             }
+
+        }
+
+        public void SetInputs(BranchData[] branches)
+        {
+
+            ResultDirection[] arr = { AnyInput, Primary, Secondary, Jump };
+            directions = arr;
+
+            foreach (ResultDirection direction in directions)
+                if (direction != null)
+                    direction.SetSpeeds(branches);
 
         }
 
@@ -203,23 +260,31 @@ public class Branch : MonoBehaviour
         table = JsonUtility.FromJson<BranchTable>(File.ReadAllText(filePath));
         
         foreach (BranchData data in table.branches)
+        {
             data.results.OverrideResults();
+            data.results.SetInputs(table.branches);
+        }
+
+    }
+
+
+    private BranchData GetBranch(string branchName)
+    {
+        
+        foreach (BranchData data in table.branches)
+            if (data.name == branchName)
+                return data;
+
+        return null;
 
     }
 
 
     private void StartBranch(string branchName)
     {
-        
-        foreach (BranchData data in table.branches)
-        {
-            if (data.name == branchName)
-            {
-                branch = data;
-                break;
-            }
-        }
-        
+
+        branch = GetBranch(branchName);
+
         m_Cooldown = branch.cooldown;
 
     }
@@ -243,7 +308,7 @@ public class Branch : MonoBehaviour
     }
 
     
-    public void StartAction(string input, string direction, string speed)
+    public void StartAction(Input input, Direction direction, Speed speed)
     {
         
         try
@@ -253,11 +318,10 @@ public class Branch : MonoBehaviour
             if (!m_Action.IsReset())
                 return;
 
-            string[] branches = (string[])(
-                (ResultSpeed)((ResultDirection)branch.results[input])[direction]
-                )[speed];
+            BranchData[] branches = branch.results[input][direction][speed];
+            branch = branches[rand.Next(branches.Length)];
+            m_Cooldown = branch.cooldown;
 
-            StartBranch(branches[rand.Next(branches.Length)]);
             m_Action.StartAction(GetAction());
         }
         catch (NullReferenceException e) { }
